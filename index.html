@@ -1,0 +1,2497 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة متابعة قرارات التوطين والتوظيف | زمام القوة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #071324;
+      --navy-900: #0b1a30;
+      --navy-800: #102646;
+      --navy-700: #183765;
+      --teal-600: #0d9488;
+      --teal-500: #14b8a6;
+      --teal-100: #ccfbf1;
+      --emerald-600: #059669;
+      --emerald-500: #10b981;
+      --emerald-100: #d1fae5;
+      --amber-600: #d97706;
+      --amber-500: #f59e0b;
+      --amber-100: #fef3c7;
+      --rose-600: #e11d48;
+      --rose-500: #f43f5e;
+      --rose-100: #ffe4e6;
+      --blue-600: #2563eb;
+      --blue-500: #3b82f6;
+      --blue-100: #dbeafe;
+      --indigo-600: #4f46e5;
+      --indigo-100: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      direction: rtl;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Bar Header */
+    .header {
+      background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--navy-800) 100%);
+      color: #fff;
+      padding: 1.15rem 2rem;
+      border-bottom: 3px solid var(--teal-500);
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-content {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, var(--teal-500), var(--emerald-500));
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.35);
+    }
+    .brand-icon svg { width: 26px; height: 26px; fill: white; }
+    .brand-text h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .brand-text p {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-org {
+      background: rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 0.95rem;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+    }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .btn-light {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-light:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--teal-500);
+      color: #042f2e;
+      border-color: var(--teal-400);
+      box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+    }
+    .btn-primary:hover { background: var(--teal-400); transform: translateY(-1px); }
+    .btn-emerald { background: var(--emerald-600); color: #fff; }
+    .btn-emerald:hover { background: var(--emerald-500); }
+    .btn-guide {
+      background: #0f766e;
+      color: #fff;
+      border-color: #0d9488;
+      box-shadow: 0 1px 4px rgba(15, 118, 110, 0.25);
+      cursor: pointer;
+    }
+    .btn-guide:hover {
+      background: #115e59;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: #fff;
+      color: var(--navy-800);
+      border-color: var(--border);
+    }
+    .btn-outline:hover { background: #f1f5f9; border-color: #cbd5e1; }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1560px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+    }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: linear-gradient(90deg, #f0fdfa, #f8fafc);
+      border-right: 4px solid var(--teal-600);
+      border-radius: 12px;
+      padding: 0.9rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 1px solid #ccfbf1;
+      border-bottom: 1px solid #ccfbf1;
+      border-left: 1px solid #ccfbf1;
+    }
+    .alert-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--navy-900);
+    }
+    .alert-icon {
+      background: #ccfbf1;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: var(--teal-600);
+    }
+    .alert-icon svg { width: 18px; height: 18px; }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.15rem;
+      margin-bottom: 1.75rem;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: #cbd5e1;
+    }
+    .kpi-card.teal::before { background: var(--teal-500); }
+    .kpi-card.emerald::before { background: var(--emerald-500); }
+    .kpi-card.blue::before { background: var(--blue-500); }
+    .kpi-card.amber::before { background: var(--amber-500); }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+    }
+    .kpi-title {
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .kpi-icon-wrap {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+    }
+    .kpi-icon-wrap.teal { background: #f0fdfa; color: var(--teal-600); }
+    .kpi-icon-wrap.emerald { background: var(--emerald-100); color: var(--emerald-600); }
+    .kpi-icon-wrap.blue { background: var(--blue-100); color: var(--blue-600); }
+    .kpi-icon-wrap.amber { background: var(--amber-100); color: var(--amber-600); }
+    .kpi-icon-wrap svg { width: 17px; height: 17px; }
+
+    .kpi-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+    .kpi-subtext {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      border-radius: 8px 8px 0 0;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--navy-800); background: rgba(0, 0, 0, 0.02); }
+    .tab-btn.active {
+      color: var(--navy-800);
+      border-bottom-color: var(--teal-500);
+      font-weight: 700;
+      background: #fff;
+    }
+    .tab-badge {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      padding: 1px 7px;
+      border-radius: 99px;
+      font-weight: 700;
+    }
+    .tab-btn.active .tab-badge { background: var(--teal-100); color: var(--teal-600); }
+
+    .tab-pane { display: none; animation: fadeIn 0.25s ease; }
+    .tab-pane.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Panel Card */
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .panel-title h2 { font-size: 1.15rem; font-weight: 700; color: var(--navy-900); }
+    .panel-title p { font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* UNIFIED INDICATOR STYLING */
+    .unified-metric-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .unified-metric-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .unified-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .unified-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .unified-badge-body {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .unified-values {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+    }
+    .unified-cur-val {
+      font-weight: 800;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .unified-req-val {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Dual Bar Track */
+    .unified-track-wrap {
+      position: relative;
+      height: 28px;
+      background: #e2e8f0;
+      border-radius: 8px;
+      overflow: visible;
+      margin: 0.5rem 0 0.4rem;
+    }
+    .unified-bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .unified-bar-fill.compliant { background: linear-gradient(90deg, #059669, #10b981); }
+    .unified-bar-fill.below { background: linear-gradient(90deg, #e11d48, #f43f5e); }
+    .unified-bar-fill.exempt { background: linear-gradient(90deg, #6366f1, #818cf8); }
+
+    /* Target Threshold Pin */
+    .unified-target-marker {
+      position: absolute;
+      top: -6px;
+      bottom: -6px;
+      width: 3px;
+      background: var(--navy-950);
+      z-index: 10;
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
+    .unified-target-marker::after {
+      content: attr(data-target-label);
+      position: absolute;
+      top: -20px;
+      transform: translateX(50%);
+      background: var(--navy-900);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .unified-track-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Table Toolbar & Search */
+    .table-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .search-filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .form-input, .form-select {
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--teal-500);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+    }
+
+    /* Modern Table */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+    thead { background: #f8fafc; border-bottom: 2px solid var(--border); }
+    th {
+      padding: 0.85rem 0.95rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      font-size: 0.8rem;
+    }
+    td {
+      padding: 0.85rem 0.95rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+    }
+    tbody tr:hover { background: #f1f5f9; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .badge-compliant { background: var(--emerald-100); color: var(--emerald-600); }
+    .badge-compliant .badge-dot { background: var(--emerald-600); }
+    .badge-below { background: var(--rose-100); color: var(--rose-600); }
+    .badge-below .badge-dot { background: var(--rose-600); }
+    .badge-exempt { background: var(--indigo-100); color: var(--indigo-600); }
+    .badge-exempt .badge-dot { background: var(--indigo-600); }
+
+    /* Note Box for Accounting */
+    .accounting-note-box {
+      background: #eef2ff;
+      border-right: 4px solid var(--indigo-600);
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.78rem;
+      color: #3730a3;
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+
+    /* Guide Detail Viewer Modal */
+    .guide-modal-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 1.75rem;
+    }
+    .guide-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .guide-section h4 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .guide-section p, .guide-section ul {
+      font-size: 0.82rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 1rem;
+    }
+    .modal-backdrop.active { display: grid; }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 1.75rem;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-title { font-size: 1.15rem; font-weight: 800; color: var(--navy-900); }
+    .modal-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 0.8rem; font-weight: 700; color: var(--navy-800); }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+  
+  /* ================= DARK THEME STYLES ================= */
+  [data-theme="dark"] {
+    --navy-900: #f8fafc;
+    --navy-800: #f1f5f9;
+    --navy-700: #cbd5e1;
+    --navy-600: #94a3b8;
+    --navy-100: #1e293b;
+    --navy-50: #0f172a;
+
+    --bg-body: #0b1120;
+    --bg-panel: #1e293b;
+    --border: #334155;
+    --text-muted: #94a3b8;
+    --table-stripe: #182234;
+    --table-hover: #233149;
+    --input-bg: #0f172a;
+  }
+
+  [data-theme="dark"] body {
+    background-color: var(--bg-body) !important;
+    color: #f8fafc !important;
+  }
+
+  [data-theme="dark"] .header {
+    background: #0f172a !important;
+    border-bottom-color: #334155 !important;
+  }
+
+  [data-theme="dark"] .brand-icon {
+    background: #1e293b !important;
+    color: #38bdf8 !important;
+  }
+
+  [data-theme="dark"] .badge-org {
+    background: #1e293b !important;
+    color: #94a3b8 !important;
+  }
+
+  [data-theme="dark"] .panel,
+  [data-theme="dark"] .kpi-card,
+  [data-theme="dark"] .modal-content,
+  [data-theme="dark"] .body-card-item,
+  [data-theme="dark"] .timeline-item-card,
+  [data-theme="dark"] .guide-card-item,
+  [data-theme="dark"] .countdown-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  [data-theme="dark"] .kpi-value,
+  [data-theme="dark"] .panel-title h2,
+  [data-theme="dark"] .brand-text h1,
+  [data-theme="dark"] strong,
+  [data-theme="dark"] b {
+    color: #f8fafc !important;
+  }
+
+  [data-theme="dark"] .table-container table {
+    background: #1e293b !important;
+  }
+
+  [data-theme="dark"] .table-container th {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    border-bottom-color: #334155 !important;
+  }
+
+  [data-theme="dark"] .table-container td {
+    border-bottom-color: #334155 !important;
+    color: #cbd5e1 !important;
+  }
+
+  [data-theme="dark"] .table-container tr:hover td {
+    background: #233149 !important;
+  }
+
+  [data-theme="dark"] .tabs-nav {
+    border-bottom-color: #334155 !important;
+  }
+
+  [data-theme="dark"] .tab-btn {
+    color: #94a3b8 !important;
+  }
+
+  [data-theme="dark"] .tab-btn:hover {
+    color: #f8fafc !important;
+    background: #1e293b !important;
+  }
+
+  [data-theme="dark"] .tab-btn.active {
+    color: #38bdf8 !important;
+    border-bottom-color: #38bdf8 !important;
+  }
+
+  [data-theme="dark"] .form-control,
+  [data-theme="dark"] select,
+  [data-theme="dark"] input[type="text"],
+  [data-theme="dark"] input[type="number"],
+  [data-theme="dark"] input[type="date"] {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+  }
+
+  [data-theme="dark"] .btn-outline {
+    background: transparent !important;
+    border-color: #475569 !important;
+    color: #cbd5e1 !important;
+  }
+
+  [data-theme="dark"] .btn-outline:hover {
+    background: #334155 !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .profession-tag {
+    background: #0f172a !important;
+    color: #93c5fd !important;
+    border: 1px solid #334155 !important;
+  }
+
+  /* Countdown & Timeline Grid Styles */
+  .grid-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  .countdown-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+  }
+  .countdown-timer-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 1.15rem 0;
+  }
+  .time-unit {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.65rem 0.2rem;
+    text-align: center;
+  }
+  [data-theme="dark"] .time-unit {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  .time-val {
+    font-size: 1.45rem;
+    font-weight: 800;
+    font-family: monospace, sans-serif;
+    color: #2563eb;
+    display: block;
+    line-height: 1.1;
+  }
+  [data-theme="dark"] .time-val {
+    color: #38bdf8;
+  }
+  .time-lbl {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 0.25rem;
+    display: block;
+  }
+  .timeline-item-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .guide-card-item {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="header">
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>لوحة متابعة قرارات التوطين والتوظيف</h1>
+          <p>
+            <span>منشأة زمام القوة</span>
+            <span>•</span>
+            <span class="badge-org">النسبة المحتسبة مبنية على السعوديين الملتزمين بالحد الأدنى للأجور</span>
+          </p>
+        </div>
+      </div>
+      <div class="header-actions">
+        
+        <button id="themeToggleBtn" class="btn btn-outline" onclick="toggleTheme()" title="التبديل بين الوضع الليلي والنهاري" style="display:inline-flex; align-items:center; gap:0.4rem;">
+          <span id="themeToggleIcon">🌙</span>
+          <span id="themeToggleText">الوضع الليلي</span>
+        </button>
+
+        <button class="btn btn-primary" onclick="openModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          إضافة مهنة / مجموعة
+        </button>
+        <button class="btn btn-emerald" onclick="exportExcel()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          تصدير Excel
+        </button>
+        <button class="btn btn-light" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+          طباعة / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Rule Notification Banner -->
+    <div class="alert-banner">
+      <div class="alert-content">
+        <div class="alert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div>
+          <strong>قواعد الاحتساب وعرض الأدلة:</strong>
+          تم دمج النسبة المطلوبة والحالية في مؤشر واحد، والنسبة مبنية على <u>السعوديين الملتزمين بالحد الأدنى للأجور</u>، مع زر <strong>«📄 عرض الدليل»</strong> لعرض تفاصيل الدليل الإجرائي المعتمد والاشتراطات كاملة لكل مهنة.
+        </div>
+      </div>
+    </div>
+
+    <!-- Executive KPI Summary Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card teal">
+        <div class="kpi-header">
+          <span class="kpi-title">نسبة التوطين الإجمالية (الملتزمين بالأجور)</span>
+          <div class="kpi-icon-wrap teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiOverallRate">—</div>
+        <div class="kpi-subtext" id="kpiRateDetails">سعودي ملتزم بالحد الأدنى للأجور</div>
+      </div>
+
+      <div class="kpi-card emerald">
+        <div class="kpi-header">
+          <span class="kpi-title">معدل الامتثال للقرارات السارية</span>
+          <div class="kpi-icon-wrap emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiCompliantCount">—</div>
+        <div class="kpi-subtext" id="kpiCompliantPct">مجموعة مطابقة لاشتراطات الوزارة</div>
+      </div>
+
+      <div class="kpi-card blue">
+        <div class="kpi-header">
+          <span class="kpi-title">إجمالي الكادر البشري</span>
+          <div class="kpi-icon-wrap blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiTotalStaff">—</div>
+        <div class="kpi-subtext" id="kpiStaffBreakdown">سعودي vs مقيم</div>
+      </div>
+
+      <div class="kpi-card amber">
+        <div class="kpi-header">
+          <span class="kpi-title">المهن المحاسبية (حالة السريان)</span>
+          <div class="kpi-icon-wrap amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" style="font-size:1.35rem; color:#4338ca;">معفى حالياً (4 موظفين)</div>
+        <div class="kpi-subtext">يسري القرار عند بلوغ 5 موظفين فأكثر</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    
+    <!-- Top Countdown Teaser Widget -->
+    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.06) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom: 0.75rem;">
+        <div>
+          <h3 style="margin:0; font-size:1.15rem; font-weight:800; display:flex; align-items:center; gap:0.5rem; color:var(--navy-900);">
+            <span>⏳</span> عداد سريان قرارات التوطين المستقبلية (متابعة حية بالثانية)
+          </h3>
+          <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">
+            تتبع المدة المتبقية لحظياً حتى موعد الإلزام وتطبيق نسب التوطين الوزارية المقررة
+          </p>
+        </div>
+        <div style="display:flex; gap:0.4rem;">
+          <button class="btn btn-primary" style="font-size:0.82rem; padding:0.35rem 0.75rem; font-weight:700; display:inline-flex; align-items:center; gap:4px;" onclick="openCountdownModal()">
+            <span>⚙️</span> تحكم بالعدادات
+          </button>
+          <button class="btn btn-outline" style="font-size:0.82rem; padding:0.35rem 0.75rem;" onclick="switchTab('countdown')">
+            عرض كافة العدادات ↗
+          </button>
+        </div>
+      </div>
+      <div class="grid-3col" id="topCountdownGrid"></div>
+    </div>
+
+    <nav class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('table')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+        جدول المتابعة والأدلة الرسمية
+        <span class="tab-badge" id="tabCountBadge">13</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('unified')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        المؤشر المدمج (النسبة المطلوبة + الحالية)
+      </button>
+      <button class="tab-btn" onclick="switchTab('countdown')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ⏳ عداد القرارات المستقبلية
+        <span class="tab-badge" style="background:#ef4444; color:white;">حي</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('timeline')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+        📅 المخطط الزمني وتواريخ القرارات
+      </button>
+      <button class="tab-btn" onclick="switchTab('guides')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>
+        📚 الأدلة والقرارات الوزارية الرسمية
+      </button>
+      <button class="tab-btn" onclick="switchTab('simulator')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        محاكي قرارات التوظيف وفجوات التوطين
+      </button>
+      <button class="tab-btn" onclick="switchTab('bodies')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        دليل الهيئات وتراخيص المهن
+      </button>
+    </nav>
+
+    <!-- TAB 1: Table with "عرض الدليل" -->
+    <div id="pane-table" class="tab-pane active">
+      <div class="panel">
+        <div class="table-toolbar">
+          <div class="search-filter-group">
+            <input type="text" id="tableSearchInput" class="form-input" placeholder="🔍 ابحث باسم المهنة أو جهة الاعتماد (مثال: وزارة العدل، هيئة المهندسين...)" style="min-width:280px;" oninput="renderTable()">
+            <select id="statusFilterSelect" class="form-select" onchange="renderTable()">
+              <option value="all">كافة الحالات</option>
+              <option value="compliant">محققة للنسبة المطلوبة 🟢</option>
+              <option value="below">أقل من النسبة المطلوبة 🔴</option>
+              <option value="exempt_below_5">معفى حالياً (أقل من 5 موظفين) 🟣</option>
+            </select>
+            <select id="bodyFilterSelect" class="form-select" onchange="renderTable()">
+              <option value="all">كافة جهات الاعتماد</option>
+              <option value="وزارة العدل">وزارة العدل</option>
+              <option value="الهيئة السعودية للمهندسين">الهيئة السعودية للمهندسين</option>
+              <option value="الهيئة السعودية للمراجعين والمحاسبين (SOCPA)">الهيئة السعودية للمحاسبين (SOCPA)</option>
+              <option value="هيئة الاتصالات والفضاء والتقنية">هيئة الاتصالات والفضاء والتقنية</option>
+              <option value="هيئة كفاءة الإنفاق والمشروعات الحكومية">هيئة كفاءة الإنفاق</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-outline" onclick="resetFilters()">إعادة ضبط</button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>المجموعة المهنية</th>
+                <th>الدليل الإجرائي المعتمد</th>
+                <th>جهة الاعتماد والترخيص المهني</th>
+                <th>المؤشر المدمج (الحالية / المطلوبة)</th>
+                <th>حالة الامتثال</th>
+                <th>السعوديون الملتزمون بالأجر</th>
+                <th>إجمالي السعوديين</th>
+                <th>المقيمون</th>
+                <th>إجمالي الموظفين</th>
+                <th>الحد الأدنى للأجر</th>
+                <th>تاريخ التطبيق</th>
+                <th>ملاحظات واشتراطات السريان</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Unified Dual-Indicator Cards -->
+    <div id="pane-unified" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>مؤشر الامتثال المدمج للمجموعات المهنية</h2>
+            <p>تم دمج النسبة المطلوبة كخط هدف رأسي (📍) مع النسبة الحالية المحسوبة للملتزمين بالحد الأدنى للأجور في نفس الشريط</p>
+          </div>
+          <div style="font-size:0.8rem; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#10b981; border-radius:3px; display:inline-block;"></span> محقق للنسبة</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#f43f5e; border-radius:3px; display:inline-block;"></span> أقل من النسبة</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#6366f1; border-radius:3px; display:inline-block;"></span> معفى (أقل من 5 موظفين)</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:3px; height:14px; background:#0b1a30; display:inline-block;"></span> خط النسبة المطلوبة</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Container of Unified Cards -->
+        <div id="unifiedIndicatorsContainer"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Simulator -->
+    <div id="pane-simulator" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>محاكي قرارات التوظيف وفجوات التوطين الذكي</h2>
+            <p>يحتسب النسبة آلياً بناءً على السعوديين الملتزمين بالحد الأدنى للأجور، مع مراعاة اشتراط عدد 5 موظفين للمهن المحاسبية</p>
+          </div>
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
+            <div class="form-group">
+              <label class="form-label">المجموعة المهنية</label>
+              <select id="simProfessionSelect" class="form-select" onchange="onSimProfessionChange()"></select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">السعوديون الملتزمون بالحد الأدنى للأجور</label>
+              <input type="number" id="simSaudisMinWageInput" class="form-input" min="0" oninput="runSimulation()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">عدد المقيمين</label>
+              <input type="number" id="simResidentsInput" class="form-input" min="0" oninput="runSimulation()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">النسبة المطلوبة نظاماً</label>
+              <input type="text" id="simTargetRateInput" class="form-input" readonly style="background:#e2e8f0; font-weight:700;">
+            </div>
+          </div>
+
+          <!-- Simulation Result Display -->
+          <div style="background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.25rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; text-align:center;">
+            <div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">النسبة المحتسبة (ملتزمون بالأجر)</div>
+              <div style="font-size:1.6rem; font-weight:800; color:var(--teal-600);" id="simCalculatedRate">—</div>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">حالة الامتثال</div>
+              <div style="font-size:1rem; font-weight:800; margin-top:6px;" id="simComplianceResult">—</div>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">جهة الاعتماد المطلوبة</div>
+              <div style="font-size:0.95rem; font-weight:700; color:var(--navy-900); margin-top:6px;" id="simBodyResult">—</div>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">الفجوة (مطلوب استقطابهم)</div>
+              <div style="font-size:1.6rem; font-weight:800;" id="simGapResult">—</div>
+            </div>
+          </div>
+
+          <div id="simNoteBox" style="margin-top:1rem;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Bodies and Licensing Directory -->
+    <div id="pane-bodies" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>دليل الهيئات وجهات الاعتماد لتراخيص المهن</h2>
+            <p>الجهات الرسمية المخولة بإصدار الاعتماد والتراخيص المهنية للكوادر البشرية في كل قطاع</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem;" id="bodiesCardsGrid"></div>
+      </div>
+    </div>
+  
+    <!-- Tab 5: Countdown Timers -->
+    <div id="pane-countdown" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div class="panel-title">
+            <h2>⏳ العداد التنازلي لتطبيق قرارات التوطين المستقبلية</h2>
+            <p>متابعة لحظية ومباشرة للوقت المتبقي حتى تاريخ الإلزام الوزاري ودخول القرارات حيز التنفيذ</p>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="openCountdownModal()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700;">
+              <span>⚙️</span> تحكم وضبط العدادات التنازلية
+            </button>
+            <button class="btn btn-outline" onclick="resetCountdownSettings()" title="استعادة إعدادات وتواريخ العدادات التنازلية الأصلية">
+              <span>🔄</span> استعادة الافتراضي
+            </button>
+          </div>
+        </div>
+        <div class="grid-3col" id="fullCountdownGrid"></div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Timeline & Dates -->
+    <div id="pane-timeline" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>📅 المخطط الزمني وتواريخ سريان قرارات التوطين</h2>
+            <p>الجدول الزمني الشامل لتسلسل سريان القرارات الوزارية والمهل الممنوحة للمنشآت</p>
+          </div>
+        </div>
+        <div class="grid-3col" id="timelineGrid"></div>
+      </div>
+    </div>
+
+    <!-- Tab 7: Official Guides Directory -->
+    <div id="pane-guides" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>📚 الأدلة والقرارات الوزارية الرسمية المعتمدة</h2>
+            <p>روابط مباشرة للأدلة الإجرائية وقوائم المهن الصادرة عن وزارة الموارد البشرية والتنمية الاجتماعية</p>
+          </div>
+        </div>
+        <div class="grid-3col" id="officialGuidesGrid"></div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Detailed Procedural Guide Viewer Modal (محتوى الدليل الإجرائي الكامل) -->
+  <div class="modal-backdrop" id="guideViewerModal">
+    <div class="guide-modal-box">
+      <div class="modal-header">
+        <div>
+          <span style="font-size:0.75rem; background:var(--teal-100); color:var(--teal-600); padding:2px 8px; border-radius:6px; font-weight:700;">الدليل الإجرائي المعتمد</span>
+          <h3 class="modal-title" id="guideModalTitle" style="margin-top:4px;">تفاصيل الدليل الإجرائي</h3>
+        </div>
+        <button onclick="closeGuideModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+
+      <div id="guideModalContent">
+        <!-- Dynamic Guide Info populated by JS -->
+      </div>
+
+      <div style="border-top:1px solid var(--border); padding-top:1rem; margin-top:1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <a id="guideExternalLink" href="#" target="_blank" rel="noreferrer noopener" class="btn btn-guide" style="font-size:0.8rem;">
+            <span>🌐</span> فتح الرابط بوزارة الموارد البشرية
+          </a>
+          <a id="guideSearchLink" href="#" target="_blank" rel="noreferrer noopener" class="btn btn-outline" style="font-size:0.8rem;">
+            <span>🔍</span> البحث عن الدليل في منصة قوى / Google
+          </a>
+        </div>
+        <button type="button" class="btn btn-outline" onclick="closeGuideModal()">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding / Editing Profession -->
+  <div class="modal-backdrop" id="professionModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">تعديل بيانات المجموعة المهنية</h3>
+        <button onclick="closeModal()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">✕</button>
+      </div>
+      <form id="professionForm" onsubmit="saveProfession(event)">
+        <input type="hidden" id="editIndex" value="-1">
+        <div class="modal-form-grid">
+          <div class="form-group full">
+            <label class="form-label">اسم المجموعة المهنية *</label>
+            <input type="text" id="mProfession" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">النسبة المطلوبة للقرار (%) *</label>
+            <input type="number" id="mRequiredRate" class="form-input" required min="0" max="100" step="0.1">
+          </div>
+          <div class="form-group">
+            <label class="form-label">جهة الاعتماد والترخيص *</label>
+            <input type="text" id="mBody" class="form-input" required placeholder="مثال: وزارة العدل، الهيئة السعودية للمهندسين...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">السعوديون الملتزمون بالحد الأدنى للأجور *</label>
+            <input type="number" id="mSaudisMinWage" class="form-input" required min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">إجمالي عدد السعوديين الحاليين *</label>
+            <input type="number" id="mSaudis" class="form-input" required min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">عدد المقيمين الحاليين *</label>
+            <input type="number" id="mResidents" class="form-input" required min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">الحد الأدنى للأجر المعتمد (ريال)</label>
+            <input type="text" id="mMinimumWage" class="form-input" placeholder="مثال: 5500">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">رابط الدليل الإجرائي الرسمي</label>
+            <input type="url" id="mSource" class="form-input" placeholder="https://www.hrsd.gov.sa/...">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">ملاحظات واشتراطات السريان</label>
+            <input type="text" id="mNote" class="form-input" placeholder="مثال: يسري القرار على المنشآت التي يعمل بها 5 موظفين فأكثر...">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:0.6rem;">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>منظومة متابعة قرارات التوطين والتوظيف الداخلي · شركة زمام القوة · متوافقة مع اشتراطات وزارة الموارد البشرية والتنمية الاجتماعية وهيئات الاعتماد المهني</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script>
+    const DATA = [
+      {
+        id: 1,
+        profession: "المهن الهندسية",
+        requiredRate: 0.30,
+        saudisMinimumWage: 7,
+        saudis: 8,
+        residents: 8,
+        minimumWage: "8,000",
+        body: "الهيئة السعودية للمهندسين",
+        effectiveDate: "2026-06-30",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D9%87%D9%86-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9",
+        scope: "جميع المنشآت التي يعمل بها 5 عاملين فأكثر في المهن الهندسية.",
+        professionsList: "مهندس مدني، مهندس كهربائي، مهندس ميكانيكي، مهندس معماري، مهندس كيميائي، مهندس حاسب آلي، وجميع الوظائف المصنفة كمهن هندسية.",
+        wageCondition: "يشترط ألا يقل الأجر الشهري المسجل في التأمينات الاجتماعية عن 8,000 ريال لاحتساب المهندس في نسبة التوطين.",
+        accreditationCondition: "يشترط الحصول على الاعتماد المهني والتسجيل الساري لدى الهيئة السعودية للمهندسين.",
+        note: "يشترط الاعتماد والتسجيل المهني لدى الهيئة السعودية للمهندسين والالتزام بحد أدنى 8,000 ريال."
+      },
+      {
+        id: 2,
+        profession: "المهن الفنية الهندسية",
+        requiredRate: 0.30,
+        saudisMinimumWage: 16,
+        saudis: 37,
+        residents: 9,
+        minimumWage: "5,000",
+        body: "الهيئة السعودية للمهندسين",
+        effectiveDate: "2025-07-27",
+        source: "https://hrsd.gov.sa/sites/default/files/2025-01/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A%20%D9%84%D9%82%D8%B1%D8%A7%D8%B1%20%D8%AA%D9%88%D8%B7%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D9%87%D9%86%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%D8%A9%20%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9.pdf",
+        scope: "المنشآت التي تشغل 5 عاملين فأكثر في المهن الفنية الهندسية.",
+        professionsList: "فني مدني، فني مساحة، فني كهرباء، فني إلكترونيات، فني ميكانيكا، فني مختبر مواد، ومراقب أبنية وإنشاءات.",
+        wageCondition: "ألا يقل أجر الفني السعودي المسجل عن 5,000 ريال شهرياً للاحتساب.",
+        accreditationCondition: "الحصول على شهادة التسجيل المهني السارية من الهيئة السعودية للمهندسين.",
+        note: "النسبة المحتسبة مبنية على 16 سعودي ملتزمين بالأجر من أصل 37 سعودي."
+      },
+      {
+        id: 3,
+        profession: "مهن التسويق",
+        requiredRate: 0.60,
+        saudisMinimumWage: 8,
+        saudis: 8,
+        residents: 5,
+        minimumWage: "5,500",
+        body: "وزارة التجارة / وزارة الموارد البشرية",
+        effectiveDate: "2026-01-19",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D9%95%D8%AC%D8%B1%D8%A7%D9%8A%D9%94%D9%8A-%D9%84%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82",
+        scope: "المنشآت التي يعمل بها 3 عاملين فأكثر في مهن التسويق.",
+        professionsList: "اختصاصي تسويق، مدير تسويق، اختصاصي دعاية وإعلان، كاتب محتوى تسويقي، مسؤول تسويق رقمي، مصمم حملات تسويقية.",
+        wageCondition: "الحد الأدنى للأجر المعتمد هو 5,500 ريال لاحتساب الموظف في النسبة.",
+        accreditationCondition: "التسجيل الوظيفي المعتمد في منصة قوى بمسمى تسويقي متوافق.",
+        note: "يشترط راتب لا يقل عن 5,500 ريال لاحتساب الموظف في نسبة التوطين."
+      },
+      {
+        id: 4,
+        profession: "المهن المحاسبية",
+        requiredRate: 0.40,
+        saudisMinimumWage: 1,
+        saudis: 1,
+        residents: 3,
+        minimumWage: "6,000 (بكالوريوس) / 4,500 (دبلوم)",
+        body: "الهيئة السعودية للمراجعين والمحاسبين (SOCPA)",
+        effectiveDate: "2021-11-06",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D9%87%D9%86-%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B3%D8%A8%D9%8A%D8%A9",
+        scope: "يسري القرار فقط على المنشآت التي يعمل بها 5 موظفين فأكثر في المهن المحاسبية (المنشأة تملك 4 موظفين فقط، لذا هي معفاة حالياً).",
+        professionsList: "مدير حسابات، محاسب عام، محاسب تكاليف، مراجع داخلي، مدقق حسابات، اختصاصي ضرائب وزكاة.",
+        wageCondition: "لا يقل الأجر عن 6,000 ريال لحملة البكالوريوس فأعلى، و4,500 ريال لحملة الدبلوم.",
+        accreditationCondition: "الحصول على عضوية وتسجيل مهني سارٍ من الهيئة السعودية للمراجعين والمحاسبين (SOCPA).",
+        note: "تنبيه نظامي: القرار لا يدخل حيز التنفيذ إلا بعدد 5 موظفين وأكثر في المهن المحاسبية بالمنشأة (العدد الحالي 4 موظفين فقط، لذا المنشأة معفاة حالياً من الإلزام)."
+      },
+      {
+        id: 5,
+        profession: "المهن الإدارية المساندة",
+        requiredRate: 1.00,
+        saudisMinimumWage: 52,
+        saudis: 52,
+        residents: 0,
+        minimumWage: "4,000 (الحد العام)",
+        body: "وزارة الموارد البشرية والتنمية الاجتماعية",
+        effectiveDate: "2026-04-10",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D9%87%D9%86-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%86%D8%AF%D8%A9",
+        scope: "كافة منشآت القطاع الخاص (قصر المهن الإدارية المساندة بنسبة 100% على السعوديين).",
+        professionsList: "سكرتير، مدير مكتب، كاتب شؤون موظفين، كاتب استقبال عام، مدخل بيانات، كاتب أرشيف ومستودع مستندات.",
+        wageCondition: "الالتزام بالحد الأدنى للأجور في التأمينات (4,000 ريال للاحتساب الكامل).",
+        accreditationCondition: "لا يشترط اعتماد هيئة متخصصة؛ التوثيق عبر منصة قوى والتأمينات الاجتماعية.",
+        note: "توطين كامل بنسبة 100%، محقق بالكامل (52 سعودي مقابل 0 مقيم)."
+      },
+      {
+        id: 6,
+        profession: "مهن المبيعات",
+        requiredRate: 0.60,
+        saudisMinimumWage: 8,
+        saudis: 8,
+        residents: 0,
+        minimumWage: "5,500",
+        body: "وزارة التجارة / وزارة الموارد البشرية",
+        effectiveDate: "2026-04-19",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA",
+        scope: "المنشآت التي يعمل بها 3 عاملين فأكثر في مهن المبيعات.",
+        professionsList: "مدير مبيعات، مشرف مبيعات، ممثل مبيعات، اختصاصي تسعير، مندوب مبيعات كبار العملاء.",
+        wageCondition: "ألا يقل أجر الموظف السعودي عن 5,500 ريال للاحتساب في نسبة التوطين.",
+        accreditationCondition: "التسجيل في قوى والتأمينات بمسميات قطاع المبيعات المعتمدة.",
+        note: "محقق لنسبة 100% بالالتزام بالحد الأدنى للأجور."
+      },
+      {
+        id: 7,
+        profession: "مهن المشتريات",
+        requiredRate: 0.70,
+        saudisMinimumWage: 3,
+        saudis: 3,
+        residents: 1,
+        minimumWage: "4,000 (الحد العام)",
+        body: "هيئة كفاءة الإنفاق والمشروعات الحكومية",
+        effectiveDate: "2026-05-31",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D9%85%D8%B4%D8%AA%D8%B1%D9%8A%D8%A7%D8%AA",
+        scope: "المنشآت التي يعمل بها 3 عاملين فأكثر في مهن المشتريات.",
+        professionsList: "مدير مشتريات، اختصاصي مشتريات، مندوب مشتريات، اختصاصي عقود ومناقصات وتوريد.",
+        wageCondition: "الحد الأدنى للأجر المسجل لا يقل عن 4,000 ريال.",
+        accreditationCondition: "اعتماد التوصيفات المهنية لسلاسل الإمداد والمشتريات الحكومية والخاصة.",
+        note: "النسبة المحتسبة 75% تتجاوز النسبة المطلوبة 70%."
+      },
+      {
+        id: 8,
+        profession: "مشرف مسكن",
+        requiredRate: 1.00,
+        saudisMinimumWage: 0,
+        saudis: 0,
+        residents: 0,
+        minimumWage: "5,000",
+        body: "وزارة البلديات والإسكان",
+        effectiveDate: "2026-01-02",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86%D8%A9-%D9%85%D8%B4%D8%B1%D9%81-%D9%85%D8%B3%D9%83%D9%86",
+        scope: "المساكن الجماعية للعمالة وسكن المنشآت المؤسسي في كافة مناطق المملكة.",
+        professionsList: "مشرف مسكن، مراقب سكن عمالي، مسؤول سلامة وإشراف إسكان جماعي.",
+        wageCondition: "ألا يقل أجر المشرف السعودي عن 5,000 ريال شهرياً.",
+        accreditationCondition: "التسجيل في منصة السكن الجماعي لوزارة البلديات والإسكان.",
+        note: "لا يوجد موظفون حالياً في هذه المجموعة."
+      },
+      {
+        id: 9,
+        profession: "المهن القانونية",
+        requiredRate: 0.70,
+        saudisMinimumWage: 1,
+        saudis: 1,
+        residents: 0,
+        minimumWage: "5,500",
+        body: "وزارة العدل",
+        effectiveDate: "2025-12-01",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D9%87%D9%86-%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9",
+        scope: "مكاتب وشركات المحاماة والمنشآت التي لديها إدارات وأقسام قانونية.",
+        professionsList: "مستشار قانوني، باحث قانوني، اختصاصي عقود ومنازعات، محامٍ ممارس، أمين سر لجان قانونية.",
+        wageCondition: "يشترط راتب 5,500 ريال كحد أدنى لحملة البكالوريوس لاحتساب النسبة.",
+        accreditationCondition: "القيد والتسجيل لدى الإدارة العامة للمحاماة بوزارة العدل.",
+        note: "جهة الاعتماد الرسمية: وزارة العدل (الإدارة العامة للمحاماة). النسبة محققة 100%."
+      },
+      {
+        id: 10,
+        profession: "وظائف هندسة الاتصالات وتقنية المعلومات",
+        requiredRate: 0.25,
+        saudisMinimumWage: 2,
+        saudis: 2,
+        residents: 2,
+        minimumWage: "7,000",
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        effectiveDate: "2025-10-15",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D9%88%D8%AA%D9%82%D9%86%D9%8A%D8%A9",
+        scope: "المنشآت التي تشغل 3 عاملين فأكثر في وظائف الاتصالات وتقنية المعلومات.",
+        professionsList: "مهندس اتصالات، مهندس شبكات، مهندس أمن سيبراني، مهندس بنية سحابية ومراكز بيانات.",
+        wageCondition: "ألا يقل الأجر عن 7,000 ريال للمهندسين المتخصصين للاحتساب في التوطين.",
+        accreditationCondition: "التصنيف المهني المعتمد من هيئة الاتصالات والفضاء والتقنية والجهات الشريكة.",
+        note: "جهة الترخيص: هيئة الاتصالات والفضاء والتقنية. النسبة المحتسبة 50% مقابل 25% المطلوبة."
+      },
+      {
+        id: 11,
+        profession: "وظائف تطوير التطبيقات والبرمجة والتحليل",
+        requiredRate: 0.25,
+        saudisMinimumWage: 1,
+        saudis: 5,
+        residents: 2,
+        minimumWage: "7,000",
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        effectiveDate: "2025-10-15",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D9%88%D8%AA%D9%82%D9%86%D9%8A%D8%A9",
+        scope: "المنشآت التي تشغل 3 عاملين فأكثر في وظائف البرمجة والتحليل.",
+        professionsList: "مطور برمجيات، مبرمج تطبيقات جوال، محلل نظم، مهندس قواعد بيانات، مطور واجهات مستخدم (UI/UX).",
+        wageCondition: "ألا يقل الأجر عن 7,000 ريال شهرياً للاحتساب النظامي في نسبة التوطين.",
+        accreditationCondition: "التسجيل في منصة قوى بالمسميات التقنية التخصصية.",
+        note: "النسبة المحتسبة (1 ملتزم بالأجر / 3) = 33.3% وهي محققة للنسبة المطلوبة 25%."
+      },
+      {
+        id: 12,
+        profession: "وظائف الدعم الفني والوظائف الفنية للاتصالات",
+        requiredRate: 0.25,
+        saudisMinimumWage: 4,
+        saudis: 4,
+        residents: 2,
+        minimumWage: "5,000",
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        effectiveDate: "2025-10-15",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D9%88%D8%AA%D9%82%D9%86%D9%8A%D8%A9",
+        scope: "المنشآت التي تشغل 3 عاملين فأكثر في الدعم الفني وتقنية المعلومات.",
+        professionsList: "فني دعم تقنية معلومات، فني صيانة شبكات، مأمور تشغيل مركز مساندة، فني صيانة حاسب آلي.",
+        wageCondition: "ألا يقل أجر الفني عن 5,000 ريال شهرياً.",
+        accreditationCondition: "التسجيل المعتمد في منصة قوى.",
+        note: "النسبة المحتسبة 66.7% مقابل 25% المطلوبة."
+      },
+      {
+        id: 13,
+        profession: "مهن إدارة المشاريع",
+        requiredRate: 0.70,
+        saudisMinimumWage: 3,
+        saudis: 3,
+        residents: 0,
+        minimumWage: "6,000",
+        body: "الهيئة السعودية للمهندسين / PMI",
+        effectiveDate: "2027-02-14",
+        source: "https://hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A-%D9%84%D8%AA%D9%88%D8%B7%D9%8A%D9%86-%D9%85%D9%87%D9%86-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9",
+        scope: "المنشآت التي يعمل بها 3 عاملين فأكثر في مهن إدارة المشاريع.",
+        professionsList: "مدير مشروع، اختصاصي إدارة مشاريع، منسق مشاريع، اختصاصي مكتب إدارة المشاريع (PMO).",
+        wageCondition: "الحد الأدنى للأجر المعتمد هو 6,000 ريال للاحتساب في النسبة.",
+        accreditationCondition: "التسجيل والاعتماد المهني في الهيئة السعودية للمهندسين أو الشهادات الاحترافية (PMP).",
+        note: "محقق بنسبة 100% مع الالتزام برواتب إدارة المشاريع المعتمدة."
+      }
+    ];
+
+    const STORAGE_KEY = "saudization_dashboard_v5_guide_viewer";
+    let data = loadData();
+
+    function loadData() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) { console.warn(e); }
+      return JSON.parse(JSON.stringify(DATA));
+    }
+
+    function saveData() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { console.warn(e); }
+    }
+
+    function getCompliantRate(item) {
+      const saMin = Number(item.saudisMinimumWage) || 0;
+      const res = Number(item.residents) || 0;
+      const totalCounted = saMin + res;
+      if (totalCounted <= 0) return null;
+      return saMin / totalCounted;
+    }
+
+    function getStatus(item) {
+      const isAccounting = item.profession.includes("محاسب") || item.profession.includes("المحاسبية");
+      const totalStaff = (Number(item.saudis) || 0) + (Number(item.residents) || 0);
+      if (isAccounting && totalStaff < 5) {
+        return "exempt_below_5";
+      }
+      const curRate = getCompliantRate(item);
+      const reqRate = Number(item.requiredRate);
+      if (curRate === null || isNaN(reqRate)) return "missing";
+      return (curRate + 0.0001) >= reqRate ? "compliant" : "below";
+    }
+
+    function fmtPct(n) {
+      if (typeof n !== "number" || isNaN(n)) return "—";
+      return (n * 100).toLocaleString("ar-SA", { maximumFractionDigits: 1 }) + "%";
+    }
+
+    function fmtNum(n) {
+      if (n === null || n === undefined || isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString("ar-SA");
+    }
+
+    function safe(s) {
+      return String(s ?? "").replace(/[&<>"']/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[c]));
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+      const btn = Array.from(document.querySelectorAll(".tab-btn")).find(b => b.getAttribute("onclick").includes(tabId));
+      if (btn) btn.classList.add("active");
+      const pane = document.getElementById(`pane-${tabId}`);
+      if (pane) pane.classList.add("active");
+      if (tabId === 'countdown') renderCountdownWidgets();
+      if (tabId === 'timeline') renderTimeline();
+      if (tabId === 'guides') renderOfficialGuides();
+    }
+
+    
+    /* ================= THEME CONTROLLER ================= */
+    function initTheme() {
+      const saved = localStorage.getItem("zamam_app_theme") || "light";
+      applyTheme(saved);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("zamam_app_theme", theme);
+      const icon = document.getElementById("themeToggleIcon");
+      const text = document.getElementById("themeToggleText");
+      if (icon && text) {
+        if (theme === "dark") {
+          icon.textContent = "☀️";
+          text.textContent = "الوضع النهاري";
+        } else {
+          icon.textContent = "🌙";
+          text.textContent = "الوضع الليلي";
+        }
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    }
+
+    
+    /* ================= COUNTDOWN TIMER & CUSTOMIZATION CONTROLLER ================= */
+    const CD_STORAGE_KEY = "zamam_custom_countdowns";
+
+    function getCustomCountdowns() {
+      try {
+        const raw = localStorage.getItem(CD_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch(e) {}
+      
+      // Default: Accounting profession is active in countdown by default!
+      return {
+        4: {
+          targetDate: "2027-01-01",
+          customLabel: "المرحلة القادمة لتوطين المهن المحاسبية (5 محاسبين فأكثر)",
+          enabled: true
+        }
+      };
+    }
+
+    function saveCustomCountdowns(map) {
+      localStorage.setItem(CD_STORAGE_KEY, JSON.stringify(map));
+    }
+
+    let activeCdIndex = null;
+
+    function openCountdownModal(professionIndex = null) {
+      const modal = document.getElementById("countdownControlModal");
+      const select = document.getElementById("cdSelectProfession");
+      if (!modal || !select) return;
+
+      select.innerHTML = data.map((item, idx) => `
+        <option value="${idx}">${safe(item.profession)} (تاريخ القرار: ${safe(item.effectiveDate)})</option>
+      `).join('');
+
+      if (professionIndex !== null && professionIndex >= 0 && professionIndex < data.length) {
+        select.value = professionIndex;
+      } else {
+        const accIdx = data.findIndex(x => x.profession.includes("المحاسبية"));
+        select.value = accIdx !== -1 ? accIdx : 0;
+      }
+
+      onCdProfessionChange();
+      modal.classList.add("active");
+    }
+
+    function closeCountdownModal() {
+      const modal = document.getElementById("countdownControlModal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function onCdProfessionChange() {
+      const select = document.getElementById("cdSelectProfession");
+      const idx = parseInt(select.value, 10);
+      activeCdIndex = idx;
+      const item = data[idx];
+      if (!item) return;
+
+      const customs = getCustomCountdowns();
+      const cfg = customs[item.id] || (item.profession.includes("المحاسبية") ? {
+        targetDate: "2027-01-01",
+        customLabel: "المرحلة القادمة لتوطين المهن المحاسبية (5 محاسبين فأكثر)",
+        enabled: true
+      } : null);
+
+      const dateInput = document.getElementById("cdTargetDate");
+      const labelInput = document.getElementById("cdCustomLabel");
+      const toggleInput = document.getElementById("cdEnabledToggle");
+
+      if (cfg) {
+        dateInput.value = cfg.targetDate || item.effectiveDate;
+        labelInput.value = cfg.customLabel || "";
+        toggleInput.checked = cfg.enabled !== false;
+      } else {
+        dateInput.value = item.effectiveDate || "";
+        labelInput.value = "";
+        toggleInput.checked = true;
+      }
+    }
+
+    function saveCountdownSetting() {
+      if (activeCdIndex === null) return;
+      const item = data[activeCdIndex];
+      if (!item) return;
+
+      const dateVal = document.getElementById("cdTargetDate").value;
+      const labelVal = document.getElementById("cdCustomLabel").value.trim();
+      const enabledVal = document.getElementById("cdEnabledToggle").checked;
+
+      if (!dateVal) {
+        alert("الرجاء اختيار تاريخ سريان صحيح للعد التنازلي.");
+        return;
+      }
+
+      const customs = getCustomCountdowns();
+      customs[item.id] = {
+        targetDate: dateVal,
+        customLabel: labelVal,
+        enabled: enabledVal
+      };
+      saveCustomCountdowns(customs);
+
+      closeCountdownModal();
+      renderCountdownWidgets();
+      alert("تم حفظ وضبط العداد التنازلي لـ (" + item.profession + ") بنجاح!");
+    }
+
+    function resetSingleCountdown() {
+      if (activeCdIndex === null) return;
+      const item = data[activeCdIndex];
+      if (!item) return;
+
+      const customs = getCustomCountdowns();
+      delete customs[item.id];
+      saveCustomCountdowns(customs);
+
+      onCdProfessionChange();
+      renderCountdownWidgets();
+      alert("تمت استعادة التاريخ الأصلي لـ (" + item.profession + ").");
+    }
+
+    function resetCountdownSettings() {
+      if (!confirm("هل أنت متأكد من استعادة كافة إعدادات العدادات التنازلية إلى وضعها الافتراضي؟")) return;
+      localStorage.removeItem(CD_STORAGE_KEY);
+      renderCountdownWidgets();
+      alert("تمت استعادة الإعدادات الافتراضية بنجاح.");
+    }
+
+    function getTimeDiff(targetDateStr) {
+      const target = new Date(targetDateStr).getTime();
+      const now = new Date().getTime();
+      const diff = target - now;
+      if (diff <= 0) {
+        return { isPassed: true, days: 0, hours: 0, minutes: 0, seconds: 0 };
+      }
+      return {
+        isPassed: false,
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((diff % (1000 * 60)) / 1000)
+      };
+    }
+
+    function renderCountdownWidgets() {
+      const topGrid = document.getElementById("topCountdownGrid");
+      const fullGrid = document.getElementById("fullCountdownGrid");
+      const pad = n => String(n).padStart(2, '0');
+
+      const customs = getCustomCountdowns();
+
+      const itemsWithCountdown = data.map((item, originalIndex) => {
+        let targetDate = item.effectiveDate;
+        let customLabel = null;
+        let isCustom = false;
+        let enabled = true;
+
+        if (customs[item.id]) {
+          targetDate = customs[item.id].targetDate || item.effectiveDate;
+          customLabel = customs[item.id].customLabel;
+          enabled = customs[item.id].enabled !== false;
+          isCustom = true;
+        } else if (item.profession.includes("المحاسبية")) {
+          targetDate = "2027-01-01";
+          customLabel = "المرحلة القادمة لتوطين المهن المحاسبية (5 محاسبين فأكثر)";
+          enabled = true;
+          isCustom = true;
+        }
+
+        const t = getTimeDiff(targetDate);
+        return {
+          ...item,
+          originalIndex,
+          countdownTargetDate: targetDate,
+          countdownLabel: customLabel,
+          isCustom,
+          enabled,
+          timeDiff: t
+        };
+      });
+
+      // Sort so active future countdowns are on top
+      const sorted = [...itemsWithCountdown].sort((a, b) => {
+        const aActive = !a.timeDiff.isPassed && a.enabled;
+        const bActive = !b.timeDiff.isPassed && b.enabled;
+        if (aActive && !bActive) return -1;
+        if (!aActive && bActive) return 1;
+        return new Date(a.countdownTargetDate) - new Date(b.countdownTargetDate);
+      });
+
+      const cardRenderer = (item) => {
+        const t = item.timeDiff;
+        const isActiveCountdown = !t.isPassed && item.enabled;
+
+        let badgeHtml = isActiveCountdown
+          ? '<span style="background:#eff6ff; color:#1d4ed8; font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:9999px;">⏳ قيد العد التنازلي</span>'
+          : '<span style="background:#ecfdf5; color:#047857; font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:9999px;">● دخل حيز التنفيذ</span>';
+
+        let timerBox = isActiveCountdown ? `
+          <div class="countdown-timer-box">
+            <div class="time-unit">
+              <span class="time-val">${t.days}</span>
+              <span class="time-lbl">يوم</span>
+            </div>
+            <div class="time-unit">
+              <span class="time-val">${pad(t.hours)}</span>
+              <span class="time-lbl">ساعة</span>
+            </div>
+            <div class="time-unit">
+              <span class="time-val">${pad(t.minutes)}</span>
+              <span class="time-lbl">دقيقة</span>
+            </div>
+            <div class="time-unit">
+              <span class="time-val">${pad(t.seconds)}</span>
+              <span class="time-lbl">ثانية</span>
+            </div>
+          </div>
+        ` : `
+          <div style="background:rgba(16,185,129,0.08); border:1px solid #10b981; border-radius:8px; padding:0.85rem; text-align:center; color:#065f46; font-weight:700; margin:1rem 0; font-size:0.85rem;">
+            القرار سارٍ ومطبق رسمياً منذ ${safe(item.countdownTargetDate)}
+          </div>
+        `;
+
+        return `
+          <div class="countdown-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div>
+                <h4 style="margin:0; font-size:1rem; font-weight:800; color:var(--navy-900); display:flex; align-items:center; gap:6px;">
+                  <span>${safe(item.profession)}</span>
+                  ${item.isCustom ? '<span style="font-size:0.65rem; background:#fef3c7; color:#92400e; padding:1px 5px; border-radius:4px; font-weight:700;">مخصص</span>' : ''}
+                </h4>
+                <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">
+                  ${item.countdownLabel ? `<span style="color:#0284c7; font-weight:600;">📌 ${safe(item.countdownLabel)}</span><br>` : ''}
+                  النسبة المطلوبة: <strong style="color:var(--navy-900);">${item.requiredRate ? Math.round(item.requiredRate * 100) + '%' : 'غير محدد'}</strong> | 
+                  الحد الأدنى: <strong style="color:var(--navy-900);">${item.minimumWage ? item.minimumWage + ' ر.س' : 'غير محدد'}</strong>
+                </div>
+              </div>
+              ${badgeHtml}
+            </div>
+
+            ${timerBox}
+
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px dashed var(--border); padding-top:0.75rem; font-size:0.8rem; flex-wrap:wrap; gap:0.4rem;">
+              <span style="color:var(--text-muted);">
+                تاريخ الهدف: <strong style="color:var(--navy-900);">${safe(item.countdownTargetDate)}</strong>
+              </span>
+              <div style="display:flex; gap:4px;">
+                <button onclick="openCountdownModal(${item.originalIndex})" class="btn btn-outline" style="padding:0.25rem 0.55rem; font-size:0.72rem; display:inline-flex; align-items:center; gap:3px;" title="تعديل تاريخ هذا العداد وتخصيصه">
+                  <span>⚙️</span> تحكم
+                </button>
+                <a href="${item.source || 'https://hrsd.gov.sa'}" target="_blank" rel="noopener noreferrer" class="btn btn-guide" style="padding:0.25rem 0.6rem; font-size:0.72rem; text-decoration:none;">
+                  الدليل ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      };
+
+      // Top teaser shows active countdowns
+      const activeCountdowns = sorted.filter(x => !x.timeDiff.isPassed && x.enabled);
+      const topList = activeCountdowns.length > 0 ? activeCountdowns.slice(0, 4) : sorted.slice(0, 4);
+
+      if (topGrid) topGrid.innerHTML = topList.map(cardRenderer).join('');
+      if (fullGrid) fullGrid.innerHTML = sorted.map(cardRenderer).join('');
+    }
+
+    /* ================= TIMELINE RENDERER ================= */
+    function renderTimeline() {
+      const container = document.getElementById("timelineGrid");
+      if (!container) return;
+
+      const sorted = [...data].sort((a, b) => new Date(a.effectiveDate) - new Date(b.effectiveDate));
+
+      container.innerHTML = sorted.map((item) => {
+        const originalIndex = data.findIndex(x => x.id === item.id);
+        const t = getTimeDiff(item.effectiveDate);
+
+        return `
+          <div class="timeline-item-card" style="border-top: 4px solid ${t.isPassed ? '#10b981' : '#3b82f6'};">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+                <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900); margin:0;">${safe(item.profession)}</h3>
+                <span style="background:${t.isPassed ? '#ecfdf5' : '#eff6ff'}; color:${t.isPassed ? '#047857' : '#1d4ed8'}; font-size:0.72rem; font-weight:700; padding:2px 7px; border-radius:9999px;">
+                  ${t.isPassed ? '● نافذ وسارٍ' : '⏳ سريان مستقبلي'}
+                </span>
+              </div>
+
+              <div style="font-size:0.8rem; line-height:1.7; color:var(--navy-800); margin-bottom:0.75rem;">
+                <div>📅 <strong>تاريخ السريان الإلزامي:</strong> ${safe(item.effectiveDate)}</div>
+                <div>🎯 <strong>نسبة التوطين المقررة:</strong> ${item.requiredRate ? Math.round(item.requiredRate * 100) + '%' : 'غير محدد'}</div>
+                <div>💰 <strong>الحد الأدنى للأجر:</strong> ${item.minimumWage ? item.minimumWage + ' ر.س' : 'غير محدد'}</div>
+                <div>🏛️ <strong>جهة الاعتماد:</strong> ${safe(item.body || 'بدون')}</div>
+                <div style="color:var(--text-muted); font-size:0.75rem; margin-top:4px;">📌 <strong>نطاق القرار:</strong> ${safe(item.scope || 'وفق الدليل الإجرائي المعتمد')}</div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:0.75rem; margin-top:0.5rem;">
+              <a href="${item.source || 'https://hrsd.gov.sa'}" target="_blank" rel="noopener noreferrer" class="btn btn-guide" style="padding:0.3rem 0.7rem; font-size:0.75rem; text-decoration:none;">
+                📄 فتح الدليل الوزاري ↗
+              </a>
+              <button onclick="openGuideViewer(${originalIndex})" class="btn btn-outline" style="padding:0.3rem 0.6rem; font-size:0.75rem;">
+                ℹ️ ملخص الاشتراطات
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* ================= OFFICIAL GUIDES DIRECTORY RENDERER ================= */
+    function renderOfficialGuides() {
+      const container = document.getElementById("officialGuidesGrid");
+      if (!container) return;
+
+      container.innerHTML = data.map((item, originalIndex) => {
+        return `
+          <div class="guide-card-item">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+                <div>
+                  <span style="font-size:0.72rem; font-weight:700; color:#0284c7; background:#e0f2fe; padding:2px 6px; border-radius:4px; display:inline-block; margin-bottom:4px;">
+                    قرار وزاري معتمد
+                  </span>
+                  <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy-900); margin:0;">
+                    ${safe(item.profession)}
+                  </h3>
+                </div>
+                <span style="background:#f1f5f9; color:#475569; font-size:0.72rem; font-weight:700; padding:2px 7px; border-radius:6px;">
+                  ${safe(item.body || 'عام')}
+                </span>
+              </div>
+
+              <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.6; margin-bottom:0.75rem;">
+                ${safe(item.note || 'الدليل الإجرائي المعتمد لقرار توطين ' + item.profession + ' متضمناً قائمة المهن وآلية الاحتساب والتدرج في التطبيق.')}
+              </p>
+
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:0.65rem 0.75rem; font-size:0.78rem; line-height:1.6; margin-bottom:0.75rem;">
+                <div>🎯 <strong>النسبة المقررة:</strong> ${item.requiredRate ? Math.round(item.requiredRate * 100) + '%' : 'غير محدد'}</div>
+                <div>💰 <strong>الحد الأدنى للأجر:</strong> ${item.minimumWage ? item.minimumWage + ' ر.س' : 'غير محدد'}</div>
+                <div>📅 <strong>تاريخ السريان:</strong> ${safe(item.effectiveDate)}</div>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:6px; border-top:1px solid var(--border); padding-top:0.75rem; margin-top:0.5rem;">
+              <a href="${item.source || 'https://hrsd.gov.sa'}" target="_blank" rel="noopener noreferrer" class="btn btn-guide" style="padding:0.45rem 0.75rem; font-size:0.8rem; font-weight:700; text-align:center; justify-content:center; text-decoration:none;">
+                📄 فتح / تحميل الدليل الإجرائي المعتمد ↗
+              </a>
+              <button onclick="openGuideViewer(${originalIndex})" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.75rem; text-align:center; justify-content:center;">
+                ℹ️ استعراض ملخص الاشتراطات في الداشبورد
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+
+    function init() {
+      renderKPIs();
+      renderUnifiedIndicators();
+      renderTable();
+      initSimulator();
+      renderBodiesDirectory();
+      renderTimeline();
+      renderOfficialGuides();
+      renderCountdownWidgets();
+    }
+
+    function renderKPIs() {
+      const totalStaff = data.reduce((s, x) => s + (Number(x.saudis) || 0) + (Number(x.residents) || 0), 0);
+      const totalSaudis = data.reduce((s, x) => s + (Number(x.saudis) || 0), 0);
+      const totalSaudisMinWage = data.reduce((s, x) => s + (Number(x.saudisMinimumWage) || 0), 0);
+      const totalResidents = data.reduce((s, x) => s + (Number(x.residents) || 0), 0);
+
+      const countedStaff = totalSaudisMinWage + totalResidents;
+      const overallRate = countedStaff > 0 ? (totalSaudisMinWage / countedStaff) : 0;
+
+      const activeRows = data.filter(x => getStatus(x) !== "missing" && getStatus(x) !== "exempt_below_5");
+      const compliantRows = activeRows.filter(x => getStatus(x) === "compliant");
+
+      document.getElementById("kpiOverallRate").textContent = fmtPct(overallRate);
+      document.getElementById("kpiRateDetails").textContent = `${fmtNum(totalSaudisMinWage)} سعودي ملتزم بالأجر من أصل ${fmtNum(totalSaudis)} سعودي (${fmtNum(totalStaff)} موظف)`;
+
+      document.getElementById("kpiCompliantCount").textContent = `${compliantRows.length} / ${activeRows.length}`;
+      const pctVal = activeRows.length ? Math.round((compliantRows.length / activeRows.length) * 100) : 0;
+      document.getElementById("kpiCompliantPct").textContent = `${pctVal}% من المهن الخاضعة للقرارات محققة للامتثال`;
+
+      document.getElementById("kpiTotalStaff").textContent = fmtNum(totalStaff);
+      document.getElementById("kpiStaffBreakdown").textContent = `${fmtNum(totalSaudis)} مواطن • ${fmtNum(totalResidents)} مقيم`;
+      document.getElementById("tabCountBadge").textContent = data.length;
+    }
+
+    function renderUnifiedIndicators() {
+      const container = document.getElementById("unifiedIndicatorsContainer");
+      container.innerHTML = data.map((item, idx) => {
+        const curRate = getCompliantRate(item);
+        const reqRate = Number(item.requiredRate) || 0;
+        const status = getStatus(item);
+        const curPct = curRate !== null ? Math.round(curRate * 100) : 0;
+        const reqPct = Math.round(reqRate * 100);
+
+        let statusBadge = '';
+        let barClass = 'compliant';
+        if (status === 'compliant') {
+          statusBadge = '<span class="badge badge-compliant"><span class="badge-dot"></span> محقق للنسبة</span>';
+          barClass = 'compliant';
+        } else if (status === 'exempt_below_5') {
+          statusBadge = '<span class="badge badge-exempt"><span class="badge-dot"></span> معفى حالياً (أقل من 5 موظفين)</span>';
+          barClass = 'exempt';
+        } else if (status === 'below') {
+          statusBadge = '<span class="badge badge-below"><span class="badge-dot"></span> أقل من النسبة المطلوبة</span>';
+          barClass = 'below';
+        } else {
+          statusBadge = '<span class="badge"><span class="badge-dot"></span> غير محدد</span>';
+        }
+
+        const isAccounting = item.profession.includes("محاسب") || item.profession.includes("المحاسبية");
+        const accountingNoteHtml = isAccounting ? `
+          <div class="accounting-note-box">
+            📌 <strong>تنبيه نظامي خاص بالمهن المحاسبية:</strong>
+            القرار الوزاري لا يدخل حيز التنفيذ إلا على المنشآت التي يعمل بها <strong>5 موظفين وأكثر</strong> في المهن المحاسبية.
+            المنشأة لديها حالياً <strong>4 موظفين</strong> (1 سعودي + 3 مقيمين)، لذا لا يُسجل عجز على المنشأة وتعتبر معفاة حالياً حتى يبلغ العدد 5 عاملين فأكثر.
+          </div>
+        ` : '';
+
+        return `
+          <div class="unified-metric-card">
+            <div class="unified-header">
+              <div class="unified-title">
+                <span>${safe(item.profession)}</span>
+                <span class="unified-badge-body">🏛️ ${safe(item.body)}</span>
+                ${statusBadge}
+              </div>
+              <div class="unified-values">
+                <span class="unified-cur-val">
+                  الحالية (ملتزمون بالأجر): <span style="font-size:1.15rem; color:${status === 'compliant' ? 'var(--emerald-600)' : (status === 'exempt_below_5' ? 'var(--indigo-600)' : 'var(--rose-600)')}">${fmtPct(curRate)}</span>
+                </span>
+                <span class="unified-req-val">
+                  المطلوبة: <span style="font-size:1.1rem; color:var(--navy-900); font-weight:800;">${fmtPct(reqRate)}</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="unified-track-wrap">
+              <div class="unified-bar-fill ${barClass}" style="width: ${Math.min(100, curPct)}%;"></div>
+              <div class="unified-target-marker" style="right: ${reqPct}%;" data-target-label="الهدف: ${reqPct}%"></div>
+            </div>
+
+            <div class="unified-track-footer">
+              <span>السعوديون الملتزمون بالأجر: <b>${fmtNum(item.saudisMinimumWage)}</b> من إجمالي <b>${fmtNum(item.saudis)}</b> سعودي | مقيمون: <b>${fmtNum(item.residents)}</b></span>
+              <span>الحد الأدنى: <b>${safe(item.minimumWage)} ريال</b></span>
+              <button onclick="openGuideViewer(${idx})" class="btn btn-guide" style="padding:0.25rem 0.65rem; font-size:0.75rem;">
+                <span>📄</span> تفاصيل واشتراطات الدليل ↗
+              </button>
+            </div>
+
+            ${accountingNoteHtml}
+          </div>
+        `;
+      }).join("");
+    }
+
+    // TABLE RENDER WITH EXPLICIT "عرض الدليل" BUTTON THAT OPENS DETAILED VIEWER
+    function renderTable() {
+      const q = (document.getElementById("tableSearchInput")?.value || "").trim().toLowerCase();
+      const statusF = document.getElementById("statusFilterSelect")?.value || "all";
+      const bodyF = document.getElementById("bodyFilterSelect")?.value || "all";
+
+      const filtered = data.filter(item => {
+        const matchQ = item.profession.toLowerCase().includes(q) || (item.body || "").toLowerCase().includes(q);
+        const status = getStatus(item);
+        const matchStatus = statusF === "all" || status === statusF;
+        const matchBody = bodyF === "all" || (item.body || "").includes(bodyF);
+        return matchQ && matchStatus && matchBody;
+      });
+
+      const tbody = document.getElementById("tableBody");
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="13" style="text-align:center; padding:2rem; color:var(--text-muted);">لا توجد نتائج مطابقة لبحثك.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        const originalIndex = data.findIndex(x => x.id === item.id);
+        const curRate = getCompliantRate(item);
+        const reqRate = Number(item.requiredRate) || 0;
+        const status = getStatus(item);
+        const totalEmp = (Number(item.saudis) || 0) + (Number(item.residents) || 0);
+
+        let badge = '';
+        if (status === 'compliant') badge = '<span class="badge badge-compliant"><span class="badge-dot"></span> محقق</span>';
+        else if (status === 'exempt_below_5') badge = '<span class="badge badge-exempt"><span class="badge-dot"></span> معفى (&lt; 5)</span>';
+        else if (status === 'below') badge = '<span class="badge badge-below"><span class="badge-dot"></span> أقل من النسبة</span>';
+        else badge = '<span class="badge">غير محدد</span>';
+
+        const curPct = curRate !== null ? Math.round(curRate * 100) : 0;
+        const reqPct = Math.round(reqRate * 100);
+
+        // Direct Ministerial Link + Summary Modal Button
+        const guideUrl = item.source || "https://hrsd.gov.sa";
+        const guideAction = `
+          <div style="display:inline-flex; align-items:center; gap:4px;">
+            <a href="${guideUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-guide" style="padding:0.32rem 0.75rem; font-size:0.75rem; font-weight:700; white-space:nowrap; border-radius:7px; text-decoration:none; display:inline-flex; align-items:center; gap:5px;" title="فتح رابط الدليل الوزاري المباشر في تبويب جديد">
+              <span>📄</span> فتح الدليل ↗
+            </a>
+            <button onclick="openGuideViewer(${originalIndex})" title="عرض ملخص الاشتراطات والوظائف بالداشبورد" class="btn btn-outline" style="padding:0.32rem 0.55rem; font-size:0.72rem; border-radius:7px; font-weight:700;">
+              ℹ️ ملخص
+            </button>
+            <button onclick="openCountdownModal(${originalIndex})" title="ضبط وتخصيص العداد التنازلي لهذه المهنة" class="btn btn-outline" style="padding:0.32rem 0.5rem; font-size:0.72rem; border-radius:7px; font-weight:700; color:#2563eb;">
+              ⏳ عداد
+            </button>
+          </div>
+        `;
+
+        return `
+          <tr>
+            <td><strong style="color:var(--navy-900); font-size:0.88rem;">${safe(item.profession)}</strong></td>
+            <td>${guideAction}</td>
+            <td>
+              <span style="background:#f1f5f9; color:var(--navy-800); font-weight:700; padding:2px 8px; border-radius:6px; font-size:0.75rem;">
+                🏛️ ${safe(item.body)}
+              </span>
+            </td>
+            <td>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="position:relative; width:85px; height:9px; background:#e2e8f0; border-radius:99px; overflow:visible;">
+                  <div style="height:100%; border-radius:99px; width:${Math.min(100, curPct)}%; background:${status==='compliant'?'#10b981':(status==='exempt_below_5'?'#6366f1':'#f43f5e')};"></div>
+                  <div style="position:absolute; top:-3px; bottom:-3px; width:2px; background:#0b1a30; right:${reqPct}%;" title="الهدف المطلوبة: ${reqPct}%"></div>
+                </div>
+                <span style="font-weight:700; font-size:0.75rem;">${fmtPct(curRate)} / ${fmtPct(reqRate)}</span>
+              </div>
+            </td>
+            <td>${badge}</td>
+            <td><b style="color:var(--navy-900);">${fmtNum(item.saudisMinimumWage)}</b></td>
+            <td>${fmtNum(item.saudis)}</td>
+            <td>${fmtNum(item.residents)}</td>
+            <td><strong>${fmtNum(totalEmp)}</strong></td>
+            <td>${safe(item.minimumWage)}</td>
+            <td>${safe(item.effectiveDate || 'ساري')}</td>
+            <td style="max-width:220px; white-space:normal; font-size:0.72rem; color:var(--text-muted);">
+              ${safe(item.note || '—')}
+            </td>
+            <td>
+              <button class="btn btn-outline" style="padding:0.25rem 0.5rem; font-size:0.72rem;" onclick="editProfession(${originalIndex})">
+                تعديل ✏️
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    // FUNCTION TO OPEN THE COMPREHENSIVE PROCEDURAL GUIDE MODAL
+    function openGuideViewer(index) {
+      const item = data[index];
+      if (!item) return;
+
+      document.getElementById("guideModalTitle").textContent = `الدليل الإجرائي لقرار توطين: ${item.profession}`;
+      
+      const isAccounting = item.profession.includes("محاسب") || item.profession.includes("المحاسبية");
+      const specialNote = isAccounting ? `
+        <div class="accounting-note-box" style="margin-bottom:1rem;">
+          ⚠️ <strong>شرط السريان الاستثنائي:</strong> يسري قرار توطين المهن المحاسبية على المنشآت التي يعمل بها <strong>5 عاملين فأكثر</strong> في المهن المحاسبية. إذا كان عدد العاملين 4 أو أقل تكون المنشأة معفاة نظاماً من الإلزام حتى يبلغ العدد 5 عاملين فأكثر.
+        </div>
+      ` : '';
+
+      const content = `
+        ${specialNote}
+        <div class="guide-section">
+          <h4><span>🎯</span> نسبة التوطين وتاريخ الإلزام</h4>
+          <p>
+            النسبة المطلوبة للقرار: <b>${fmtPct(item.requiredRate)}</b>.<br>
+            تاريخ السريان والنفاذ: <b>${item.effectiveDate || 'ساري المفعول حالياً'}</b>.<br>
+            نطاق سريان القرار: <b>${item.scope || 'يسري على كافة المنشآت المحددة في الدليل الإجرائي.'}</b>
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h4><span>💵</span> اشتراطات الحد الأدنى للأجور لاحتساب التوطين</h4>
+          <p>
+            الحد الأدنى المعتمد للأجر: <b>${item.minimumWage} ريال</b>.<br>
+            ${item.wageCondition || 'يشترط تسجيل أجر الموظف السعودي في التأمينات الاجتماعية بما لا يقل عن الحد الأدنى المحدد في الدليل ليتم احتسابه ضمن نسبة التوطين المعتمدة.'}
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h4><span>🏛️</span> جهة الاعتماد واشتراطات الترخيص المهني</h4>
+          <p>
+            جهة الاعتماد والترخيص: <b>${item.body}</b>.<br>
+            ${item.accreditationCondition || 'يشترط حصول الكوادر الوطنية على التسجيل والاعتماد المهني المطلوب لمزاولة المهنة نظاماً.'}
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h4><span>📋</span> قائمة الوظائف والمهن التخصصية المشمولة</h4>
+          <p style="line-height:1.8;">
+            ${item.professionsList || item.note || 'تشمل الوظائف المصنفة رسمياً في الدليل الإجرائي الصادر عن وزارة الموارد البشرية والتنمية الاجتماعية.'}
+          </p>
+        </div>
+      `;
+
+      document.getElementById("guideModalContent").innerHTML = content;
+      
+      // External Links with rel="noreferrer noopener"
+      const extLink = document.getElementById("guideExternalLink");
+      extLink.href = item.source || "https://hrsd.gov.sa";
+
+      const searchLink = document.getElementById("guideSearchLink");
+      searchLink.href = `https://www.google.com/search?q=${encodeURIComponent('الدليل الإجرائي لقرار توطين ' + item.profession + ' وزارة الموارد البشرية pdf')}`;
+
+      document.getElementById("guideViewerModal").classList.add("active");
+    }
+
+    function closeGuideModal() {
+      document.getElementById("guideViewerModal").classList.remove("active");
+    }
+
+    function resetFilters() {
+      document.getElementById("tableSearchInput").value = "";
+      document.getElementById("statusFilterSelect").value = "all";
+      document.getElementById("bodyFilterSelect").value = "all";
+      renderTable();
+    }
+
+    function initSimulator() {
+      const select = document.getElementById("simProfessionSelect");
+      select.innerHTML = data.map((item, idx) => `<option value="${idx}">${safe(item.profession)}</option>`).join("");
+      onSimProfessionChange();
+    }
+
+    function onSimProfessionChange() {
+      const idx = document.getElementById("simProfessionSelect").value;
+      const item = data[idx];
+      if (!item) return;
+
+      document.getElementById("simSaudisMinWageInput").value = item.saudisMinimumWage || 0;
+      document.getElementById("simResidentsInput").value = item.residents || 0;
+      document.getElementById("simTargetRateInput").value = fmtPct(item.requiredRate);
+      runSimulation();
+    }
+
+    function runSimulation() {
+      const idx = document.getElementById("simProfessionSelect").value;
+      const item = data[idx];
+      if (!item) return;
+
+      const saMin = Math.max(0, parseInt(document.getElementById("simSaudisMinWageInput").value) || 0);
+      const res = Math.max(0, parseInt(document.getElementById("simResidentsInput").value) || 0);
+      const totalCounted = saMin + res;
+      const reqRate = Number(item.requiredRate) || 0;
+
+      const rate = totalCounted > 0 ? (saMin / totalCounted) : 0;
+      const isAccounting = item.profession.includes("محاسب") || item.profession.includes("المحاسبية");
+      const isExempt = isAccounting && totalCounted < 5;
+
+      const isCompliant = !isExempt && (rate + 0.0001) >= reqRate;
+
+      let gap = 0;
+      if (!isExempt) {
+        if (reqRate >= 1.0) gap = res;
+        else if (reqRate > 0) {
+          const needed = Math.ceil((reqRate * res) / (1.0 - reqRate));
+          gap = Math.max(0, needed - saMin);
+        }
+      }
+
+      document.getElementById("simCalculatedRate").textContent = totalCounted > 0 ? fmtPct(rate) : "0%";
+      document.getElementById("simBodyResult").textContent = item.body;
+
+      if (isExempt) {
+        document.getElementById("simComplianceResult").innerHTML = '<span class="badge badge-exempt">معفى حالياً (أقل من 5 موظفين)</span>';
+        document.getElementById("simGapResult").textContent = '0 (غير خاضع للإلزام)';
+        document.getElementById("simGapResult").style.color = 'var(--indigo-600)';
+        document.getElementById("simNoteBox").innerHTML = `
+          <div class="accounting-note-box">
+            📌 <strong>تنبيه قرار المهن المحاسبية:</strong> إجمالي العاملين في المحاكاة (${totalCounted}) أقل من 5، لذا القرار لا يسري نظاماً على المنشأة إلا عند بلوغ 5 عاملين في المهن المحاسبية.
+          </div>
+        `;
+      } else {
+        document.getElementById("simComplianceResult").innerHTML = isCompliant
+          ? '<span class="badge badge-compliant"><span class="badge-dot"></span> محقق للنسبة</span>'
+          : '<span class="badge badge-below"><span class="badge-dot"></span> أقل من النسبة</span>';
+        
+        document.getElementById("simGapResult").textContent = gap > 0 ? `+${gap} سعودي ملتزم بالأجر` : '0 (مستوفٍ)';
+        document.getElementById("simGapResult").style.color = gap > 0 ? 'var(--rose-600)' : 'var(--emerald-600)';
+        document.getElementById("simNoteBox").innerHTML = gap > 0 ? `
+          <div style="background:#fff1f2; border-right:4px solid var(--rose-600); padding:0.6rem 0.85rem; border-radius:8px; font-size:0.8rem; color:#9f1239;">
+            يلزم تعيين <b>${gap} مواطن سعودي</b> براتب لا يقل عن <b>${item.minimumWage} ريال</b> وتسجيله في (<b>${item.body}</b>) للوصول إلى نسبة الامتثال المطلوبة (${fmtPct(reqRate)}).
+          </div>
+        ` : `
+          <div style="background:#ecfdf5; border-right:4px solid var(--emerald-600); padding:0.6rem 0.85rem; border-radius:8px; font-size:0.8rem; color:#065f46;">
+            ✓ التركيبة الحالية للموظفين مستوفية لاشتراطات النسبة المقررة بنجاح.
+          </div>
+        `;
+      }
+    }
+
+    function renderBodiesDirectory() {
+      const container = document.getElementById("bodiesCardsGrid");
+      const bodiesMap = {};
+      data.forEach(item => {
+        if (!bodiesMap[item.body]) bodiesMap[item.body] = [];
+        bodiesMap[item.body].push(item.profession);
+      });
+
+      container.innerHTML = Object.keys(bodiesMap).map(bodyName => {
+        const professions = bodiesMap[bodyName];
+        let roleDesc = "جهة الاعتماد والترخيص المهني والتحقق من المؤهلات والتسجيل النظامي.";
+        if (bodyName.includes("العدل")) {
+          roleDesc = "الجهة الرسمية المخولة بإصدار رخص المحاماة والاستشارات القانونية والتحقق من قيد الممارسين في جدول المحامين.";
+        } else if (bodyName.includes("المهندسين")) {
+          roleDesc = "الجهة المسؤولة عن الاعتماد المهني والتصنيف الهندسي والفني والتحقق من المؤهلات الهندسية.";
+        } else if (bodyName.includes("SOCPA") || bodyName.includes("المحاسبين")) {
+          roleDesc = "الهيئة المنظمة لمهنة المحاسبة والمراجعة وإصدار عضويات وتراخيص مزاولة المهن المحاسبية في المملكة.";
+        } else if (bodyName.includes("الاتصالات")) {
+          roleDesc = "تنظيم وتصنيف الكوادر والوظائف المتخصصة في البنية التحتية للاتصالات وتقنية المعلومات والبرمجة.";
+        }
+
+        return `
+          <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; box-shadow:var(--shadow-sm);">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.75rem;">
+              <span style="font-size:1.4rem;">🏛️</span>
+              <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900);">${safe(bodyName)}</h3>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+              ${roleDesc}
+            </p>
+            <div style="border-top:1px solid #f1f5f9; padding-top:0.75rem;">
+              <span style="font-size:0.75rem; font-weight:700; color:var(--navy-800);">المهن التابعة المشمولة بالقرارات:</span>
+              <div style="display:flex; flex-wrap:wrap; gap:4px; margin-top:6px;">
+                ${professions.map(p => `<span style="background:#f1f5f9; color:#1e293b; padding:2px 7px; border-radius:6px; font-size:0.72rem; font-weight:600;">${safe(p)}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openModal() {
+      document.getElementById("editIndex").value = "-1";
+      document.getElementById("modalTitle").textContent = "إضافة مجموعة مهنية جديدة";
+      document.getElementById("professionForm").reset();
+      document.getElementById("professionModal").classList.add("active");
+    }
+
+    function closeModal() {
+      document.getElementById("professionModal").classList.remove("active");
+    }
+
+    function editProfession(index) {
+      const item = data[index];
+      if (!item) return;
+
+      document.getElementById("editIndex").value = index;
+      document.getElementById("modalTitle").textContent = `تعديل بيانات: ${item.profession}`;
+      document.getElementById("mProfession").value = item.profession;
+      document.getElementById("mRequiredRate").value = (item.requiredRate * 100) || "";
+      document.getElementById("mBody").value = item.body || "";
+      document.getElementById("mSaudisMinWage").value = item.saudisMinimumWage || 0;
+      document.getElementById("mSaudis").value = item.saudis || 0;
+      document.getElementById("mResidents").value = item.residents || 0;
+      document.getElementById("mMinimumWage").value = item.minimumWage || "";
+      document.getElementById("mSource").value = item.source || "";
+      document.getElementById("mNote").value = item.note || "";
+
+      document.getElementById("professionModal").classList.add("active");
+    }
+
+    function saveProfession(event) {
+      event.preventDefault();
+      const idx = parseInt(document.getElementById("editIndex").value);
+      const reqVal = parseFloat(document.getElementById("mRequiredRate").value) / 100;
+      const saMinVal = parseInt(document.getElementById("mSaudisMinWage").value) || 0;
+      const saVal = parseInt(document.getElementById("mSaudis").value) || 0;
+      const resVal = parseInt(document.getElementById("mResidents").value) || 0;
+
+      const record = {
+        profession: document.getElementById("mProfession").value.trim(),
+        requiredRate: reqVal,
+        body: document.getElementById("mBody").value.trim(),
+        saudisMinimumWage: saMinVal,
+        saudis: saVal,
+        residents: resVal,
+        minimumWage: document.getElementById("mMinimumWage").value.trim() || "—",
+        source: document.getElementById("mSource").value.trim() || "",
+        note: document.getElementById("mNote").value.trim() || ""
+      };
+
+      if (idx >= 0 && data[idx]) {
+        data[idx] = { ...data[idx], ...record };
+      } else {
+        record.id = Date.now();
+        data.push(record);
+      }
+
+      saveData();
+      closeModal();
+      init();
+    }
+
+    function exportExcel() {
+      if (!window.XLSX) return;
+      const rows = data.map(item => ({
+        "المجموعة المهنية": item.profession,
+        "رابط الدليل الإجرائي": item.source || "—",
+        "جهة الاعتماد والترخيص": item.body,
+        "النسبة المطلوبة": fmtPct(item.requiredRate),
+        "النسبة الحالية (ملتزمون بالأجر)": fmtPct(getCompliantRate(item)),
+        "حالة الامتثال": getStatus(item) === 'compliant' ? 'محقق' : (getStatus(item) === 'exempt_below_5' ? 'معفى (أقل من 5 موظفين)' : 'دون النسبة'),
+        "السعوديون الملتزمون بالأجر": item.saudisMinimumWage,
+        "إجمالي السعوديين": item.saudis,
+        "عدد المقيمين": item.residents,
+        "إجمالي الموظفين": (item.saudis || 0) + (item.residents || 0),
+        "الحد الأدنى للأجر": item.minimumWage,
+        "ملاحظات السريان": item.note || ""
+      }));
+
+      const ws = XLSX.utils.json_to_sheet(rows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "متابعة التوطين المحدثة");
+      XLSX.writeFile(wb, "لوحة_متابعة_التوطين_زمام_القوة_محدث.xlsx");
+    }
+
+    setInterval(renderCountdownWidgets, 1000);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initTheme();
+      init();
+    });
+  </script>
+
+  <!-- Countdown Control Modal -->
+  <div class="modal-backdrop" id="countdownControlModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <span style="font-size:0.75rem; background:#eff6ff; color:#1d4ed8; padding:2px 8px; border-radius:6px; font-weight:700;">تحكم العداد التنازلي</span>
+          <h3 class="modal-title" style="margin-top:4px;">⚙️ لوحة التحكم وضبط العداد التنازلي للمهن</h3>
+        </div>
+        <button onclick="closeCountdownModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:1.15rem; margin-top:1rem;">
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">1. اختر المجموعة المهنية:</label>
+          <select id="cdSelectProfession" class="form-control" onchange="onCdProfessionChange()" style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem;">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">2. تاريخ السريان / الاستهداف للعد التنازلي:</label>
+          <input type="date" id="cdTargetDate" class="form-control" style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem;">
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:4px; display:block;">
+            حدد أي موعد مستقبلي ترغب في أن يقوم العداد التنازلي باحتساب الوقت المتبقي له بالثانية.
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">3. مسمى المرحلة أو الملاحظة الخاصة (اختياري):</label>
+          <input type="text" id="cdCustomLabel" class="form-control" placeholder="مثال: المرحلة القادمة لتطبيق النسبة / موعد الامتثال المستهدف" style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem;">
+        </div>
+
+        <div class="form-group" style="background:rgba(37,99,235,0.05); border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem;">
+          <label style="display:flex; align-items:center; gap:10px; cursor:pointer; font-weight:700; color:var(--navy-900);">
+            <input type="checkbox" id="cdEnabledToggle" checked style="width:20px; height:20px; accent-color:#2563eb;">
+            <span>تفعيل وإظهار العداد التنازلي الحي لهذه المهنة (قيد العد التنازلي)</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:1.25rem; margin-top:1.5rem; flex-wrap:wrap; gap:0.5rem;">
+        <button onclick="saveCountdownSetting()" class="btn btn-primary" style="padding:0.6rem 1.25rem; font-weight:700;">
+          💾 حفظ وتطبيق العداد فورياً
+        </button>
+        <div style="display:flex; gap:0.5rem;">
+          <button onclick="resetSingleCountdown()" class="btn btn-outline" style="padding:0.6rem 0.85rem; font-size:0.85rem;">
+            🔄 استعادة التاريخ الأصلي
+          </button>
+          <button onclick="closeCountdownModal()" class="btn btn-outline" style="padding:0.6rem 0.85rem; font-size:0.85rem;">
+            إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
