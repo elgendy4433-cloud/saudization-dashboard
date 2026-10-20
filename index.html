@@ -417,7 +417,7 @@
       background: #e2e8f0;
       border-radius: 8px;
       overflow: visible;
-      margin: 0.5rem 0 0.4rem;
+      margin: 1.5rem 0 0.5rem;
     }
     .unified-bar-fill {
       height: 100%;
@@ -429,28 +429,34 @@
     .unified-bar-fill.below { background: linear-gradient(90deg, #e11d48, #f43f5e); }
     .unified-bar-fill.exempt { background: linear-gradient(90deg, #6366f1, #818cf8); }
 
-    /* Target Threshold Pin */
+    /* Target Threshold Pin & Clear Legible Label */
     .unified-target-marker {
       position: absolute;
       top: -6px;
       bottom: -6px;
       width: 3px;
-      background: var(--navy-950);
+      background: #0f172a;
       z-index: 10;
-      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+      border-radius: 2px;
     }
     .unified-target-marker::after {
       content: attr(data-target-label);
       position: absolute;
-      top: -20px;
+      top: -27px;
       transform: translateX(50%);
-      background: var(--navy-900);
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 4px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
       white-space: nowrap;
+      border: 1px solid #334155;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      z-index: 20;
+      line-height: 1.4;
+      pointer-events: none;
     }
     .unified-track-footer {
       display: flex;
@@ -1427,6 +1433,32 @@
   [data-theme="dark"] .audit-badge.badge-system { background: #1e293b !important; color: #cbd5e1 !important; border: 1px solid #334155 !important; }
   [data-theme="dark"] .audit-badge.badge-general { background: #1e293b !important; color: #cbd5e1 !important; border: 1px solid #334155 !important; }
 
+
+  /* High-Contrast Target Marker Label in Dark Mode */
+  [data-theme="dark"] .unified-track-wrap {
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+  }
+  [data-theme="dark"] .unified-target-marker {
+    background: #38bdf8 !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.8) !important;
+  }
+  [data-theme="dark"] .unified-target-marker::after {
+    background: #0b1329 !important;
+    color: #38bdf8 !important;
+    border: 1.5px solid #38bdf8 !important;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4), 0 4px 8px rgba(0, 0, 0, 0.6) !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+  }
+  [data-theme="dark"] .legend-target-pin {
+    background: #38bdf8 !important;
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.8) !important;
+  }
+  [data-theme="dark"] #pane-unified .panel-header span {
+    color: #cbd5e1 !important;
+  }
+
 </style>
 </head>
 <body>
@@ -1659,7 +1691,7 @@
             <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#10b981; border-radius:3px; display:inline-block;"></span> محقق للنسبة</span>
             <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#f43f5e; border-radius:3px; display:inline-block;"></span> أقل من النسبة</span>
             <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:#6366f1; border-radius:3px; display:inline-block;"></span> معفى (أقل من 5 موظفين)</span>
-            <span style="display:flex; align-items:center; gap:5px;"><span style="width:3px; height:14px; background:#0b1a30; display:inline-block;"></span> خط النسبة المطلوبة</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span class="legend-target-pin" style="width:3px; height:14px; background:#0f172a; display:inline-block; border-radius:1px;"></span> خط النسبة المطلوبة</span>
           </div>
         </div>
 
