@@ -1604,6 +1604,33 @@
     border-color: #334155 !important;
   }
 
+
+  /* Cloud Sync Toast */
+  .cloud-sync-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #38bdf8;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.3);
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 99999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cloud-sync-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
 </style>
 </head>
 <body>
@@ -1631,6 +1658,11 @@
           <span id="themeToggleText">الوضع الليلي</span>
         </button>
 
+        
+        <button id="cloudSyncBtn" class="btn btn-outline" onclick="triggerManualCloudSync()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; border-color:var(--teal-600);" title="مزامنة التحديثات ورفعها مباشرة على مستودع GitHub و Cloudflare">
+          <span class="status-live-dot" style="width:8px; height:8px;"></span>
+          <span id="cloudSyncText">مزامنة GitHub & Cloudflare</span>
+        </button>
         <button class="btn btn-primary" onclick="openModal()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
           إضافة مهنة / مجموعة
@@ -2730,6 +2762,7 @@
         enabled: enabledVal
       };
       saveCustomCountdowns(customs);
+      syncActionToCloud("COUNTDOWN_EDIT", `تخصيص العداد التنازلي لـ (${item.profession})`);
 
       closeCountdownModal();
       renderCountdownWidgets();
@@ -3444,6 +3477,7 @@
       }
 
       saveData();
+      syncActionToCloud("DATA_EDIT", `تعديل المجموعة المهنية: (${item.profession})`);
       closeModal();
       init();
     }
@@ -4430,6 +4464,7 @@
       }
 
       saveEmployees(emps);
+      syncActionToCloud("DATA_ADD", `تحديث سجل الموظفين: (${name})`);
       closeEmployeeModal();
       renderEmployeesTab();
       alert("تم حفظ وتوثيق بيانات الموظف بنجاح!");
@@ -4468,6 +4503,7 @@
 
       const filtered = emps.filter(x => x.id !== empId);
       saveEmployees(filtered);
+      syncActionToCloud("DATA_EDIT", `حذف موظف من السجل: (${emp.name})`);
       logAuditAction(
         "DATA_EDIT",
         "إدارة الكادر البشري",
@@ -4630,6 +4666,7 @@
       }
 
       saveEmployees(current);
+      syncActionToCloud("DATA_ADD", `استيراد (${_stagedImportRows.length}) موظف إلى السجل`);
 
       logAuditAction(
         "DATA_ADD",
@@ -4712,6 +4749,62 @@
         "تصدير سجل الموظفين إلى Excel",
         `تم استخراج ملف Excel يحتوي على سجل (${emps.length}) موظف وبيانات الرواتب والمهن التابعة.`
       );
+    }
+
+
+    /* ================= GITHUB & CLOUDFLARE AUTOMATED SYNC MODULE ================= */
+    function showCloudToast(msg, isSuccess = true) {
+      const toast = document.getElementById("cloudToast");
+      const text = document.getElementById("cloudToastMsg");
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.style.borderColor = isSuccess ? '#38bdf8' : '#e11d48';
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
+
+    async function syncActionToCloud(actionType, actionTitle) {
+      const btnText = document.getElementById("cloudSyncText");
+      if (btnText) btnText.textContent = "جاري الرفع لـ GitHub...";
+
+      try {
+        const payload = {
+          action: actionType,
+          title: actionTitle,
+          data: data,
+          employees: loadEmployees(),
+          timestamp: new Date().toISOString()
+        };
+
+        const res = await fetch('/api/sync-github', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          const result = await res.json();
+          if (btnText) btnText.textContent = "✓ تم الرفع لـ GitHub";
+          showCloudToast("تم رفع التحديث وتوثيقه مباشرة على GitHub و Cloudflare بنجاح! ☁️");
+          logAuditAction(
+            "SYSTEM_INIT",
+            "المزامنة السحابية",
+            "رفع التحديثات آلياً إلى GitHub و Cloudflare",
+            `تم دفع التعديل (${actionTitle}) بنجاح إلى المستودع الرسمي elgendy4433-cloud/saudization-dashboard.`
+          );
+        } else {
+          if (btnText) btnText.textContent = "مزامنة GitHub & Cloudflare";
+        }
+      } catch (err) {
+        // Running on static hosting or offline: graceful fallback
+        if (btnText) btnText.textContent = "مزامنة GitHub & Cloudflare";
+      }
+    }
+
+    function triggerManualCloudSync() {
+      syncActionToCloud("MANUAL_SYNC", "مزامنة يدوية شاملة لكافة البيانات والقرارات والموظفين");
     }
 
   </script>
@@ -4878,5 +4971,6 @@
     </div>
   </div>
 
+<div id="cloudToast" class="cloud-sync-toast">☁️ <span id="cloudToastMsg">تم التحديث والمزامنة</span></div>
 </body>
 </html>
