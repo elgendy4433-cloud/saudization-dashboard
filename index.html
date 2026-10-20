@@ -1459,6 +1459,151 @@
     color: #cbd5e1 !important;
   }
 
+
+  /* ================= EMPLOYEES & SUB-PROFESSIONS STYLES ================= */
+  .emp-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .emp-kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    box-shadow: var(--shadow-sm);
+  }
+  [data-theme="dark"] .emp-kpi-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+  .emp-kpi-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .emp-kpi-icon.teal { background: var(--teal-100); color: var(--teal-600); }
+  .emp-kpi-icon.emerald { background: var(--emerald-100); color: var(--emerald-600); }
+  .emp-kpi-icon.blue { background: var(--blue-100); color: var(--blue-600); }
+  .emp-kpi-icon.amber { background: var(--amber-100); color: var(--amber-600); }
+  .emp-kpi-icon.purple { background: var(--indigo-100); color: var(--indigo-600); }
+
+  [data-theme="dark"] .emp-kpi-icon.teal { background: #134e4a !important; color: #5eead4 !important; }
+  [data-theme="dark"] .emp-kpi-icon.emerald { background: #064e3b !important; color: #6ee7b7 !important; }
+  [data-theme="dark"] .emp-kpi-icon.blue { background: #1e3a8a !important; color: #93c5fd !important; }
+  [data-theme="dark"] .emp-kpi-icon.amber { background: #78350f !important; color: #fde68a !important; }
+  [data-theme="dark"] .emp-kpi-icon.purple { background: #312e81 !important; color: #c7d2fe !important; }
+
+  .emp-kpi-val {
+    font-size: 1.55rem;
+    font-weight: 800;
+    font-family: sans-serif;
+    color: var(--navy-900);
+    line-height: 1.1;
+  }
+  [data-theme="dark"] .emp-kpi-val {
+    color: #f8fafc !important;
+  }
+  .emp-kpi-lbl {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  /* Wage Compliance Badge */
+  .badge-wage-ok {
+    background: #ecfdf5;
+    color: #047857;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .badge-wage-ok {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+    border: 1px solid #059669 !important;
+  }
+
+  .badge-wage-low {
+    background: #fff1f2;
+    color: #be123c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .badge-wage-low {
+    background: #4c0519 !important;
+    color: #fda4af !important;
+    border: 1px solid #e11d48 !important;
+  }
+
+  .badge-saudi {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .badge-saudi {
+    background: #1e3a8a !important;
+    color: #93c5fd !important;
+    border: 1px solid #2563eb !important;
+  }
+
+  .badge-resident {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .badge-resident {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    border: 1px solid #334155 !important;
+  }
+
+  .subprof-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem;
+    box-shadow: var(--shadow-sm);
+  }
+  [data-theme="dark"] .subprof-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+
 </style>
 </head>
 <body>
@@ -1595,6 +1740,11 @@
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
         جدول المتابعة والأدلة الرسمية
         <span class="tab-badge" id="tabCountBadge">13</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('employees')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        👥 بيانات الموظفين والمهن التابعة
+        <span class="tab-badge" id="empCountBadge" style="background:#2563eb; color:white;">0</span>
       </button>
       <button class="tab-btn" onclick="switchTab('unified')">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
@@ -1927,6 +2077,137 @@
               <!-- Populated dynamically -->
             </tbody>
           </table>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- TAB: Employees and Linked Sub-Professions -->
+    <div id="pane-employees" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div class="panel-title">
+            <h2>👥 سجل الكادر البشري وربط المجموعات والمهن التابعة</h2>
+            <p>ربط آلي مباشر بين الموظف والمجموعة المهنية والمهنة التابعة، واحتساب الالتزام بالحد الأدنى للأجور وتحديث نسب التوطين</p>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="openAddEmployeeModal()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700;">
+              <span>➕</span> إضافة موظف جديد
+            </button>
+            <button class="btn btn-emerald" onclick="openImportModal()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700;">
+              <span>📥</span> استيراد موظفين (Excel / CSV)
+            </button>
+            <button class="btn btn-outline" onclick="downloadEmployeeTemplateCsv()" title="تحميل نموذج Excel المعتمد لتعبئة واستيراد الموظفين">
+              <span>📄</span> تحميل قالب الاستيراد
+            </button>
+            <button class="btn btn-outline" onclick="exportEmployeesToExcel()" title="تصدير السجل الكامل للموظفين مع تفاصيل المهن إلى Excel">
+              <span>📤</span> تصدير السجل Excel
+            </button>
+            <button class="btn btn-outline" onclick="syncEmployeesToDashboard()" style="color:var(--teal-600); font-weight:700;" title="تحديث نسب ومؤشرات التوطين في كافة اللوحة بناءً على بيانات الموظفين الفعلية">
+              <span>⚡</span> مزامنة المؤشرات آلياً
+            </button>
+          </div>
+        </div>
+
+        <!-- Employees KPI Cards -->
+        <div class="emp-kpi-grid">
+          <div class="emp-kpi-card">
+            <div class="emp-kpi-icon blue">👥</div>
+            <div>
+              <div class="emp-kpi-val" id="empKpiTotal">0</div>
+              <div class="emp-kpi-lbl">إجمالي الكادر البشري المسجل</div>
+            </div>
+          </div>
+          <div class="emp-kpi-card">
+            <div class="emp-kpi-icon emerald">🇸🇦</div>
+            <div>
+              <div class="emp-kpi-val" id="empKpiSaudis">0</div>
+              <div class="emp-kpi-lbl">الموظفون المواطنون (سعوديون)</div>
+            </div>
+          </div>
+          <div class="emp-kpi-card">
+            <div class="emp-kpi-icon teal">💰</div>
+            <div>
+              <div class="emp-kpi-val" id="empKpiCompliantSaudis">0</div>
+              <div class="emp-kpi-lbl">سعوديون ملتزمون بالحد الأدنى للأجر</div>
+            </div>
+          </div>
+          <div class="emp-kpi-card">
+            <div class="emp-kpi-icon amber">🌍</div>
+            <div>
+              <div class="emp-kpi-val" id="empKpiResidents">0</div>
+              <div class="emp-kpi-lbl">الموظفون المقيمون (غير سعوديين)</div>
+            </div>
+          </div>
+          <div class="emp-kpi-card">
+            <div class="emp-kpi-icon purple">📈</div>
+            <div>
+              <div class="emp-kpi-val" id="empKpiRate">0%</div>
+              <div class="emp-kpi-lbl">نسبة التوطين المحتسبة نظاماً</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters & Search Toolbar -->
+        <div class="table-toolbar" style="margin-top:1.25rem;">
+          <div class="search-filter-group">
+            <input type="text" id="empSearchInput" class="form-input" placeholder="🔍 ابحث بالاسم، رقم الهوية، المهنة، أو رقم الجوال..." style="min-width:280px;" oninput="renderEmployeesTable()">
+            <select id="empGroupFilter" class="form-select" onchange="renderEmployeesTable()">
+              <option value="all">كافة المجموعات المهنية</option>
+            </select>
+            <select id="empNationalityFilter" class="form-select" onchange="renderEmployeesTable()">
+              <option value="all">كافة الجنسيات</option>
+              <option value="saudi">سعودي فقط 🇸🇦</option>
+              <option value="resident">مقيم فقط 🌍</option>
+            </select>
+            <select id="empWageFilter" class="form-select" onchange="renderEmployeesTable()">
+              <option value="all">كافة حالات الأجور</option>
+              <option value="compliant">ملتزم بالحد الأدنى للأجر 🟢</option>
+              <option value="low">أقل من الحد الأدنى 🔴</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-outline" onclick="resetEmpFilters()">إعادة ضبط التصفية</button>
+          </div>
+        </div>
+
+        <!-- Employees Table -->
+        <div class="table-container">
+          <table id="employeesTable">
+            <thead>
+              <tr>
+                <th style="width:50px; text-align:center;">#</th>
+                <th>اسم الموظف</th>
+                <th style="width:130px; text-align:center;">رقم الهوية / الإقامة</th>
+                <th>المجموعة المهنية المرتبطة</th>
+                <th>المهنة التابعة المعتمدة</th>
+                <th style="width:100px; text-align:center;">الجنسية</th>
+                <th style="width:120px; text-align:center;">الراتب الشهري</th>
+                <th style="width:120px; text-align:center;">الحد الأدنى للأجر</th>
+                <th style="width:160px; text-align:center;">حالة الاحتساب بالتوطين</th>
+                <th style="width:120px; text-align:center;">رقم الجوال</th>
+                <th style="width:110px; text-align:center;">إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="employeesTableBody">
+              <!-- Populated dynamically by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sub-Professions & Group Directory Drawer Section -->
+        <div style="margin-top:2rem; border-top:1px solid var(--border); padding-top:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+            <div>
+              <h3 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin:0;">دليل المجموعات المهنية وقوائم المهن التابعة المعتمدة وزارياً</h3>
+              <p style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">بيان المهن التخصصية المشمولة بكل قرار مع الحد الأدنى للأجر وجهة الاعتماد الرسمية</p>
+            </div>
+            <span style="font-size:0.78rem; font-weight:700; color:var(--teal-600); background:var(--teal-100); padding:3px 10px; border-radius:6px;">13 مجموعة مهنية معتمدة</span>
+          </div>
+          <div class="grid-3col" id="subProfessionsCatalogGrid">
+            <!-- Populated dynamically by JS -->
+          </div>
         </div>
 
       </div>
@@ -2315,6 +2596,7 @@
       if (tabId === 'timeline') renderTimeline();
       if (tabId === 'guides') renderOfficialGuides();
       if (tabId === 'audit') renderAuditTab();
+      if (tabId === 'employees') renderEmployeesTab();
     }
 
     
@@ -3196,6 +3478,7 @@
       initTheme();
       recordAccessLogin();
       updateAuditBadge();
+      updateEmployeeBadge();
       init();
     });
 
@@ -3598,6 +3881,839 @@
       window.print();
     }
 
+
+    /* ================= EMPLOYEES & SUB-PROFESSIONS LINKAGE SYSTEM ================= */
+    const EMP_STORAGE_KEY = "zamam_employees_roster_v2";
+
+    // Detailed Catalog of the 13 Groups with Approved Sub-Professions, Min Wages & Bodies
+    const PROFESSIONS_CATALOG = {
+      "المهن الهندسية": {
+        body: "الهيئة السعودية للمهندسين",
+        requiredRate: 0.30,
+        minWage: 8000,
+        minWageText: "8,000 ريال",
+        subProfessions: ["مهندس مدني", "مهندس كهربائي", "مهندس ميكانيكي", "مهندس معماري", "مهندس كيميائي", "مهندس حاسب آلي", "مهندس سلامة", "مهندس تخطيط ومشاريع"]
+      },
+      "المهن الفنية الهندسية": {
+        body: "الهيئة السعودية للمهندسين",
+        requiredRate: 0.30,
+        minWage: 5000,
+        minWageText: "5,000 ريال",
+        subProfessions: ["فني مدني", "فني مساحة", "فني كهرباء", "فني إلكترونيات", "فني ميكانيكا", "فني مختبر مواد", "مراقب أبنية وإنشاءات", "فني رسم هندسي"]
+      },
+      "مهن التسويق": {
+        body: "وزارة التجارة / وزارة الموارد البشرية",
+        requiredRate: 0.60,
+        minWage: 5500,
+        minWageText: "5,500 ريال",
+        subProfessions: ["اختصاصي تسويق", "مدير تسويق", "اختصاصي دعاية وإعلان", "كاتب محتوى تسويقي", "مسؤول تسويق رقمي", "مصمم حملات تسويقية", "أخصائي علاقات عامة"]
+      },
+      "المهن المحاسبية": {
+        body: "الهيئة السعودية للمراجعين والمحاسبين (SOCPA)",
+        requiredRate: 0.40,
+        minWage: 4500,
+        minWageText: "4,500 (دبلوم) / 6,000 (بكالوريوس)",
+        subProfessions: ["مدير حسابات", "محاسب عام", "محاسب تكاليف", "مراجع داخلي", "مدقق حسابات", "اختصاصي ضرائب وزكاة", "محلل مالي"]
+      },
+      "المهن الإدارية المساندة": {
+        body: "وزارة الموارد البشرية والتنمية الاجتماعية",
+        requiredRate: 1.00,
+        minWage: 4000,
+        minWageText: "4,000 ريال",
+        subProfessions: ["سكرتير", "مدير مكتب", "كاتب شؤون موظفين", "كاتب استقبال عام", "مدخل بيانات", "كاتب أرشيف ومستودع مستندات", "منسق إداري"]
+      },
+      "مهن المبيعات": {
+        body: "وزارة التجارة / وزارة الموارد البشرية",
+        requiredRate: 0.60,
+        minWage: 5500,
+        minWageText: "5,500 ريال",
+        subProfessions: ["مدير مبيعات", "مشرف مبيعات", "ممثل مبيعات", "اختصاصي تسعير", "مندوب مبيعات كبار العملاء", "أخصائي مبيعات تجزئة"]
+      },
+      "مهن المشتريات": {
+        body: "هيئة كفاءة الإنفاق والمشروعات الحكومية",
+        requiredRate: 0.70,
+        minWage: 4000,
+        minWageText: "4,000 ريال",
+        subProfessions: ["مدير مشتريات", "اختصاصي مشتريات", "مندوب مشتريات", "اختصاصي عقود ومناقصات وتوريد", "محلل سلاسل إمداد"]
+      },
+      "مشرف مسكن": {
+        body: "وزارة البلديات والإسكان",
+        requiredRate: 1.00,
+        minWage: 5000,
+        minWageText: "5,000 ريال",
+        subProfessions: ["مشرف مسكن", "مراقب سكن عمالي", "مسؤول سلامة وإشراف إسكان جماعي"]
+      },
+      "المهن القانونية": {
+        body: "وزارة العدل",
+        requiredRate: 0.70,
+        minWage: 5500,
+        minWageText: "5,500 ريال",
+        subProfessions: ["مستشار قانوني", "باحث قانوني", "اختصاصي عقود ومنازعات", "محامٍ ممارس", "أمين سر لجان قانونية"]
+      },
+      "وظائف هندسة الاتصالات وتقنية المعلومات": {
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        requiredRate: 0.25,
+        minWage: 7000,
+        minWageText: "7,000 ريال",
+        subProfessions: ["مهندس اتصالات", "مهندس شبكات", "مهندس أمن سيبراني", "مهندس بنية سحابية ومراكز بيانات", "مهندس نظم معلومات"]
+      },
+      "وظائف تطوير التطبيقات والبرمجة والتحليل": {
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        requiredRate: 0.25,
+        minWage: 7000,
+        minWageText: "7,000 ريال",
+        subProfessions: ["مطور برمجيات", "مبرمج تطبيقات جوال", "محلل نظم", "مهندس قواعد بيانات", "مطور واجهات مستخدم (UI/UX)"]
+      },
+      "وظائف الدعم الفني والوظائف الفنية للاتصالات": {
+        body: "هيئة الاتصالات والفضاء والتقنية",
+        requiredRate: 0.25,
+        minWage: 5000,
+        minWageText: "5,000 ريال",
+        subProfessions: ["فني دعم تقنية معلومات", "فني صيانة شبكات", "مأمور تشغيل مركز مساندة", "فني صيانة حاسب آلي"]
+      },
+      "مهن إدارة المشاريع": {
+        body: "الهيئة السعودية للمهندسين / PMI",
+        requiredRate: 0.70,
+        minWage: 6000,
+        minWageText: "6,000 ريال",
+        subProfessions: ["مدير مشروع", "اختصاصي إدارة مشاريع", "منسق مشاريع", "اختصاصي مكتب إدارة المشاريع (PMO)"]
+      }
+    };
+
+    // Realistic Sample Employee Roster generating matching counts (164 staff: 132 Saudis, 105 compliant, 32 residents)
+    function generateInitialEmployeeRoster() {
+      const saudiFirst = ["محمد", "عبد الله", "خالد", "أحمد", "سعود", "فهد", "سلطان", "فيصل", "سعد", "تركي", "نواف", "عبد الرحمن", "سارة", "نورة", "ريم", "منى", "فاطمة", "هند", "أمل", "مها"];
+      const saudiLast = ["العتيبي", "القحطاني", "الغامدي", "الشهري", "الدوسري", "الحربي", "المطيري", "الزهراني", "الشمري", "الرويلي", "الخالدي", "السالم", "العنزي", "المالكي", "الصبحي"];
+      const resFirst = ["طارق", "كريم", "حازم", "مصطفى", "عمر", "إسلام", "يوسف", "زياد", "مروان", "سامح", "محمد", "علي", "جون", "ديفيد", "راهول"];
+      const resLast = ["الشناوي", "منصور", "المهدي", "حسن", "إبراهيم", "عثمان", "رضوان", "النجار", "خليل", "خان", "كومار", "فاروق"];
+
+      let empIdCounter = 1000;
+      let employees = [];
+
+      // Define distribution according to the real dashboard groups:
+      const groupSpecs = [
+        { name: "المهن الهندسية", saCompliant: 7, saLow: 1, res: 8, wage: 8000 },
+        { name: "المهن الفنية الهندسية", saCompliant: 16, saLow: 21, res: 9, wage: 5000 },
+        { name: "مهن التسويق", saCompliant: 8, saLow: 0, res: 5, wage: 5500 },
+        { name: "المهن المحاسبية", saCompliant: 1, saLow: 0, res: 3, wage: 4500 },
+        { name: "المهن الإدارية المساندة", saCompliant: 52, saLow: 0, res: 0, wage: 4000 },
+        { name: "مهن المبيعات", saCompliant: 8, saLow: 0, res: 0, wage: 5500 },
+        { name: "مهن المشتريات", saCompliant: 3, saLow: 0, res: 1, wage: 4000 },
+        { name: "مشرف مسكن", saCompliant: 0, saLow: 0, res: 0, wage: 5000 },
+        { name: "المهن القانونية", saCompliant: 1, saLow: 0, res: 0, wage: 5500 },
+        { name: "وظائف هندسة الاتصالات وتقنية المعلومات", saCompliant: 2, saLow: 0, res: 2, wage: 7000 },
+        { name: "وظائف تطوير التطبيقات والبرمجة والتحليل", saCompliant: 1, saLow: 0, res: 2, wage: 7000 },
+        { name: "وظائف الدعم الفني والوظائف الفنية للاتصالات", saCompliant: 2, saLow: 0, res: 1, wage: 5000 },
+        { name: "مهن إدارة المشاريع", saCompliant: 1, saLow: 0, res: 0, wage: 6000 }
+      ];
+
+      groupSpecs.forEach((spec) => {
+        const cat = PROFESSIONS_CATALOG[spec.name];
+        const subList = cat ? cat.subProfessions : [spec.name];
+
+        // 1. Saudis compliant with wage
+        for (let i = 0; i < spec.saCompliant; i++) {
+          empIdCounter++;
+          const fn = saudiFirst[empIdCounter % saudiFirst.length];
+          const ln = saudiLast[(empIdCounter * 3) % saudiLast.length];
+          const sub = subList[i % subList.length];
+          employees.push({
+            id: "EMP-" + empIdCounter,
+            name: fn + " " + ln,
+            nationalId: "10" + String(10000000 + empIdCounter).slice(-8),
+            professionGroup: spec.name,
+            subProfession: sub,
+            nationality: "سعودي",
+            isSaudi: true,
+            salary: spec.wage + ((i % 5) * 500) + 200,
+            mobile: "05" + String(50000000 + empIdCounter).slice(-8)
+          });
+        }
+
+        // 2. Saudis below minimum wage
+        for (let i = 0; i < spec.saLow; i++) {
+          empIdCounter++;
+          const fn = saudiFirst[empIdCounter % saudiFirst.length];
+          const ln = saudiLast[(empIdCounter * 2) % saudiLast.length];
+          const sub = subList[i % subList.length];
+          employees.push({
+            id: "EMP-" + empIdCounter,
+            name: fn + " " + ln,
+            nationalId: "10" + String(10000000 + empIdCounter).slice(-8),
+            professionGroup: spec.name,
+            subProfession: sub,
+            nationality: "سعودي",
+            isSaudi: true,
+            salary: Math.max(3000, spec.wage - 800 - (i * 50)),
+            mobile: "05" + String(50000000 + empIdCounter).slice(-8)
+          });
+        }
+
+        // 3. Residents
+        for (let i = 0; i < spec.res; i++) {
+          empIdCounter++;
+          const fn = resFirst[empIdCounter % resFirst.length];
+          const ln = resLast[(empIdCounter * 4) % resLast.length];
+          const sub = subList[i % subList.length];
+          employees.push({
+            id: "EMP-" + empIdCounter,
+            name: fn + " " + ln,
+            nationalId: "24" + String(20000000 + empIdCounter).slice(-8),
+            professionGroup: spec.name,
+            subProfession: sub,
+            nationality: "مقيم",
+            isSaudi: false,
+            salary: spec.wage + (i * 200),
+            mobile: "05" + String(60000000 + empIdCounter).slice(-8)
+          });
+        }
+      });
+
+      return employees;
+    }
+
+    function loadEmployees() {
+      try {
+        const raw = localStorage.getItem(EMP_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch(e) {}
+      const initRoster = generateInitialEmployeeRoster();
+      saveEmployees(initRoster);
+      return initRoster;
+    }
+
+    function saveEmployees(list) {
+      localStorage.setItem(EMP_STORAGE_KEY, JSON.stringify(list));
+      updateEmployeeBadge();
+    }
+
+    function updateEmployeeBadge() {
+      const badge = document.getElementById("empCountBadge");
+      if (badge) {
+        const emps = loadEmployees();
+        badge.textContent = emps.length;
+      }
+    }
+
+    function getGroupForSubProf(subProfName) {
+      if (!subProfName) return "المهن الإدارية المساندة";
+      const cleanSub = subProfName.trim().toLowerCase();
+      for (const [groupName, info] of Object.entries(PROFESSIONS_CATALOG)) {
+        for (const sp of info.subProfessions) {
+          if (cleanSub.includes(sp.toLowerCase()) || sp.toLowerCase().includes(cleanSub)) {
+            return groupName;
+          }
+        }
+      }
+      return "المهن الإدارية المساندة";
+    }
+
+    function renderEmployeesTab() {
+      const emps = loadEmployees();
+      const cat = PROFESSIONS_CATALOG;
+
+      // Calculate Metrics
+      let total = emps.length;
+      let saudis = 0;
+      let compliantSaudis = 0;
+      let residents = 0;
+
+      emps.forEach(e => {
+        const grp = cat[e.professionGroup] || { minWage: 4000 };
+        const meetsWage = Number(e.salary) >= grp.minWage;
+        if (e.nationality === "سعودي" || e.isSaudi) {
+          saudis++;
+          if (meetsWage) compliantSaudis++;
+        } else {
+          residents++;
+        }
+      });
+
+      const rate = (compliantSaudis + residents) > 0 ? (compliantSaudis / (compliantSaudis + residents)) : 0;
+
+      document.getElementById("empKpiTotal").textContent = fmtNum(total);
+      document.getElementById("empKpiSaudis").textContent = fmtNum(saudis);
+      document.getElementById("empKpiCompliantSaudis").textContent = fmtNum(compliantSaudis);
+      document.getElementById("empKpiResidents").textContent = fmtNum(residents);
+      document.getElementById("empKpiRate").textContent = fmtPct(rate);
+
+      // Populate group filter dropdown if empty
+      const grpFilter = document.getElementById("empGroupFilter");
+      if (grpFilter && grpFilter.options.length <= 1) {
+        grpFilter.innerHTML = '<option value="all">كافة المجموعات المهنية</option>' +
+          Object.keys(PROFESSIONS_CATALOG).map(g => `<option value="${g}">${g}</option>`).join('');
+      }
+
+      renderEmployeesTable();
+      renderSubProfessionsDirectory();
+      updateEmployeeBadge();
+    }
+
+    function renderEmployeesTable() {
+      const q = (document.getElementById("empSearchInput")?.value || "").trim().toLowerCase();
+      const grpFilter = document.getElementById("empGroupFilter")?.value || "all";
+      const natFilter = document.getElementById("empNationalityFilter")?.value || "all";
+      const wageFilter = document.getElementById("empWageFilter")?.value || "all";
+
+      const emps = loadEmployees();
+      const cat = PROFESSIONS_CATALOG;
+
+      const filtered = emps.filter(e => {
+        const matchQ = (e.name || "").toLowerCase().includes(q) ||
+                       (e.nationalId || "").includes(q) ||
+                       (e.subProfession || "").toLowerCase().includes(q) ||
+                       (e.mobile || "").includes(q);
+
+        const matchGrp = grpFilter === "all" || e.professionGroup === grpFilter;
+        const isSa = e.nationality === "سعودي" || e.isSaudi;
+        const matchNat = natFilter === "all" || (natFilter === "saudi" ? isSa : !isSa);
+
+        const groupInfo = cat[e.professionGroup] || { minWage: 4000 };
+        const meetsWage = Number(e.salary) >= groupInfo.minWage;
+        const matchWage = wageFilter === "all" || (wageFilter === "compliant" ? meetsWage : !meetsWage);
+
+        return matchQ && matchGrp && matchNat && matchWage;
+      });
+
+      const tbody = document.getElementById("employeesTableBody");
+      if (!tbody) return;
+
+      if (!filtered.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="11" style="text-align:center; padding:2rem; color:var(--text-muted);">
+              لا يوجد موظفون يطابقون خيارات البحث والتصفية المحددة.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((e, idx) => {
+        const groupInfo = cat[e.professionGroup] || { minWage: 4000, body: "عام" };
+        const meetsWage = Number(e.salary) >= groupInfo.minWage;
+        const isSa = e.nationality === "سعودي" || e.isSaudi;
+
+        let wageStatusBadge = '';
+        if (isSa) {
+          wageStatusBadge = meetsWage
+            ? '<span class="badge-wage-ok">🟢 محتسب بنسبة التوطين</span>'
+            : '<span class="badge-wage-low">⚠️ راتب أقل من الحد الأدنى (غير محتسب)</span>';
+        } else {
+          wageStatusBadge = '<span class="badge-resident">⚪ مقيم (في المقام)</span>';
+        }
+
+        const originalIndex = emps.findIndex(x => x.id === e.id);
+
+        return `
+          <tr>
+            <td style="text-align:center; font-family:sans-serif; font-size:0.8rem; color:var(--text-muted);">
+              ${idx + 1}
+            </td>
+            <td>
+              <strong style="color:var(--navy-900); font-size:0.88rem;">${safe(e.name)}</strong>
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-weight:700; font-size:0.82rem; color:var(--navy-900);">
+              ${safe(e.nationalId)}
+            </td>
+            <td>
+              <span class="body-badge" style="font-size:0.75rem;">
+                ${safe(e.professionGroup)}
+              </span>
+            </td>
+            <td>
+              <span style="font-weight:700; color:var(--teal-600); font-size:0.82rem;">
+                ${safe(e.subProfession)}
+              </span>
+            </td>
+            <td style="text-align:center;">
+              <span class="${isSa ? 'badge-saudi' : 'badge-resident'}">
+                ${isSa ? '🇸🇦 سعودي' : '🌍 مقيم'}
+              </span>
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-weight:800; font-size:0.88rem; color:var(--navy-900);">
+              ${fmtNum(e.salary)} ر.س
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-size:0.78rem; color:var(--text-muted);">
+              ${fmtNum(groupInfo.minWage)} ر.س
+            </td>
+            <td style="text-align:center;">
+              ${wageStatusBadge}
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-size:0.8rem; direction:ltr;">
+              ${safe(e.mobile || '—')}
+            </td>
+            <td style="text-align:center;">
+              <div style="display:inline-flex; gap:4px;">
+                <button onclick="editEmployeeById('${e.id}')" class="btn btn-outline" style="padding:0.25rem 0.45rem; font-size:0.72rem;" title="تعديل بيانات الموظف">
+                  ✏️
+                </button>
+                <button onclick="deleteEmployeeById('${e.id}')" class="btn btn-outline" style="padding:0.25rem 0.45rem; font-size:0.72rem; color:var(--rose-600);" title="حذف الموظف من السجل">
+                  🗑️
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderSubProfessionsDirectory() {
+      const container = document.getElementById("subProfessionsCatalogGrid");
+      if (!container) return;
+      const emps = loadEmployees();
+
+      container.innerHTML = Object.entries(PROFESSIONS_CATALOG).map(([groupName, info]) => {
+        const groupEmps = emps.filter(e => e.professionGroup === groupName);
+        const saCount = groupEmps.filter(e => e.nationality === "سعودي" || e.isSaudi).length;
+        const resCount = groupEmps.length - saCount;
+
+        return `
+          <div class="subprof-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.6rem;">
+              <div>
+                <h4 style="margin:0; font-size:0.95rem; font-weight:800; color:var(--navy-900);">${safe(groupName)}</h4>
+                <div style="font-size:0.72rem; color:var(--teal-600); font-weight:700; margin-top:2px;">🏛️ ${safe(info.body)}</div>
+              </div>
+              <span class="body-badge" style="font-size:0.7rem;">${groupEmps.length} موظف مرتبط</span>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:0.5rem 0.75rem; font-size:0.74rem; margin-bottom:0.75rem; display:flex; justify-content:space-between;">
+              <span>الحد الأدنى للأجر: <b>${info.minWageText}</b></span>
+              <span>النسبة المقررة: <b>${Math.round(info.requiredRate * 100)}%</b></span>
+            </div>
+
+            <div style="font-size:0.72rem; color:var(--text-muted); font-weight:700; margin-bottom:4px;">المهن التابعة المعتمدة رسمياً:</div>
+            <div style="display:flex; flex-wrap:wrap; gap:4px;">
+              ${info.subProfessions.map(sp => `<span class="profession-pill" style="font-size:0.7rem;">${safe(sp)}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function resetEmpFilters() {
+      const search = document.getElementById("empSearchInput");
+      const grp = document.getElementById("empGroupFilter");
+      const nat = document.getElementById("empNationalityFilter");
+      const wage = document.getElementById("empWageFilter");
+      if (search) search.value = "";
+      if (grp) grp.value = "all";
+      if (nat) nat.value = "all";
+      if (wage) wage.value = "all";
+      renderEmployeesTable();
+    }
+
+    /* Modal Add / Edit Employee */
+    function openAddEmployeeModal() {
+      document.getElementById("empEditId").value = "-1";
+      document.getElementById("empModalTitle").textContent = "إضافة موظف جديد";
+      document.getElementById("employeeForm").reset();
+
+      const grpSelect = document.getElementById("empGroupSelect");
+      grpSelect.innerHTML = Object.keys(PROFESSIONS_CATALOG).map(g => `<option value="${g}">${g}</option>`).join('');
+      onEmpGroupSelectChange();
+
+      document.getElementById("employeeModal").classList.add("active");
+    }
+
+    function closeEmployeeModal() {
+      document.getElementById("employeeModal").classList.remove("active");
+    }
+
+    function onEmpGroupSelectChange() {
+      const grpName = document.getElementById("empGroupSelect").value;
+      const subSelect = document.getElementById("empSubProfSelect");
+      const info = PROFESSIONS_CATALOG[grpName];
+
+      if (info && subSelect) {
+        subSelect.innerHTML = info.subProfessions.map(sp => `<option value="${sp}">${sp}</option>`).join('');
+      }
+      onEmpFormChange();
+    }
+
+    function onEmpSubProfSelectChange() {
+      onEmpFormChange();
+    }
+
+    function onEmpFormChange() {
+      const grpName = document.getElementById("empGroupSelect").value;
+      const subName = document.getElementById("empSubProfSelect").value;
+      const nat = document.getElementById("empNationalityInput").value;
+      const salary = Number(document.getElementById("empSalaryInput").value) || 0;
+      const box = document.getElementById("empWageValidationBox");
+
+      const info = PROFESSIONS_CATALOG[grpName] || { minWage: 4000, minWageText: "4,000 ريال", body: "عام" };
+      const meetsWage = salary >= info.minWage;
+
+      if (!box) return;
+
+      if (nat === "سعودي") {
+        if (salary === 0) {
+          box.innerHTML = `ℹ️ الحد الأدنى للأجر المعتمد لهذه المجموعة هو <strong>${info.minWageText}</strong> (جهة الاعتماد: ${info.body}).`;
+          box.style.borderColor = "var(--border)";
+          box.style.background = "#f8fafc";
+        } else if (meetsWage) {
+          box.innerHTML = `🟢 <strong>مستوفٍ للاحتساب:</strong> الراتب (${fmtNum(salary)} ر.س) يحقق الحد الأدنى للأجور (${info.minWageText})، وسيتم احتساب الموظف بالكامل ضمن نسبة التوطين.`;
+          box.style.borderColor = "#10b981";
+          box.style.background = "#ecfdf5";
+        } else {
+          box.innerHTML = `⚠️ <strong>تنبيه نظامي:</strong> الراتب (${fmtNum(salary)} ر.س) أقل من الحد الأدنى المقبول (${info.minWageText}). لن يُحتسب الموظف ضمن نسبة التوطين نظاماً حتى بلوغ الحد الأدنى.`;
+          box.style.borderColor = "#e11d48";
+          box.style.background = "#fff1f2";
+        }
+      } else {
+        box.innerHTML = `⚪ موظف مقيم: يتم احتسابه ضمن إجمالي القوى العاملة (المقام) ولا يشترط حد التوطين الأدنى.`;
+        box.style.borderColor = "var(--border)";
+        box.style.background = "#f8fafc";
+      }
+    }
+
+    function saveEmployeeForm(e) {
+      e.preventDefault();
+      const editId = document.getElementById("empEditId").value;
+      const name = document.getElementById("empNameInput").value.trim();
+      const nationalId = document.getElementById("empIdInput").value.trim();
+      const nationality = document.getElementById("empNationalityInput").value;
+      const professionGroup = document.getElementById("empGroupSelect").value;
+      const subProfession = document.getElementById("empSubProfSelect").value;
+      const salary = Number(document.getElementById("empSalaryInput").value);
+      const mobile = document.getElementById("empMobileInput").value.trim();
+
+      const emps = loadEmployees();
+
+      if (editId === "-1") {
+        // Add new employee
+        const newEmp = {
+          id: "EMP-" + (Date.now().toString().slice(-6)),
+          name,
+          nationalId,
+          professionGroup,
+          subProfession,
+          nationality,
+          isSaudi: nationality === "سعودي",
+          salary,
+          mobile
+        };
+        emps.unshift(newEmp);
+        logAuditAction(
+          "DATA_ADD",
+          "إدارة الكادر البشري",
+          `إضافة موظف جديد: (${name})`,
+          `تم تسجيل الموظف بهوية (${nationalId})، المهنة: (${subProfession}) التابعة لـ (${professionGroup})، الراتب: (${fmtNum(salary)} ر.س).`
+        );
+      } else {
+        // Edit existing
+        const idx = emps.findIndex(x => x.id === editId);
+        if (idx !== -1) {
+          emps[idx] = {
+            ...emps[idx],
+            name,
+            nationalId,
+            professionGroup,
+            subProfession,
+            nationality,
+            isSaudi: nationality === "سعودي",
+            salary,
+            mobile
+          };
+          logAuditAction(
+            "DATA_EDIT",
+            "إدارة الكادر البشري",
+            `تعديل بيانات الموظف: (${name})`,
+            `تحديث المهنة إلى (${subProfession})، المجموعة: (${professionGroup})، الراتب: (${fmtNum(salary)} ر.س).`
+          );
+        }
+      }
+
+      saveEmployees(emps);
+      closeEmployeeModal();
+      renderEmployeesTab();
+      alert("تم حفظ وتوثيق بيانات الموظف بنجاح!");
+    }
+
+    function editEmployeeById(empId) {
+      const emps = loadEmployees();
+      const emp = emps.find(x => x.id === empId);
+      if (!emp) return;
+
+      document.getElementById("empEditId").value = emp.id;
+      document.getElementById("empModalTitle").textContent = "تعديل بيانات الموظف";
+      document.getElementById("empNameInput").value = emp.name;
+      document.getElementById("empIdInput").value = emp.nationalId;
+      document.getElementById("empNationalityInput").value = emp.nationality || (emp.isSaudi ? "سعودي" : "مقيم");
+      
+      const grpSelect = document.getElementById("empGroupSelect");
+      grpSelect.innerHTML = Object.keys(PROFESSIONS_CATALOG).map(g => `<option value="${g}">${g}</option>`).join('');
+      grpSelect.value = emp.professionGroup;
+
+      onEmpGroupSelectChange();
+      document.getElementById("empSubProfSelect").value = emp.subProfession;
+      document.getElementById("empSalaryInput").value = emp.salary;
+      document.getElementById("empMobileInput").value = emp.mobile || "";
+
+      onEmpFormChange();
+      document.getElementById("employeeModal").classList.add("active");
+    }
+
+    function deleteEmployeeById(empId) {
+      const emps = loadEmployees();
+      const emp = emps.find(x => x.id === empId);
+      if (!emp) return;
+
+      if (!confirm(`هل أنت متأكد من حذف الموظف (${emp.name}) من السجل؟`)) return;
+
+      const filtered = emps.filter(x => x.id !== empId);
+      saveEmployees(filtered);
+      logAuditAction(
+        "DATA_EDIT",
+        "إدارة الكادر البشري",
+        `حذف الموظف: (${emp.name})`,
+        `تم حذف الموظف صاحب الهوية (${emp.nationalId}) من مجموعة (${emp.professionGroup}).`
+      );
+      renderEmployeesTab();
+    }
+
+    /* Automated Sync from Employee Roster to Main Dashboard Groups */
+    function syncEmployeesToDashboard() {
+      const emps = loadEmployees();
+      const cat = PROFESSIONS_CATALOG;
+
+      // Group counts
+      const counts = {};
+      data.forEach(item => {
+        counts[item.profession] = { saudis: 0, saudisMinimumWage: 0, residents: 0 };
+      });
+
+      emps.forEach(emp => {
+        const grpName = emp.professionGroup || getGroupForSubProf(emp.subProfession);
+        if (!counts[grpName]) counts[grpName] = { saudis: 0, saudisMinimumWage: 0, residents: 0 };
+
+        const grpInfo = cat[grpName] || { minWage: 4000 };
+        const meetsWage = Number(emp.salary) >= grpInfo.minWage;
+        const isSa = emp.nationality === "سعودي" || emp.isSaudi;
+
+        if (isSa) {
+          counts[grpName].saudis++;
+          if (meetsWage) counts[grpName].saudisMinimumWage++;
+        } else {
+          counts[grpName].residents++;
+        }
+      });
+
+      // Update data items
+      data.forEach(item => {
+        if (counts[item.profession]) {
+          item.saudis = counts[item.profession].saudis;
+          item.saudisMinimumWage = counts[item.profession].saudisMinimumWage;
+          item.residents = counts[item.profession].residents;
+        }
+      });
+
+      saveData();
+      renderKPIs();
+      renderUnifiedIndicators();
+      renderTable();
+      renderCountdownWidgets();
+
+      logAuditAction(
+        "DATA_EDIT",
+        "مزامنة البيانات",
+        "مزامنة مؤشرات ونسب التوطين بالداشبورد مع سجل الموظفين",
+        `تم تحديث مؤشرات 13 مجموعة مهنية استناداً إلى بيانات (${emps.length}) موظف فعلي بالسجل.`
+      );
+
+      alert("تمت مزامنة كافة مؤشرات الداشبورد ونسب التوطين آلياً مع سجل الموظفين الفعلي بنجاح!");
+    }
+
+    /* Employee Import Modal & Processing */
+    let _stagedImportRows = [];
+
+    function openImportModal() {
+      _stagedImportRows = [];
+      document.getElementById("empFileInput").value = "";
+      document.getElementById("selectedFileName").textContent = "يدعم ملفات CSV المحفوظة بترميز UTF-8";
+      document.getElementById("btnExecuteImport").disabled = true;
+      document.getElementById("employeeImportModal").classList.add("active");
+    }
+
+    function closeImportModal() {
+      document.getElementById("employeeImportModal").classList.remove("active");
+    }
+
+    function handleEmpFileSelect(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      document.getElementById("selectedFileName").textContent = `الملف المحدد: ${file.name} (${Math.round(file.size / 1024)} KB)`;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const text = e.target.result;
+        parseEmployeeCsv(text);
+      };
+      reader.readAsText(file, "UTF-8");
+    }
+
+    function parseEmployeeCsv(csvText) {
+      const lines = csvText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      if (lines.length < 2) {
+        alert("الملف فارغ أو لا يحتوي على صفوف بيانات كافية.");
+        return;
+      }
+
+      // Check header
+      const headerLine = lines[0];
+      const delimiter = headerLine.includes(';') ? ';' : ',';
+      const headers = headerLine.split(delimiter).map(h => h.replace(/^["']|["']$/g, '').trim());
+
+      const nameIdx = headers.findIndex(h => h.includes("اسم") || h.toLowerCase().includes("name"));
+      const idIdx = headers.findIndex(h => h.includes("هوية") || h.includes("إقامة") || h.toLowerCase().includes("id"));
+      const grpIdx = headers.findIndex(h => h.includes("مجموعة") || h.toLowerCase().includes("group"));
+      const subIdx = headers.findIndex(h => h.includes("مهنة") || h.toLowerCase().includes("profession") || h.toLowerCase().includes("job"));
+      const natIdx = headers.findIndex(h => h.includes("جنسية") || h.toLowerCase().includes("nationality"));
+      const salIdx = headers.findIndex(h => h.includes("راتب") || h.toLowerCase().includes("salary") || h.toLowerCase().includes("wage"));
+      const mobIdx = headers.findIndex(h => h.includes("جوال") || h.toLowerCase().includes("mobile") || h.toLowerCase().includes("phone"));
+
+      const rows = [];
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i];
+        if (!line) continue;
+        const cols = line.split(delimiter).map(c => c.replace(/^["']|["']$/g, '').trim());
+
+        const name = nameIdx !== -1 ? cols[nameIdx] : (cols[0] || 'موظف');
+        const nationalId = idIdx !== -1 ? cols[idIdx] : (cols[1] || '10' + Math.floor(10000000 + Math.random()*90000000));
+        let professionGroup = grpIdx !== -1 ? cols[grpIdx] : '';
+        const subProfession = subIdx !== -1 ? cols[subIdx] : 'إداري';
+        const nationality = natIdx !== -1 ? cols[natIdx] : (nationalId.startsWith('1') ? 'سعودي' : 'مقيم');
+        const salary = salIdx !== -1 ? (Number(cols[salIdx]) || 5000) : 5000;
+        const mobile = mobIdx !== -1 ? cols[mobIdx] : '0500000000';
+
+        if (!professionGroup) {
+          professionGroup = getGroupForSubProf(subProfession);
+        }
+
+        rows.push({
+          id: "EMP-" + (Date.now().toString().slice(-6)) + "-" + i,
+          name,
+          nationalId,
+          professionGroup,
+          subProfession,
+          nationality,
+          isSaudi: nationality.includes("سعودي"),
+          salary,
+          mobile
+        });
+      }
+
+      _stagedImportRows = rows;
+      document.getElementById("btnExecuteImport").disabled = false;
+      document.getElementById("selectedFileName").innerHTML = `✓ تم تحليل <strong>${rows.length}</strong> سجل موظف بنجاح، انقر "بدء الاستيراد والمعالجة".`;
+    }
+
+    function executeEmployeeImport() {
+      if (!_stagedImportRows.length) {
+        alert("الرجاء اختيار ملف صالح أولاً.");
+        return;
+      }
+
+      const mode = document.querySelector('input[name="importMode"]:checked')?.value || 'append';
+      let current = loadEmployees();
+
+      if (mode === 'replace') {
+        current = _stagedImportRows;
+      } else {
+        current = [..._stagedImportRows, ...current];
+      }
+
+      saveEmployees(current);
+
+      logAuditAction(
+        "DATA_ADD",
+        "استيراد الموظفين",
+        `استيراد بيانات (${_stagedImportRows.length}) موظف عبر ملف`,
+        `تم استيراد ومعالجة (${_stagedImportRows.length}) سجل موظف وربطهم بالمجموعات المهنية وتدقيق الأجور.`
+      );
+
+      closeImportModal();
+      renderEmployeesTab();
+      syncEmployeesToDashboard();
+
+      alert(`تم استيراد (${_stagedImportRows.length}) موظف بنجاح وربطهم آلياً بالمجموعات والمهن التابعة وتحديث مؤشرات اللوحة!`);
+    }
+
+    function downloadEmployeeTemplateCsv() {
+      const headers = ["اسم_الموظف", "رقم_الهوية_الاقامة", "المجموعة_المهنية", "المهنة_التابعة", "الجنسية", "الراتب_الشهري", "رقم_الجوال"];
+      const samples = [
+        ["أحمد عبد الله السالم", "1089234567", "المهن الهندسية", "مهندس مدني", "سعودي", "8500", "0501234567"],
+        ["سارة فهد العتيبي", "1098765432", "المهن المحاسبية", "محاسب عام", "سعودي", "6500", "0559876543"],
+        ["خالد محمد الغامدي", "1076543210", "مهن المبيعات", "ممثل مبيعات", "سعودي", "6000", "0561239874"],
+        ["طارق حازم منصور", "2489234567", "المهن الهندسية", "مهندس ميكانيكي", "مقيم", "8000", "0543218765"],
+        ["نورة سعود الدوسري", "1054321987", "المهن الإدارية المساندة", "سكرتير", "سعودي", "4500", "0532145698"]
+      ];
+
+      const csvContent = "\uFEFF" + [headers.join(","), ...samples.map(r => r.map(c => `"${c}"`).join(","))].join("\n");
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "نموذج_استيراد_بيانات_الموظفين_والمهن_المعتمد.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function exportEmployeesToExcel() {
+      const emps = loadEmployees();
+      if (!emps.length) {
+        alert("لا توجد بيانات موظفين لتصديرها.");
+        return;
+      }
+
+      const headers = ["الرقم_التسلسلي", "اسم_الموظف", "رقم_الهوية_الاقامة", "المجموعة_المهنية", "المهنة_التابعة", "الجنسية", "الراتب_الشهري", "الحد_الادنى_المعتمد", "حالة_الاحتساب_بالتوطين", "رقم_الجوال"];
+      const cat = PROFESSIONS_CATALOG;
+
+      const rows = emps.map((e, idx) => {
+        const info = cat[e.professionGroup] || { minWage: 4000 };
+        const meetsWage = Number(e.salary) >= info.minWage;
+        const isSa = e.nationality === "سعودي" || e.isSaudi;
+        const statusText = isSa ? (meetsWage ? "محتسب بنسبة التوطين" : "راتب أقل من الحد الأدنى (غير محتسب)") : "مقيم";
+
+        return [
+          idx + 1,
+          `"${(e.name || '').replace(/"/g, '""')}"`,
+          `"${(e.nationalId || '').replace(/"/g, '""')}"`,
+          `"${(e.professionGroup || '').replace(/"/g, '""')}"`,
+          `"${(e.subProfession || '').replace(/"/g, '""')}"`,
+          `"${(isSa ? 'سعودي' : 'مقيم')}"`,
+          Number(e.salary) || 0,
+          info.minWage,
+          `"${statusText}"`,
+          `"${(e.mobile || '').replace(/"/g, '""')}"`
+        ];
+      });
+
+      const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `سجل_الموظفين_والمهن_التابعة_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      logAuditAction(
+        "EXPORT_EXCEL",
+        "التقارير والتصدير",
+        "تصدير سجل الموظفين إلى Excel",
+        `تم استخراج ملف Excel يحتوي على سجل (${emps.length}) موظف وبيانات الرواتب والمهن التابعة.`
+      );
+    }
+
   </script>
 
   <!-- Countdown Control Modal -->
@@ -3650,6 +4766,113 @@
           <button onclick="closeCountdownModal()" class="btn btn-outline" style="padding:0.6rem 0.85rem; font-size:0.85rem;">
             إلغاء
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal for Adding / Editing Employee -->
+  <div class="modal-backdrop" id="employeeModal">
+    <div class="modal-box" style="max-width:680px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="empModalTitle">إضافة موظف جديد</h3>
+        <button onclick="closeEmployeeModal()" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+      <form id="employeeForm" onsubmit="saveEmployeeForm(event)">
+        <input type="hidden" id="empEditId" value="-1">
+        <div class="modal-form-grid">
+          <div class="form-group full">
+            <label class="form-label">اسم الموظف الرباعي *</label>
+            <input type="text" id="empNameInput" class="form-input" required placeholder="مثال: أحمد بن عبد الله السالم">
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم الهوية الوطنية / الإقامة (10 أرقام) *</label>
+            <input type="text" id="empIdInput" class="form-input" required pattern="[1-2][0-9]{9}" title="رقم الهوية يبدأ بـ 1 أو 2 ويتكون من 10 أرقام" placeholder="مثال: 1089234567">
+          </div>
+          <div class="form-group">
+            <label class="form-label">الجنسية *</label>
+            <select id="empNationalityInput" class="form-select" onchange="onEmpFormChange()">
+              <option value="سعودي">سعودي 🇸🇦</option>
+              <option value="مقيم">مقيم (غير سعودي) 🌍</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">المجموعة المهنية *</label>
+            <select id="empGroupSelect" class="form-select" required onchange="onEmpGroupSelectChange()"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">المهنة التابعة المعتمدة *</label>
+            <select id="empSubProfSelect" class="form-select" required onchange="onEmpSubProfSelectChange()"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">الراتب الشهري المسجل (ريال) *</label>
+            <input type="number" id="empSalaryInput" class="form-input" required min="1000" step="100" placeholder="مثال: 8500" oninput="onEmpFormChange()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم الجوال *</label>
+            <input type="tel" id="empMobileInput" class="form-input" required placeholder="مثال: 0501234567">
+          </div>
+          <div class="form-group full">
+            <div id="empWageValidationBox" style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem; font-size:0.8rem;">
+              <!-- Dynamic live validation info -->
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1.5rem; border-top:1px solid var(--border); padding-top:1rem;">
+          <button type="button" class="btn btn-outline" onclick="closeEmployeeModal()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ وتوثيق بيانات الموظف</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Importing Employees via Excel / CSV -->
+  <div class="modal-backdrop" id="employeeImportModal">
+    <div class="modal-box" style="max-width:620px;">
+      <div class="modal-header">
+        <div>
+          <span style="font-size:0.75rem; background:var(--emerald-100); color:var(--emerald-600); padding:2px 8px; border-radius:6px; font-weight:700;">استيراد آلي ذكي</span>
+          <h3 class="modal-title" style="margin-top:4px;">استيراد بيانات الموظفين (Excel / CSV)</h3>
+        </div>
+        <button onclick="closeImportModal()" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+      <div style="padding:0.5rem 0;">
+        <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+          ارفع ملف الموظفين بصيغة <strong>CSV أو Excel</strong>، وسيقوم النظام آلياً بربط كل موظف بمجموعته المهنية والمهنة التابعة، والتحقق من الحد الأدنى للأجر واحتساب التوطين.
+        </p>
+        
+        <div style="border:2px dashed var(--teal-600); border-radius:12px; padding:2rem 1.5rem; text-align:center; background:rgba(13,148,136,0.04); margin-bottom:1.25rem;">
+          <div style="font-size:2.4rem; margin-bottom:0.5rem;">📁</div>
+          <label for="empFileInput" style="cursor:pointer; display:inline-block; font-weight:800; color:var(--teal-600); font-size:0.95rem; text-decoration:underline;">
+            انقر لاختيار ملف (Excel / CSV)
+          </label>
+          <input type="file" id="empFileInput" accept=".csv, text/csv, application/vnd.ms-excel" style="display:none;" onchange="handleEmpFileSelect(event)">
+          <div id="selectedFileName" style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">يدعم ملفات CSV المحفوظة بترميز UTF-8</div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem; margin-bottom:1rem;">
+          <span style="font-size:0.8rem; font-weight:700; color:var(--navy-900);">طريقة معالجة البيانات المستوردة:</span>
+          <div style="display:flex; gap:12px; font-size:0.8rem;">
+            <label style="cursor:pointer; display:flex; align-items:center; gap:5px;">
+              <input type="radio" name="importMode" value="append" checked> إضافة إلى السجل
+            </label>
+            <label style="cursor:pointer; display:flex; align-items:center; gap:5px;">
+              <input type="radio" name="importMode" value="replace"> استبدال السجل بالكامل
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <button type="button" class="btn btn-outline" onclick="downloadEmployeeTemplateCsv()" style="font-size:0.78rem;">
+            <span>📄</span> تحميل نموذج Excel فارغ
+          </button>
+          <div style="display:flex; gap:8px;">
+            <button type="button" class="btn btn-outline" onclick="closeImportModal()">إلغاء</button>
+            <button type="button" class="btn btn-emerald" id="btnExecuteImport" onclick="executeEmployeeImport()" disabled>
+              بدء الاستيراد والمعالجة
+            </button>
+          </div>
         </div>
       </div>
     </div>
