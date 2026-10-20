@@ -941,6 +941,333 @@
     color: #f8fafc !important;
   }
 
+
+  /* ================= ENHANCED DARK MODE & TEXT CLARITY RULES ================= */
+  .badge-ministerial-decision {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  [data-theme="dark"] .badge-ministerial-decision {
+    background: #0c4a6e !important;
+    color: #38bdf8 !important;
+    border: 1px solid #0284c7 !important;
+  }
+
+  .guide-body-pill {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  [data-theme="dark"] .guide-body-pill {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    border: 1px solid #334155 !important;
+  }
+
+  .guide-meta-box {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    color: var(--navy-800);
+  }
+  [data-theme="dark"] .guide-meta-box {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+  }
+  [data-theme="dark"] .guide-meta-box strong {
+    color: #38bdf8 !important;
+  }
+
+  .body-card-item {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+  [data-theme="dark"] .body-card-item {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .profession-pill {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+  [data-theme="dark"] .profession-pill {
+    background: #0f172a !important;
+    color: #93c5fd !important;
+    border: 1px solid #334155 !important;
+  }
+
+  .sim-card-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  [data-theme="dark"] .sim-card-box {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+  }
+
+  .sim-result-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    text-align: center;
+  }
+  [data-theme="dark"] .sim-result-box {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+
+  .sim-gap-box-danger {
+    background: #fff1f2;
+    border-right: 4px solid var(--rose-600);
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #9f1239;
+  }
+  [data-theme="dark"] .sim-gap-box-danger {
+    background: #4c0519 !important;
+    border-right-color: #f43f5e !important;
+    color: #fecdd3 !important;
+  }
+
+  .sim-gap-box-success {
+    background: #ecfdf5;
+    border-right: 4px solid var(--emerald-600);
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #065f46;
+  }
+  [data-theme="dark"] .sim-gap-box-success {
+    background: #064e3b !important;
+    border-right-color: #10b981 !important;
+    color: #a7f3d0 !important;
+  }
+
+  .badge-countdown-active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+  [data-theme="dark"] .badge-countdown-active {
+    background: #1e3a8a !important;
+    color: #93c5fd !important;
+    border: 1px solid #2563eb !important;
+  }
+
+  .badge-countdown-passed {
+    background: #ecfdf5;
+    color: #047857;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+  [data-theme="dark"] .badge-countdown-passed {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+    border: 1px solid #059669 !important;
+  }
+
+  .countdown-passed-banner {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    padding: 0.85rem;
+    text-align: center;
+    color: #065f46;
+    font-weight: 700;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+  [data-theme="dark"] .countdown-passed-banner {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: #10b981 !important;
+    color: #34d399 !important;
+  }
+
+  .badge-custom {
+    font-size: 0.65rem;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+  }
+  [data-theme="dark"] .badge-custom {
+    background: #78350f !important;
+    color: #fde68a !important;
+    border: 1px solid #92400e !important;
+  }
+
+  /* Dark mode overrides for Top Alert Banner */
+  [data-theme="dark"] .alert-banner {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    border-right: 4px solid var(--teal-600) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+  }
+  [data-theme="dark"] .alert-content {
+    color: #f1f5f9 !important;
+  }
+  [data-theme="dark"] .alert-content strong {
+    color: #38bdf8 !important;
+  }
+  [data-theme="dark"] .alert-content u {
+    color: #5eead4 !important;
+  }
+  [data-theme="dark"] .alert-icon {
+    background: #0f172a !important;
+    color: #2dd4bf !important;
+    border: 1px solid #334155 !important;
+  }
+
+  /* Dark mode overrides for Unified Metric Cards */
+  [data-theme="dark"] .unified-metric-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+  [data-theme="dark"] .unified-metric-card:hover {
+    border-color: #475569 !important;
+  }
+  [data-theme="dark"] .unified-title {
+    color: #f8fafc !important;
+  }
+  [data-theme="dark"] .unified-title span:first-child {
+    color: #f8fafc !important;
+  }
+  [data-theme="dark"] .unified-badge-body {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    border: 1px solid #334155 !important;
+  }
+  [data-theme="dark"] .unified-track-footer {
+    color: #94a3b8 !important;
+  }
+  [data-theme="dark"] .unified-track-footer b {
+    color: #f8fafc !important;
+  }
+  [data-theme="dark"] .unified-req-val {
+    color: #94a3b8 !important;
+  }
+  [data-theme="dark"] .unified-cur-val {
+    color: #94a3b8 !important;
+  }
+
+  /* Dark mode overrides for Accounting Note Box */
+  [data-theme="dark"] .accounting-note-box {
+    background: #1e1b4b !important;
+    border-right-color: #818cf8 !important;
+    color: #c7d2fe !important;
+    border-top: 1px solid #312e81 !important;
+    border-bottom: 1px solid #312e81 !important;
+    border-left: 1px solid #312e81 !important;
+  }
+  [data-theme="dark"] .accounting-note-box strong {
+    color: #a5b4fc !important;
+  }
+
+  /* Dark mode overrides for Guide Viewer Modal */
+  [data-theme="dark"] .guide-modal-box {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6) !important;
+  }
+  [data-theme="dark"] .guide-section {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+  }
+  [data-theme="dark"] .guide-section h4 {
+    color: #38bdf8 !important;
+  }
+  [data-theme="dark"] .guide-section b {
+    color: #f8fafc !important;
+  }
+  [data-theme="dark"] .guide-section p {
+    color: #cbd5e1 !important;
+  }
+
+  /* Dark mode Status Badges High Contrast */
+  [data-theme="dark"] .badge-compliant {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+    border: 1px solid #059669 !important;
+  }
+  [data-theme="dark"] .badge-compliant .badge-dot {
+    background: #34d399 !important;
+  }
+  [data-theme="dark"] .badge-below {
+    background: #4c0519 !important;
+    color: #fda4af !important;
+    border: 1px solid #e11d48 !important;
+  }
+  [data-theme="dark"] .badge-below .badge-dot {
+    background: #f43f5e !important;
+  }
+  [data-theme="dark"] .badge-exempt {
+    background: #1e1b4b !important;
+    color: #c7d2fe !important;
+    border: 1px solid #6366f1 !important;
+  }
+  [data-theme="dark"] .badge-exempt .badge-dot {
+    background: #818cf8 !important;
+  }
+
+  /* Dark mode Simulator inputs */
+  [data-theme="dark"] #simTargetRateInput {
+    background: #1e293b !important;
+    color: #38bdf8 !important;
+    border-color: #334155 !important;
+  }
+  [data-theme="dark"] #simBodyResult {
+    color: #38bdf8 !important;
+  }
+
+
 </style>
 </head>
 <body>
@@ -1187,7 +1514,7 @@
           </div>
         </div>
 
-        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
+        <div class="sim-card-box">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
             <div class="form-group">
               <label class="form-label">المجموعة المهنية</label>
@@ -1208,7 +1535,7 @@
           </div>
 
           <!-- Simulation Result Display -->
-          <div style="background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.25rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; text-align:center;">
+          <div class="sim-result-box">
             <div>
               <div style="font-size:0.75rem; color:var(--text-muted);">النسبة المحتسبة (ملتزمون بالأجر)</div>
               <div style="font-size:1.6rem; font-weight:800; color:var(--teal-600);" id="simCalculatedRate">—</div>
@@ -1899,8 +2226,8 @@
         const isActiveCountdown = !t.isPassed && item.enabled;
 
         let badgeHtml = isActiveCountdown
-          ? '<span style="background:#eff6ff; color:#1d4ed8; font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:9999px;">⏳ قيد العد التنازلي</span>'
-          : '<span style="background:#ecfdf5; color:#047857; font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:9999px;">● دخل حيز التنفيذ</span>';
+          ? '<span class="badge-countdown-active">⏳ قيد العد التنازلي</span>'
+          : '<span class="badge-countdown-passed">● دخل حيز التنفيذ</span>';
 
         let timerBox = isActiveCountdown ? `
           <div class="countdown-timer-box">
@@ -1922,7 +2249,7 @@
             </div>
           </div>
         ` : `
-          <div style="background:rgba(16,185,129,0.08); border:1px solid #10b981; border-radius:8px; padding:0.85rem; text-align:center; color:#065f46; font-weight:700; margin:1rem 0; font-size:0.85rem;">
+          <div class="countdown-passed-banner">
             القرار سارٍ ومطبق رسمياً منذ ${safe(item.countdownTargetDate)}
           </div>
         `;
@@ -1933,7 +2260,7 @@
               <div>
                 <h4 style="margin:0; font-size:1rem; font-weight:800; color:var(--navy-900); display:flex; align-items:center; gap:6px;">
                   <span>${safe(item.profession)}</span>
-                  ${item.isCustom ? '<span style="font-size:0.65rem; background:#fef3c7; color:#92400e; padding:1px 5px; border-radius:4px; font-weight:700;">مخصص</span>' : ''}
+                  ${item.isCustom ? '<span class="badge-custom">مخصص</span>' : ''}
                 </h4>
                 <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">
                   ${item.countdownLabel ? `<span style="color:#0284c7; font-weight:600;">📌 ${safe(item.countdownLabel)}</span><br>` : ''}
@@ -1987,7 +2314,7 @@
             <div>
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
                 <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900); margin:0;">${safe(item.profession)}</h3>
-                <span style="background:${t.isPassed ? '#ecfdf5' : '#eff6ff'}; color:${t.isPassed ? '#047857' : '#1d4ed8'}; font-size:0.72rem; font-weight:700; padding:2px 7px; border-radius:9999px;">
+                <span class="${t.isPassed ? 'badge-countdown-passed' : 'badge-countdown-active'}">
                   ${t.isPassed ? '● نافذ وسارٍ' : '⏳ سريان مستقبلي'}
                 </span>
               </div>
@@ -2025,14 +2352,14 @@
             <div>
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
                 <div>
-                  <span style="font-size:0.72rem; font-weight:700; color:#0284c7; background:#e0f2fe; padding:2px 6px; border-radius:4px; display:inline-block; margin-bottom:4px;">
+                  <span class="badge-ministerial-decision">
                     قرار وزاري معتمد
                   </span>
                   <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy-900); margin:0;">
                     ${safe(item.profession)}
                   </h3>
                 </div>
-                <span style="background:#f1f5f9; color:#475569; font-size:0.72rem; font-weight:700; padding:2px 7px; border-radius:6px;">
+                <span class="guide-body-pill">
                   ${safe(item.body || 'عام')}
                 </span>
               </div>
@@ -2041,7 +2368,7 @@
                 ${safe(item.note || 'الدليل الإجرائي المعتمد لقرار توطين ' + item.profession + ' متضمناً قائمة المهن وآلية الاحتساب والتدرج في التطبيق.')}
               </p>
 
-              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:0.65rem 0.75rem; font-size:0.78rem; line-height:1.6; margin-bottom:0.75rem;">
+              <div class="guide-meta-box">
                 <div>🎯 <strong>النسبة المقررة:</strong> ${item.requiredRate ? Math.round(item.requiredRate * 100) + '%' : 'غير محدد'}</div>
                 <div>💰 <strong>الحد الأدنى للأجر:</strong> ${item.minimumWage ? item.minimumWage + ' ر.س' : 'غير محدد'}</div>
                 <div>📅 <strong>تاريخ السريان:</strong> ${safe(item.effectiveDate)}</div>
@@ -2391,11 +2718,11 @@
         document.getElementById("simGapResult").textContent = gap > 0 ? `+${gap} سعودي ملتزم بالأجر` : '0 (مستوفٍ)';
         document.getElementById("simGapResult").style.color = gap > 0 ? 'var(--rose-600)' : 'var(--emerald-600)';
         document.getElementById("simNoteBox").innerHTML = gap > 0 ? `
-          <div style="background:#fff1f2; border-right:4px solid var(--rose-600); padding:0.6rem 0.85rem; border-radius:8px; font-size:0.8rem; color:#9f1239;">
+          <div class="sim-gap-box-danger">
             يلزم تعيين <b>${gap} مواطن سعودي</b> براتب لا يقل عن <b>${item.minimumWage} ريال</b> وتسجيله في (<b>${item.body}</b>) للوصول إلى نسبة الامتثال المطلوبة (${fmtPct(reqRate)}).
           </div>
         ` : `
-          <div style="background:#ecfdf5; border-right:4px solid var(--emerald-600); padding:0.6rem 0.85rem; border-radius:8px; font-size:0.8rem; color:#065f46;">
+          <div class="sim-gap-box-success">
             ✓ التركيبة الحالية للموظفين مستوفية لاشتراطات النسبة المقررة بنجاح.
           </div>
         `;
@@ -2424,7 +2751,7 @@
         }
 
         return `
-          <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; box-shadow:var(--shadow-sm);">
+          <div class="body-card-item">
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.75rem;">
               <span style="font-size:1.4rem;">🏛️</span>
               <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900);">${safe(bodyName)}</h3>
@@ -2432,10 +2759,10 @@
             <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
               ${roleDesc}
             </p>
-            <div style="border-top:1px solid #f1f5f9; padding-top:0.75rem;">
+            <div style="border-top:1px solid var(--border); padding-top:0.75rem; margin-top:auto;">
               <span style="font-size:0.75rem; font-weight:700; color:var(--navy-800);">المهن التابعة المشمولة بالقرارات:</span>
               <div style="display:flex; flex-wrap:wrap; gap:4px; margin-top:6px;">
-                ${professions.map(p => `<span style="background:#f1f5f9; color:#1e293b; padding:2px 7px; border-radius:6px; font-size:0.72rem; font-weight:600;">${safe(p)}</span>`).join('')}
+                ${professions.map(p => `<span class="profession-pill">${safe(p)}</span>`).join('')}
               </div>
             </div>
           </div>
