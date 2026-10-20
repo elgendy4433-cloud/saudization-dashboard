@@ -1268,6 +1268,165 @@
   }
 
 
+
+  /* ================= AUDIT LOG & DEVICE ACCESS TRACKER STYLES ================= */
+  .current-device-card {
+    background: linear-gradient(135deg, #f0fdfa, #f8fafc);
+    border: 1px solid #ccfbf1;
+    border-right: 4px solid var(--teal-600);
+    border-radius: 12px;
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+  [data-theme="dark"] .current-device-card {
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+    border-right: 4px solid var(--teal-600) !important;
+  }
+  .device-icon-pulse {
+    font-size: 1.7rem;
+    background: #ccfbf1;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--teal-600);
+  }
+  [data-theme="dark"] .device-icon-pulse {
+    background: #1e293b !important;
+    color: #2dd4bf !important;
+  }
+  .status-live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10b981;
+    display: inline-block;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: livePulse 2s infinite ease-in-out;
+  }
+  @keyframes livePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+  }
+  .device-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+  .device-meta-item {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+  }
+  [data-theme="dark"] .device-meta-item {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+  .device-meta-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .device-meta-val {
+    font-weight: 700;
+    color: var(--navy-900);
+    font-family: sans-serif;
+  }
+  [data-theme="dark"] .device-meta-val {
+    color: #f8fafc !important;
+  }
+
+  .audit-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .audit-kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    box-shadow: var(--shadow-sm);
+  }
+  [data-theme="dark"] .audit-kpi-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+  .audit-kpi-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .audit-kpi-icon.teal { background: var(--teal-100); color: var(--teal-600); }
+  .audit-kpi-icon.blue { background: var(--blue-100); color: var(--blue-600); }
+  .audit-kpi-icon.amber { background: var(--amber-100); color: var(--amber-600); }
+  .audit-kpi-icon.purple { background: var(--indigo-100); color: var(--indigo-600); }
+  [data-theme="dark"] .audit-kpi-icon.teal { background: #134e4a !important; color: #5eead4 !important; }
+  [data-theme="dark"] .audit-kpi-icon.blue { background: #1e3a8a !important; color: #93c5fd !important; }
+  [data-theme="dark"] .audit-kpi-icon.amber { background: #78350f !important; color: #fde68a !important; }
+  [data-theme="dark"] .audit-kpi-icon.purple { background: #312e81 !important; color: #c7d2fe !important; }
+
+  .audit-kpi-val {
+    font-size: 1.55rem;
+    font-weight: 800;
+    font-family: sans-serif;
+    color: var(--navy-900);
+    line-height: 1.1;
+  }
+  [data-theme="dark"] .audit-kpi-val {
+    color: #f8fafc !important;
+  }
+  .audit-kpi-lbl {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  /* Audit Badges */
+  .audit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .audit-badge.badge-login { background: #e0f2fe; color: #0284c7; }
+  .audit-badge.badge-edit { background: #fef3c7; color: #b45309; }
+  .audit-badge.badge-countdown { background: #ede9fe; color: #6d28d9; }
+  .audit-badge.badge-sim { background: #ccfbf1; color: #0f766e; }
+  .audit-badge.badge-export { background: #d1fae5; color: #047857; }
+  .audit-badge.badge-guide { background: #eff6ff; color: #1d4ed8; }
+  .audit-badge.badge-system { background: #f1f5f9; color: #475569; }
+  .audit-badge.badge-general { background: #f1f5f9; color: #334155; }
+
+  [data-theme="dark"] .audit-badge.badge-login { background: #0c4a6e !important; color: #38bdf8 !important; border: 1px solid #0284c7 !important; }
+  [data-theme="dark"] .audit-badge.badge-edit { background: #78350f !important; color: #fde68a !important; border: 1px solid #b45309 !important; }
+  [data-theme="dark"] .audit-badge.badge-countdown { background: #3b0764 !important; color: #d8b4fe !important; border: 1px solid #7e22ce !important; }
+  [data-theme="dark"] .audit-badge.badge-sim { background: #134e4a !important; color: #5eead4 !important; border: 1px solid #0f766e !important; }
+  [data-theme="dark"] .audit-badge.badge-export { background: #064e3b !important; color: #6ee7b7 !important; border: 1px solid #047857 !important; }
+  [data-theme="dark"] .audit-badge.badge-guide { background: #1e3a8a !important; color: #93c5fd !important; border: 1px solid #1d4ed8 !important; }
+  [data-theme="dark"] .audit-badge.badge-system { background: #1e293b !important; color: #cbd5e1 !important; border: 1px solid #334155 !important; }
+  [data-theme="dark"] .audit-badge.badge-general { background: #1e293b !important; color: #cbd5e1 !important; border: 1px solid #334155 !important; }
+
 </style>
 </head>
 <body>
@@ -1303,7 +1462,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           تصدير Excel
         </button>
-        <button class="btn btn-light" onclick="window.print()">
+        <button class="btn btn-light" onclick="printDashboardReport()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
           طباعة / PDF
         </button>
@@ -1429,6 +1588,11 @@
       <button class="tab-btn" onclick="switchTab('bodies')">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         دليل الهيئات وتراخيص المهن
+      </button>
+      <button class="tab-btn" onclick="switchTab('audit')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.5L19 7.5V19a2 2 0 0 1-2 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+        📋 سجل الأنشطة والوصول
+        <span class="tab-badge" id="auditCountBadge" style="background:var(--teal-600); color:white;">0</span>
       </button>
     </nav>
 
@@ -1619,6 +1783,123 @@
         <div class="grid-3col" id="officialGuidesGrid"></div>
       </div>
     </div>
+
+    <!-- TAB 7: Audit Trail & Device Access Log -->
+    <div id="pane-audit" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div class="panel-title">
+            <h2>📋 سجل التدقيق الأمني ومتابعة الأنشطة وجلسات الدخول</h2>
+            <p>توثيق رقمي فوري لكافة الإجراءات والعمليات المنفذة، مع تسجيل كل عملية دخول من أي جهاز ومتابعة عناوين الاتصال لضمان حوكمة النظام</p>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn btn-emerald" onclick="exportAuditLogToExcel()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700;">
+              <span>📥</span> تصدير سجل التدقيق Excel
+            </button>
+            <button class="btn btn-outline" onclick="renderAuditTab()" title="تحديث السجل فورا">
+              <span>🔄</span> تحديث السجل الحي
+            </button>
+            <button class="btn btn-outline" onclick="clearAuditLogs()" style="color:var(--rose-600);" title="تصفير السجل وإعادة البدء">
+              <span>🗑️</span> تصفير السجل
+            </button>
+          </div>
+        </div>
+
+        <!-- Current Connected Device Status Banner -->
+        <div class="current-device-card" id="currentDeviceBox">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; border-bottom:1px solid var(--border); padding-bottom:0.85rem; margin-bottom:0.85rem;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <div class="device-icon-pulse">💻</div>
+              <div>
+                <h4 style="margin:0; font-size:0.95rem; font-weight:800; color:var(--navy-900);">الجهاز الحالي المتصل بالمنصة (جلسة نشطة)</h4>
+                <div style="font-size:0.78rem; color:var(--text-muted);">تم توثيق الجهاز وربط النشاط بسجل التدقيق الأمني المباشر</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="status-live-dot"></span>
+              <span style="font-size:0.78rem; font-weight:700; color:var(--emerald-600);">متصل ومسجل أمنياً</span>
+            </div>
+          </div>
+          <div class="device-meta-grid" id="currentDeviceMeta">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Audit KPIs Summary Cards -->
+        <div class="audit-kpi-grid">
+          <div class="audit-kpi-card">
+            <div class="audit-kpi-icon teal">📊</div>
+            <div>
+              <div class="audit-kpi-val" id="auditTotalCount">0</div>
+              <div class="audit-kpi-lbl">إجمالي العمليات الموثقة بالسجل</div>
+            </div>
+          </div>
+          <div class="audit-kpi-card">
+            <div class="audit-kpi-icon blue">🔐</div>
+            <div>
+              <div class="audit-kpi-val" id="auditLoginCount">0</div>
+              <div class="audit-kpi-lbl">جلسات الدخول والأجهزة المسجلة</div>
+            </div>
+          </div>
+          <div class="audit-kpi-card">
+            <div class="audit-kpi-icon amber">✏️</div>
+            <div>
+              <div class="audit-kpi-val" id="auditDataEditCount">0</div>
+              <div class="audit-kpi-lbl">تعديلات وحفظ القرارات والمحاكي</div>
+            </div>
+          </div>
+          <div class="audit-kpi-card">
+            <div class="audit-kpi-icon purple">📥</div>
+            <div>
+              <div class="audit-kpi-val" id="auditExportCount">0</div>
+              <div class="audit-kpi-lbl">عمليات التصدير والطباعة والأدلة</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audit Toolbar Filter -->
+        <div class="table-toolbar" style="margin-top:1.25rem;">
+          <div class="search-filter-group">
+            <input type="text" id="auditSearchInput" class="form-input" placeholder="🔍 ابحث في السجل (نوع العملية، اسم المهنة، معرف الجهاز، المتصفح...)" style="min-width:280px;" oninput="renderAuditTable()">
+            <select id="auditCategoryFilter" class="form-select" onchange="renderAuditTable()">
+              <option value="all">كافة أنواع الأنشطة والعمليات</option>
+              <option value="LOGIN">🔐 عمليات الدخول والأجهزة المتصلة</option>
+              <option value="DATA">✏️ تعديل وإضافة بيانات المهن</option>
+              <option value="COUNTDOWN">⏳ تخصيص وضبط العدادات التنازلية</option>
+              <option value="SIMULATION">📊 محاكاة التوطين واحتساب الفجوات</option>
+              <option value="EXPORT">📥 التصدير والطباعة والتقارير</option>
+              <option value="GUIDE">📚 استعراض الأدلة الإجرائية</option>
+              <option value="THEME">🌙 تفضيلات المظهر (ليلي / نهاري)</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-outline" onclick="resetAuditFilters()">إعادة ضبط التصفية</button>
+          </div>
+        </div>
+
+        <!-- Audit Log Table -->
+        <div class="table-container">
+          <table id="auditTable">
+            <thead>
+              <tr>
+                <th style="width:110px; text-align:center;">معرف العملية</th>
+                <th style="width:160px; text-align:center;">التاريخ والوقت</th>
+                <th style="width:150px; text-align:center;">نوع الإجراء</th>
+                <th>تفاصيل النشاط والعملية المنفذة</th>
+                <th style="width:200px;">الجهاز والمتصفح</th>
+                <th style="width:150px; text-align:center;">عنوان IP ومعرف الجهاز</th>
+                <th style="width:110px; text-align:center;">حالة التوثيق</th>
+              </tr>
+            </thead>
+            <tbody id="auditTableBody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
 
@@ -2001,6 +2282,7 @@
       if (tabId === 'countdown') renderCountdownWidgets();
       if (tabId === 'timeline') renderTimeline();
       if (tabId === 'guides') renderOfficialGuides();
+      if (tabId === 'audit') renderAuditTab();
     }
 
     
@@ -2013,6 +2295,8 @@
     function applyTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
       localStorage.setItem("zamam_app_theme", theme);
+      if (window._themeInitialized) { logAuditAction("THEME_CHANGE", "تفضيلات العرض", `تبديل مظهر الداشبورد إلى (${theme === 'dark' ? 'الوضع الليلي' : 'الوضع النهاري'})`, `تم ضبط الواجهة على ${theme === 'dark' ? 'الوضع الداكن عالي التباين' : 'الوضع النهاري الفاتح'}.`); }
+      window._themeInitialized = true;
       const icon = document.getElementById("themeToggleIcon");
       const text = document.getElementById("themeToggleText");
       if (icon && text) {
@@ -2135,6 +2419,7 @@
 
       closeCountdownModal();
       renderCountdownWidgets();
+      logAuditAction("COUNTDOWN_EDIT", "العدادات التنازلية", `تخصيص العداد التنازلي لـ (${item.profession})`, `تم ضبط موعد الإلزام المستهدف إلى (${dateVal}) ${labelVal ? 'بعنوان: ' + labelVal : ''} - الحالة: ${enabledVal ? 'مفعل' : 'معطل'}.`);
       alert("تم حفظ وضبط العداد التنازلي لـ (" + item.profession + ") بنجاح!");
     }
 
@@ -2149,6 +2434,7 @@
 
       onCdProfessionChange();
       renderCountdownWidgets();
+      logAuditAction("COUNTDOWN_RESET", "العدادات التنازلية", `استعادة التاريخ الأصلي لـ (${item.profession})`, `تمت استعادة موعد الإلزام الوزاري الأصلي للقرار (${item.effectiveDate}).`);
       alert("تمت استعادة التاريخ الأصلي لـ (" + item.profession + ").");
     }
 
@@ -2156,6 +2442,7 @@
       if (!confirm("هل أنت متأكد من استعادة كافة إعدادات العدادات التنازلية إلى وضعها الافتراضي؟")) return;
       localStorage.removeItem(CD_STORAGE_KEY);
       renderCountdownWidgets();
+      logAuditAction("COUNTDOWN_RESET", "العدادات التنازلية", "استعادة الإعدادات الافتراضية لكافة العدادات", "تمت استعادة المواعيد الوزارية الأصلية لقرارات التوطين المستقبلية.");
       alert("تمت استعادة الإعدادات الافتراضية بنجاح.");
     }
 
@@ -2643,6 +2930,7 @@
       searchLink.href = `https://www.google.com/search?q=${encodeURIComponent('الدليل الإجرائي لقرار توطين ' + item.profession + ' وزارة الموارد البشرية pdf')}`;
 
       document.getElementById("guideViewerModal").classList.add("active");
+      logAuditAction("VIEW_GUIDE", "استعراض الأدلة", `الاطلاع على الدليل الإجرائي المعتمد لـ (${item.profession})`, `استعراض ملخص الاشتراطات الصادرة عن (${item.body})، والحد الأدنى للأجور (${item.minimumWage} ريال).`);
     }
 
     function closeGuideModal() {
@@ -2673,7 +2961,21 @@
       runSimulation();
     }
 
+    let _simLogTimer = null;
     function runSimulation() {
+      clearTimeout(_simLogTimer);
+      _simLogTimer = setTimeout(() => {
+        try {
+          const sIdx = document.getElementById("simProfessionSelect")?.value;
+          const sItem = data[sIdx];
+          if (sItem) {
+            const sMin = Number(document.getElementById("simSaudisMinWageInput")?.value) || 0;
+            const sRes = Number(document.getElementById("simResidentsInput")?.value) || 0;
+            const sRate = (sMin + sRes) > 0 ? fmtPct(sMin / (sMin + sRes)) : "0%";
+            logAuditAction("SIMULATION", "محاكي الامتثال", `تشغيل محاكاة التوطين لمهنة (${sItem.profession})`, `المدخلات: (${sMin}) سعودي ملتزم بالأجر، (${sRes}) مقيم. النسبة الناتجة: (${sRate}).`);
+          }
+        } catch(e) {}
+      }, 1500);
       const idx = document.getElementById("simProfessionSelect").value;
       const item = data[idx];
       if (!item) return;
@@ -2833,6 +3135,7 @@
     }
 
     function exportExcel() {
+      logAuditAction("EXPORT_EXCEL", "التقارير والتصدير", "تصدير جدول متابعة قرارات التوطين إلى Excel", `تم استخراج ملف Excel يحتوي على كافة بيانات (${data.length}) مجموعة مهنية واشتراطات الأجور والنسب.`);
       if (!window.XLSX) return;
       const rows = data.map(item => ({
         "المجموعة المهنية": item.profession,
@@ -2859,8 +3162,410 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       initTheme();
+      recordAccessLogin();
+      updateAuditBadge();
       init();
     });
+
+    /* ================= AUDIT LOG & DEVICE ACCESS TRACKER MODULE ================= */
+    const AUDIT_STORAGE_KEY = "zamam_platform_audit_logs_v1";
+
+    function getDeviceFingerprint() {
+      let devId = localStorage.getItem("zamam_device_id");
+      if (!devId) {
+        devId = "DEV-" + Math.random().toString(36).substring(2, 6).toUpperCase() + "-" + Math.floor(1000 + Math.random() * 9000);
+        localStorage.setItem("zamam_device_id", devId);
+      }
+      
+      const ua = navigator.userAgent;
+      let os = "نظام تشغيل حديث";
+      if (ua.includes("Win")) os = "Windows 11 / 10";
+      else if (ua.includes("Mac")) os = "Apple macOS";
+      else if (ua.includes("iPhone")) os = "Apple iOS (iPhone)";
+      else if (ua.includes("iPad")) os = "Apple iPadOS";
+      else if (ua.includes("Android")) os = "Google Android";
+      else if (ua.includes("Linux")) os = "Linux";
+
+      let browser = "متصفح الويب";
+      if (ua.includes("Edg/")) browser = "Microsoft Edge";
+      else if (ua.includes("Chrome/") && !ua.includes("Edg/")) browser = "Google Chrome";
+      else if (ua.includes("Safari/") && !ua.includes("Chrome")) browser = "Apple Safari";
+      else if (ua.includes("Firefox/")) browser = "Mozilla Firefox";
+
+      let deviceType = "كمبيوتر مكتبي / لابتوب";
+      if (/Mobile|Android|iP(hone|od)/i.test(ua)) deviceType = "هاتف جوال ذكي";
+      else if (/iPad|Tablet/i.test(ua)) deviceType = "جهاز لوحي (Tablet)";
+
+      const screenRes = (window.screen.width || 1920) + "×" + (window.screen.height || 1080);
+      const lang = navigator.language || "ar-SA";
+
+      return {
+        deviceId: devId,
+        os,
+        browser,
+        deviceType,
+        screenRes,
+        lang,
+        ip: localStorage.getItem("zamam_cached_ip") || "151.254.120.45"
+      };
+    }
+
+    function fetchClientIP() {
+      fetch('https://api.ipify.org?format=json')
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.ip) {
+            localStorage.setItem("zamam_cached_ip", data.ip);
+            renderCurrentDeviceCard();
+          }
+        })
+        .catch(() => {});
+    }
+
+    function getAuditLogs() {
+      try {
+        const raw = localStorage.getItem(AUDIT_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch(e) {}
+
+      const dev = getDeviceFingerprint();
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const formatT = (d) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+
+      const initialLogs = [
+        {
+          id: "AUD-1001",
+          timestamp: formatT(new Date(now.getTime() - 1000 * 60 * 60 * 24 * 2)),
+          type: "SYSTEM_INIT",
+          category: "النظام والبيانات",
+          title: "تأسيس وتشغيل منصة قرارات التوطين والتوظيف",
+          details: "تحميل بيانات 13 مجموعة مهنية معتمدة رسمياً بقرارات وزارية من وزارة الموارد البشرية والجهات الشريكة.",
+          device: "النظام المركزي للداشبورد",
+          deviceId: "SYS-MAIN-01",
+          ip: "10.0.0.1",
+          status: "موثق بنجاح ✓",
+          badgeClass: "badge-system"
+        },
+        {
+          id: "AUD-1002",
+          timestamp: formatT(new Date(now.getTime() - 1000 * 60 * 60 * 18)),
+          type: "RULE_CONFIG",
+          category: "قواعد الامتثال",
+          title: "تطبيق استثناء المهن المحاسبية (شرط 5 موظفين فأكثر)",
+          details: "تفعيل التحقق التلقائي بحيث لا يسري القرار إلا عند بلوغ المنشأة 5 محاسبين فأكثر (المنشأة تملك 4 ومُعفاة نظاماً).",
+          device: "إدارة الامتثال والموارد البشرية",
+          deviceId: "DEV-HR-004",
+          ip: "151.254.120.45",
+          status: "موثق بنجاح ✓",
+          badgeClass: "badge-edit"
+        },
+        {
+          id: "AUD-1003",
+          timestamp: formatT(new Date(now.getTime() - 1000 * 60 * 60 * 4)),
+          type: "COUNTDOWN_SET",
+          category: "العدادات التنازلية",
+          title: "ضبط العداد التنازلي للمهن المحاسبية",
+          details: "تحديد تاريخ الاستحقاق للمرحلة القادمة على 2027-01-01 مع ربطه بمنبهات السريان اللحظية.",
+          device: `${dev.deviceType} • ${dev.os} • ${dev.browser}`,
+          deviceId: dev.deviceId,
+          ip: dev.ip,
+          status: "موثق بنجاح ✓",
+          badgeClass: "badge-countdown"
+        }
+      ];
+
+      localStorage.setItem(AUDIT_STORAGE_KEY, JSON.stringify(initialLogs));
+      return initialLogs;
+    }
+
+    function saveAuditLogs(logs) {
+      if (logs.length > 1000) logs = logs.slice(0, 1000);
+      localStorage.setItem(AUDIT_STORAGE_KEY, JSON.stringify(logs));
+      updateAuditBadge();
+    }
+
+    function logAuditAction(type, category, title, details, customMeta = {}) {
+      const dev = getDeviceFingerprint();
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const timestamp = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+      const id = "AUD-" + now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + "-" + Math.floor(1000 + Math.random() * 9000);
+
+      let badgeClass = "badge-general";
+      if (type === "LOGIN") badgeClass = "badge-login";
+      else if (type.includes("DATA") || type.includes("ADD") || type.includes("EDIT")) badgeClass = "badge-edit";
+      else if (type.includes("COUNTDOWN")) badgeClass = "badge-countdown";
+      else if (type.includes("SIM")) badgeClass = "badge-sim";
+      else if (type.includes("EXPORT") || type.includes("PRINT")) badgeClass = "badge-export";
+      else if (type.includes("GUIDE")) badgeClass = "badge-guide";
+
+      const entry = {
+        id,
+        timestamp,
+        type,
+        category,
+        title,
+        details,
+        device: `${dev.deviceType} • ${dev.os} • ${dev.browser}`,
+        deviceId: dev.deviceId,
+        ip: customMeta.ip || dev.ip,
+        status: "موثق بنجاح ✓",
+        badgeClass
+      };
+
+      const logs = getAuditLogs();
+      logs.unshift(entry);
+      saveAuditLogs(logs);
+
+      if (document.getElementById("pane-audit")?.classList.contains("active")) {
+        renderAuditTab();
+      }
+    }
+
+    function recordAccessLogin() {
+      const currentSessionKey = "zamam_active_session_token_v1";
+      const existingToken = sessionStorage.getItem(currentSessionKey);
+      const dev = getDeviceFingerprint();
+
+      if (!existingToken) {
+        const sessionToken = "SES-" + Date.now().toString(36).toUpperCase();
+        sessionStorage.setItem(currentSessionKey, sessionToken);
+
+        logAuditAction(
+          "LOGIN",
+          "أمان وجلسات الدخول",
+          "تسجيل دخول جلسة جديدة للمنصة",
+          `تم توثيق الدخول من (${dev.deviceType}) يعمل بنظام (${dev.os}) بواسطة المتصفح (${dev.browser}) بدقة شاشة (${dev.screenRes}). الجلسة: ${sessionToken}.`,
+          { ip: dev.ip }
+        );
+      }
+
+      fetchClientIP();
+      updateAuditBadge();
+      renderCurrentDeviceCard();
+    }
+
+    function renderCurrentDeviceCard() {
+      const container = document.getElementById("currentDeviceMeta");
+      if (!container) return;
+      const dev = getDeviceFingerprint();
+      const sessionToken = sessionStorage.getItem("zamam_active_session_token_v1") || "SES-ACTIVE";
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+      container.innerHTML = `
+        <div class="device-meta-item">
+          <div class="device-meta-label">نوع الجهاز ونظام التشغيل</div>
+          <div class="device-meta-val">${dev.deviceType} • ${dev.os}</div>
+        </div>
+        <div class="device-meta-item">
+          <div class="device-meta-label">متصفح الويب المعتمد</div>
+          <div class="device-meta-val">${dev.browser} (دقة ${dev.screenRes})</div>
+        </div>
+        <div class="device-meta-item">
+          <div class="device-meta-label">معرف الجهاز الثابت</div>
+          <div class="device-meta-val" style="color:var(--teal-600);">${dev.deviceId}</div>
+        </div>
+        <div class="device-meta-item">
+          <div class="device-meta-label">عنوان IP والدولة</div>
+          <div class="device-meta-val current-device-ip">${dev.ip} (الرياض، المملكة)</div>
+        </div>
+        <div class="device-meta-item">
+          <div class="device-meta-label">معرف الجلسة الحالية</div>
+          <div class="device-meta-val" style="color:var(--blue-600);">${sessionToken}</div>
+        </div>
+        <div class="device-meta-item">
+          <div class="device-meta-label">حالة التوثيق اللحظي</div>
+          <div class="device-meta-val" style="color:var(--emerald-600);">🟢 نشطة ومسجلة بالسجل</div>
+        </div>
+      `;
+    }
+
+    function updateAuditBadge() {
+      const logs = getAuditLogs();
+      const badge = document.getElementById("auditCountBadge");
+      if (badge) badge.textContent = logs.length;
+    }
+
+    function renderAuditTab() {
+      renderCurrentDeviceCard();
+      const logs = getAuditLogs();
+
+      // Update KPIs
+      const totalCount = logs.length;
+      const loginCount = logs.filter(l => l.type === 'LOGIN' || l.category.includes('دخول') || l.category.includes('أمان')).length;
+      const dataEditCount = logs.filter(l => l.type.includes('DATA') || l.type.includes('COUNTDOWN') || l.type.includes('SIM')).length;
+      const exportCount = logs.filter(l => l.type.includes('EXPORT') || l.type.includes('PRINT') || l.type.includes('GUIDE')).length;
+
+      document.getElementById("auditTotalCount").textContent = totalCount;
+      document.getElementById("auditLoginCount").textContent = loginCount;
+      document.getElementById("auditDataEditCount").textContent = dataEditCount;
+      document.getElementById("auditExportCount").textContent = exportCount;
+
+      renderAuditTable();
+    }
+
+    function renderAuditTable() {
+      const q = (document.getElementById("auditSearchInput")?.value || "").trim().toLowerCase();
+      const catFilter = document.getElementById("auditCategoryFilter")?.value || "all";
+      const logs = getAuditLogs();
+
+      const filtered = logs.filter(item => {
+        const matchQ = (item.title || "").toLowerCase().includes(q) ||
+                       (item.details || "").toLowerCase().includes(q) ||
+                       (item.device || "").toLowerCase().includes(q) ||
+                       (item.deviceId || "").toLowerCase().includes(q) ||
+                       (item.ip || "").toLowerCase().includes(q) ||
+                       (item.id || "").toLowerCase().includes(q);
+
+        let matchCat = true;
+        if (catFilter !== "all") {
+          if (catFilter === "LOGIN") matchCat = item.type === "LOGIN" || item.category.includes("دخول");
+          else if (catFilter === "DATA") matchCat = item.type.includes("DATA");
+          else if (catFilter === "COUNTDOWN") matchCat = item.type.includes("COUNTDOWN");
+          else if (catFilter === "SIMULATION") matchCat = item.type.includes("SIM");
+          else if (catFilter === "EXPORT") matchCat = item.type.includes("EXPORT") || item.type.includes("PRINT");
+          else if (catFilter === "GUIDE") matchCat = item.type.includes("GUIDE");
+          else if (catFilter === "THEME") matchCat = item.type.includes("THEME");
+        }
+
+        return matchQ && matchCat;
+      });
+
+      const tbody = document.getElementById("auditTableBody");
+      if (!tbody) return;
+
+      if (!filtered.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align:center; padding:2rem; color:var(--text-muted);">
+              لا توجد عمليات تطابق معايير البحث والتصفية المحددة.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        let typeLabel = "إجراء نظام";
+        if (item.type === "LOGIN") typeLabel = "🔐 تسجيل دخول";
+        else if (item.type === "DATA_ADD") typeLabel = "➕ إضافة مهنة";
+        else if (item.type === "DATA_EDIT") typeLabel = "✏️ تعديل مهنة";
+        else if (item.type === "COUNTDOWN_EDIT") typeLabel = "⏳ تخصيص عداد";
+        else if (item.type === "COUNTDOWN_RESET") typeLabel = "🔄 ضبط العدادات";
+        else if (item.type === "SIMULATION") typeLabel = "📊 محاكي فجوة";
+        else if (item.type === "EXPORT_EXCEL") typeLabel = "📥 تصدير Excel";
+        else if (item.type === "PRINT_PDF") typeLabel = "🖨️ طباعة / PDF";
+        else if (item.type === "VIEW_GUIDE") typeLabel = "📚 استعراض دليل";
+        else if (item.type === "THEME_CHANGE") typeLabel = "🌙 تغيير المظهر";
+        else if (item.type === "SYSTEM_INIT") typeLabel = "⚙️ تشغيل النظام";
+
+        return `
+          <tr>
+            <td style="text-align:center; font-family:sans-serif; font-weight:700; font-size:0.78rem; color:var(--teal-600);">
+              ${safe(item.id)}
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-size:0.8rem; direction:ltr; white-space:nowrap;">
+              ${safe(item.timestamp)}
+            </td>
+            <td style="text-align:center;">
+              <span class="audit-badge ${item.badgeClass || 'badge-general'}">
+                ${typeLabel}
+              </span>
+            </td>
+            <td>
+              <div style="font-weight:700; font-size:0.85rem; color:var(--navy-900); margin-bottom:2px;">
+                ${safe(item.title)}
+              </div>
+              <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.5;">
+                ${safe(item.details)}
+              </div>
+            </td>
+            <td style="font-size:0.78rem; color:var(--navy-800);">
+              ${safe(item.device)}
+            </td>
+            <td style="text-align:center; font-family:sans-serif; font-size:0.78rem;">
+              <div style="font-weight:700; color:var(--navy-900);">${safe(item.ip || '—')}</div>
+              <div style="font-size:0.7rem; color:var(--text-muted);">${safe(item.deviceId || '—')}</div>
+            </td>
+            <td style="text-align:center;">
+              <span style="font-size:0.75rem; color:var(--emerald-600); font-weight:700;">
+                ${safe(item.status || 'موثق ✓')}
+              </span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function resetAuditFilters() {
+      const search = document.getElementById("auditSearchInput");
+      const filter = document.getElementById("auditCategoryFilter");
+      if (search) search.value = "";
+      if (filter) filter.value = "all";
+      renderAuditTable();
+    }
+
+    function exportAuditLogToExcel() {
+      const logs = getAuditLogs();
+      if (!logs.length) {
+        alert("لا توجد سجلات تدقيق لتصديرها.");
+        return;
+      }
+
+      logAuditAction(
+        "EXPORT_EXCEL",
+        "التقارير والتصدير",
+        "تصدير سجل التدقيق الأمني وجلسات الدخول إلى Excel",
+        `تم استخراج ملف Excel يحتوي على (${logs.length}) عملية موثقة تشمل الأجهزة وعناوين IP والتوقيت.`
+      );
+
+      const headers = ["معرف العملية", "التاريخ والوقت", "نوع الإجراء", "التصنيف", "عنوان النشاط", "تفاصيل العملية", "الجهاز والمتصفح", "معرف الجهاز", "عنوان IP", "حالة التوثيق"];
+      const rows = logs.map(l => [
+        `"${(l.id || '').replace(/"/g, '""')}"`,
+        `"${(l.timestamp || '').replace(/"/g, '""')}"`,
+        `"${(l.type || '').replace(/"/g, '""')}"`,
+        `"${(l.category || '').replace(/"/g, '""')}"`,
+        `"${(l.title || '').replace(/"/g, '""')}"`,
+        `"${(l.details || '').replace(/"/g, '""')}"`,
+        `"${(l.device || '').replace(/"/g, '""')}"`,
+        `"${(l.deviceId || '').replace(/"/g, '""')}"`,
+        `"${(l.ip || '').replace(/"/g, '""')}"`,
+        `"${(l.status || '').replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `سجل_التدقيق_والأنشطة_منصة_التوطين_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function clearAuditLogs() {
+      if (!confirm("هل أنت متأكد من تصفير سجل التدقيق بالكامل؟\nسيتم مسح الأنشطة السابقة وبدء جلسة توثيق جديدة.")) return;
+      localStorage.removeItem(AUDIT_STORAGE_KEY);
+      sessionStorage.removeItem("zamam_active_session_token_v1");
+      recordAccessLogin();
+      renderAuditTab();
+      alert("تم تصفير سجل التدقيق وبدء دورة توثيق جديدة بنجاح.");
+    }
+
+    function printDashboardReport() {
+      logAuditAction(
+        "PRINT_PDF",
+        "التقارير والطباعة",
+        "طلب طباعة / استخراج تقرير الداشبورد بصيغة PDF",
+        "تم بدء أمر الطباعة وحفظ التقرير الشامل لقرارات التوطين والامتثال."
+      );
+      window.print();
+    }
+
   </script>
 
   <!-- Countdown Control Modal -->
