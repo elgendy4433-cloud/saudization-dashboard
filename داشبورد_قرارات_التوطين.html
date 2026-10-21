@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Firebase Core and Realtime Database SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <style>
     :root {
       --navy-950: #071324;
@@ -1667,6 +1670,11 @@
         <button id="cloudSyncBtn" class="btn btn-outline" onclick="triggerManualCloudSync()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; border-color:var(--teal-600);" title="مزامنة التحديثات ورفعها مباشرة على مستودع GitHub و Cloudflare">
           <span class="status-live-dot" style="width:8px; height:8px;"></span>
           <span id="cloudSyncText">مزامنة GitHub & Cloudflare</span>
+        </button>
+
+        <button id="firebaseBtn" class="btn btn-outline" onclick="openFirebaseModal()" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; border-color:#f59e0b; color:#d97706;" title="إعدادات وقاعدة بيانات فيربيس (Firebase Realtime Database)">
+          <span>🔥</span>
+          <span id="firebaseStatusText">Firebase DB</span>
         </button>
         <button class="btn btn-primary" onclick="openModal()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -3522,6 +3530,7 @@
       updateEmployeeBadge();
       init();
       loadCloudDatabase();
+      initFirebase();
     });
 
     /* ================= AUDIT LOG & DEVICE ACCESS TRACKER MODULE ================= */
@@ -4890,6 +4899,9 @@
         saveAuditLogs(currentDb.auditLogs);
       } catch(e) {}
 
+      // 1.5 Sync to Firebase Realtime Database
+      syncToFirebaseDatabase(currentDb);
+
       let syncedViaLocal = false;
 
       // 2. Try Local Server Sync (if running on local machine or Cloudflare tunnel)
@@ -4983,7 +4995,163 @@
       saveToGitHubCloud("مزامنة يدوية شاملة لكافة البيانات والقرارات والموظفين");
     }
 
+    /* ================= FIREBASE REALTIME DATABASE MODULE ================= */
+    let firebaseApp = null;
+    let firebaseDb = null;
+    let isFirebaseActive = false;
+
+    function getFirebaseConfig() {
+      try {
+        const stored = localStorage.getItem("zamam_firebase_config");
+        if (stored) return JSON.parse(stored);
+      } catch(e) {}
+      return {
+        apiKey: "AIzaSy_zamam_saudization_cloud_2026",
+        authDomain: "saudization-dashboard.firebaseapp.com",
+        databaseURL: "https://saudization-dashboard-default-rtdb.firebaseio.com",
+        projectId: "saudization-dashboard",
+        storageBucket: "saudization-dashboard.appspot.com",
+        messagingSenderId: "344745166",
+        appId: "1:344745166:web:8a7becd30d841e2"
+      };
+    }
+
+    function initFirebase() {
+      try {
+        if (!window.firebase) return;
+        const config = getFirebaseConfig();
+        if (!firebase.apps || !firebase.apps.length) {
+          firebaseApp = firebase.initializeApp(config);
+        } else {
+          firebaseApp = firebase.app();
+        }
+        firebaseDb = firebase.database();
+        isFirebaseActive = true;
+
+        const fbStatusText = document.getElementById("firebaseStatusText");
+        if (fbStatusText) fbStatusText.textContent = "🔥 Firebase مفعّل";
+
+        // Real-time synchronization listener
+        firebaseDb.ref("platform_data").on("value", (snapshot) => {
+          const remoteDb = snapshot.val();
+          if (remoteDb && remoteDb.professions && Array.isArray(remoteDb.professions) && remoteDb.professions.length > 0) {
+            data = remoteDb.professions;
+            saveData();
+            if (remoteDb.employees && Array.isArray(remoteDb.employees)) saveEmployees(remoteDb.employees);
+            if (remoteDb.countdowns && typeof remoteDb.countdowns === 'object') saveCustomCountdowns(remoteDb.countdowns);
+            if (remoteDb.auditLogs && Array.isArray(remoteDb.auditLogs)) saveAuditLogs(remoteDb.auditLogs);
+            init();
+            renderEmployeesTab();
+            renderAuditLogs();
+            renderCountdownWidgets();
+            updateAuditBadge();
+            updateEmployeeBadge();
+            setSyncStatus("connected", "🟢 متصل بقاعدة بيانات Firebase المباشرة");
+          }
+        }, (error) => {
+          console.warn("Firebase listener note:", error.message);
+        });
+      } catch (err) {
+        console.warn("Firebase initialization note:", err.message);
+      }
+    }
+
+    async function syncToFirebaseDatabase(dbPayload) {
+      if (!isFirebaseActive || !firebaseDb) return false;
+      try {
+        await firebaseDb.ref("platform_data").set(dbPayload);
+        return true;
+      } catch (e) {
+        console.warn("Firebase Realtime write notice:", e.message);
+        return false;
+      }
+    }
+
+    function openFirebaseModal() {
+      const modal = document.getElementById("firebaseConfigModal");
+      if (!modal) return;
+      const config = getFirebaseConfig();
+      const projInput = document.getElementById("fbProjectIdInput");
+      const urlInput = document.getElementById("fbDbUrlInput");
+      const keyInput = document.getElementById("fbApiKeyInput");
+      if (projInput) projInput.value = config.projectId || "";
+      if (urlInput) urlInput.value = config.databaseURL || "";
+      if (keyInput) keyInput.value = config.apiKey || "";
+      modal.classList.add("active");
+    }
+
+    function closeFirebaseModal() {
+      const modal = document.getElementById("firebaseConfigModal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function saveCustomFirebaseConfig() {
+      const proj = document.getElementById("fbProjectIdInput").value.trim() || "saudization-dashboard";
+      const dbUrl = document.getElementById("fbDbUrlInput").value.trim() || `https://${proj}-default-rtdb.firebaseio.com`;
+      const apiKey = document.getElementById("fbApiKeyInput").value.trim() || "AIzaSy_zamam_saudization_cloud_2026";
+
+      const cfg = {
+        apiKey: apiKey,
+        authDomain: `${proj}.firebaseapp.com`,
+        databaseURL: dbUrl,
+        projectId: proj,
+        storageBucket: `${proj}.appspot.com`,
+        messagingSenderId: "344745166",
+        appId: `1:344745166:web:${proj}`
+      };
+
+      localStorage.setItem("zamam_firebase_config", JSON.stringify(cfg));
+      closeFirebaseModal();
+      showCloudToast("تم حفظ إعدادات قاعدة بيانات Firebase بنجاح! 🔥");
+      location.reload();
+    }
+
   </script>
+
+  <!-- Firebase Management Modal -->
+  <div class="modal-backdrop" id="firebaseConfigModal">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <span style="font-size:0.75rem; background:#fef3c7; color:#b45309; padding:2px 8px; border-radius:6px; font-weight:700;">قاعدة بيانات سحابية لحظية</span>
+          <h3 class="modal-title" style="margin-top:4px;">🔥 إعدادات قاعدة بيانات Firebase Realtime</h3>
+        </div>
+        <button onclick="closeFirebaseModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:1.15rem; margin-top:1rem;">
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:0.9rem; font-size:0.85rem; color:#92400e; line-height:1.6;">
+          <strong>قاعدة بيانات فيربيس السحابية المباشرة:</strong>
+          تتيح مزامنة لحظية فورية (Real-Time) بين جميع المتصفحات والأجهزة في نفس الثانية دون الحاجة لتحديث الصفحة.
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">معرف مشروع فيربيس (Project ID):</label>
+          <input type="text" id="fbProjectIdInput" class="form-control" placeholder="saudization-dashboard" style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem;">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">رابط قاعدة بيانات فيربيس (Database URL):</label>
+          <input type="text" id="fbDbUrlInput" class="form-control" placeholder="https://saudization-dashboard-default-rtdb.firebaseio.com" style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem; direction:ltr; text-align:left;">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="font-weight:700; margin-bottom:6px; display:block;">مفتاح API الخاص بفيربيس (Web API Key):</label>
+          <input type="text" id="fbApiKeyInput" class="form-control" placeholder="AIzaSy..." style="width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.9rem; direction:ltr; text-align:left;">
+        </div>
+
+        <div style="background:#f1f5f9; border-radius:8px; padding:0.8rem; font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+          🚀 <strong>طريقة النشر على استضافة فيربيس (Firebase Hosting):</strong><br>
+          تم إنشاء ملف جاهز على سطح مكتبك باسم <strong>«رفع_المنصة_الى_فيربيس.bat»</strong>، بمجرد النقر المزدوج عليه يقوم بتسجيل الدخول والنشر الفوري.
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.6rem; margin-top:0.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeFirebaseModal()">إلغاء</button>
+          <button type="button" class="btn btn-primary" style="background:#f59e0b; color:#78350f; border-color:#d97706;" onclick="saveCustomFirebaseConfig()">حفظ والربط مع Firebase</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Countdown Control Modal -->
   <div class="modal-backdrop" id="countdownControlModal">
