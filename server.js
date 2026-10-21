@@ -19,13 +19,19 @@ const MIME_TYPES = {
 };
 
 function executeGitSync(actionTitle, callback) {
-  const commitMsg = `Auto-sync platform action: ${actionTitle || 'Update'} [${new Date().toISOString()}]`;
-  const cmd = `git add index.html "داشبورد_قرارات_التوطين.html" && git commit -m "${commitMsg.replace(/"/g, '\\"')}" && git push origin main`;
+  const commitMsg = `Platform Auto-Sync: ${actionTitle || 'Update'} [${new Date().toISOString()}]`;
+  // Safe cross-platform git commit command
+  const cmd = `git add database.json index.html "داشبورد_قرارات_التوطين.html" && git commit -m "${commitMsg.replace(/"/g, '\\"')}" && git push origin main`;
 
-  exec(cmd, { cwd: DIR }, (err, stdout, stderr) => {
+  exec(cmd, { cwd: DIR, shell: 'cmd.exe' }, (err, stdout, stderr) => {
     if (err) {
-      console.error('Git push error:', err.message, stderr);
-      callback(false, err.message);
+      console.error('Git push warning:', err.message, stderr);
+      // Even if nothing to commit (clean working tree), return success
+      if (stderr && stderr.includes('nothing to commit')) {
+        callback(true, 'Nothing new to commit; working tree clean.');
+      } else {
+        callback(false, err.message);
+      }
     } else {
       console.log('Git push success:\n', stdout);
       callback(true, stdout);
@@ -37,7 +43,7 @@ const server = http.createServer((req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -67,17 +73,24 @@ const server = http.createServer((req, res) => {
         const payload = JSON.parse(body || '{}');
         const actionTitle = payload.title || payload.action || 'تحديث البيانات في المنصة';
 
-        // If updated data is sent, sync to files
+        const dbFilePath = path.join(DIR, 'database.json');
         const mainHtmlPath = path.join(DIR, 'داشبورد_قرارات_التوطين.html');
         const indexHtmlPath = path.join(DIR, 'index.html');
         const distHtmlPath = path.join(DIR, 'dist', 'index.html');
 
+        // 1. Sync full database.json
+        if (payload.db) {
+          fs.writeFileSync(dbFilePath, JSON.stringify(payload.db, null, 2), 'utf8');
+        }
+
+        // 2. Sync HTML files
         let currentHtml = fs.readFileSync(mainHtmlPath, 'utf8');
 
-        if (payload.data && Array.isArray(payload.data)) {
+        const profList = (payload.db && payload.db.professions) ? payload.db.professions : payload.data;
+        if (profList && Array.isArray(profList)) {
           currentHtml = currentHtml.replace(
             /const DATA = \[[\s\S]*?\];/,
-            `const DATA = ${JSON.stringify(payload.data, null, 2)};`
+            `const DATA = ${JSON.stringify(profList, null, 2)};`
           );
         }
 
@@ -90,7 +103,7 @@ const server = http.createServer((req, res) => {
           fs.writeFileSync(DESKTOP_FILE, currentHtml, 'utf8');
         } catch(e) {}
 
-        // Execute Git commit and push to GitHub
+        // 3. Execute Git commit and push to GitHub
         executeGitSync(actionTitle, (success, resultMsg) => {
           res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
           res.end(JSON.stringify({
