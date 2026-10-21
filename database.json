@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-21T11:41:23.516Z",
+  "updatedAt": "2026-10-21T12:01:51.069Z",
   "version": "2.0.0",
-  "lastAction": "تعديل المجموعة المهنية: (المهن القانونية)",
+  "lastAction": "استعادة الإعدادات الافتراضية لكافة العدادات",
   "professions": [
     {
       "id": 1,
@@ -143,7 +143,7 @@
       "id": 9,
       "profession": "المهن القانونية",
       "requiredRate": 0.7,
-      "saudisMinimumWage": 0,
+      "saudisMinimumWage": 1,
       "saudis": 1,
       "residents": 0,
       "minimumWage": "5,500",
@@ -1934,34 +1934,47 @@
   ],
   "countdowns": {
     "4": {
-      "targetDate": "2026-10-27",
+      "targetDate": "2027-01-01",
       "customLabel": "المرحلة القادمة لتوطين المهن المحاسبية (5 محاسبين فأكثر)",
       "enabled": true
     }
   },
   "auditLogs": [
     {
-      "id": "AUD-20261021-6595",
-      "timestamp": "2026-10-21 14:34:20",
-      "type": "THEME_CHANGE",
-      "category": "تفضيلات العرض",
-      "title": "تبديل مظهر الداشبورد إلى (الوضع النهاري)",
-      "details": "تم ضبط الواجهة على الوضع النهاري الفاتح.",
-      "device": "كمبيوتر مكتبي / لابتوب • Windows 11 / 10 • Microsoft Edge",
-      "deviceId": "DEV-NLW1-1767",
+      "id": "AUD-20261021-6581",
+      "timestamp": "2026-10-21 14:17:55",
+      "type": "VIEW_GUIDE",
+      "category": "استعراض الأدلة",
+      "title": "الاطلاع على الدليل الإجرائي المعتمد لـ (مهن المبيعات)",
+      "details": "استعراض ملخص الاشتراطات الصادرة عن (وزارة التجارة / وزارة الموارد البشرية)، والحد الأدنى للأجور (5,500 ريال).",
+      "device": "كمبيوتر مكتبي / لابتوب • Windows 11 / 10 • Google Chrome",
+      "deviceId": "DEV-3ODL-8084",
       "ip": "66.118.154.163",
       "status": "موثق بنجاح ✓",
-      "badgeClass": "badge-general"
+      "badgeClass": "badge-guide"
     },
     {
-      "id": "AUD-20261021-5118",
-      "timestamp": "2026-10-21 14:34:14",
+      "id": "AUD-20261021-2204",
+      "timestamp": "2026-10-21 14:04:24",
+      "type": "EXPORT_EXCEL",
+      "category": "التقارير والتصدير",
+      "title": "تصدير سجل الموظفين إلى Excel",
+      "details": "تم استخراج ملف Excel يحتوي على سجل (155) موظف وبيانات الرواتب والمهن التابعة.",
+      "device": "كمبيوتر مكتبي / لابتوب • Windows 11 / 10 • Google Chrome",
+      "deviceId": "DEV-3ODL-8084",
+      "ip": "66.118.154.163",
+      "status": "موثق بنجاح ✓",
+      "badgeClass": "badge-export"
+    },
+    {
+      "id": "AUD-20261021-1902",
+      "timestamp": "2026-10-21 14:02:03",
       "type": "SIMULATION",
       "category": "محاكي الامتثال",
       "title": "تشغيل محاكاة التوطين لمهنة (المهن الهندسية)",
       "details": "المدخلات: (7) سعودي ملتزم بالأجر، (8) مقيم. النسبة الناتجة: (46.7%).",
-      "device": "كمبيوتر مكتبي / لابتوب • Windows 11 / 10 • Microsoft Edge",
-      "deviceId": "DEV-NLW1-1767",
+      "device": "كمبيوتر مكتبي / لابتوب • Windows 11 / 10 • Google Chrome",
+      "deviceId": "DEV-3ODL-8084",
       "ip": "66.118.154.163",
       "status": "موثق بنجاح ✓",
       "badgeClass": "badge-sim"
